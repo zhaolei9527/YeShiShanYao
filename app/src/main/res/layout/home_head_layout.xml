@@ -1,0 +1,318 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:fresco="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@color/bgfff"
+    android:clipChildren="false"
+    android:focusable="true"
+    android:focusableInTouchMode="true"
+    android:orientation="vertical">
+
+    <com.jude.rollviewpager.RollPagerView
+        android:id="@+id/RollPagerView"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/y141" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/y34"
+        android:gravity="center_vertical"
+        android:orientation="horizontal">
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="@dimen/x20"
+            android:layout_marginLeft="@dimen/x13"
+            android:background="@mipmap/home_line" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/x6"
+            android:text="@string/Daily_exchange"
+            android:textColor="@color/text000"
+            android:textSize="@dimen/x14" />
+    </LinearLayout>
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="@dimen/x5"
+        android:layout_marginRight="@dimen/x5"
+        android:clipChildren="false"
+        android:weightSum="4">
+
+        <RelativeLayout
+            android:layout_width="0dp"
+            android:layout_height="@dimen/y65"
+            android:layout_weight="2"
+            android:clipChildren="false">
+
+            <com.facebook.drawee.view.SimpleDraweeView
+                android:id="@+id/sim_now"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                fresco:roundedCornerRadius="10dp"
+                fresco:roundingBorderWidth="1dp" />
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="-6dp"
+                android:layout_marginTop="-5dp"
+                android:background="@mipmap/home_bg_now" />
+
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:layout_width="0dp"
+            android:layout_height="@dimen/y65"
+            android:layout_marginRight="@dimen/x5"
+            android:layout_marginLeft="@dimen/x5"
+            android:layout_weight="1">
+
+            <com.facebook.drawee.view.SimpleDraweeView
+                android:id="@+id/sim_1"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                fresco:roundedCornerRadius="10dp"
+                fresco:roundingBorderWidth="1dp" />
+
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@drawable/bg_home_day"></View>
+
+            <TextView
+                android:id="@+id/tv_day1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true"
+                android:text="周一"
+                android:textColor="@color/bgfff" />
+
+            <View
+                android:layout_width="@dimen/x20"
+                android:layout_height="@dimen/y1"
+                android:layout_below="@id/tv_day1"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="@dimen/x5"
+                android:background="@color/bgfff"></View>
+
+
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:layout_width="0dp"
+            android:layout_height="@dimen/y65"
+            android:layout_weight="1">
+
+            <com.facebook.drawee.view.SimpleDraweeView
+                android:id="@+id/sim_2"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                fresco:roundedCornerRadius="10dp"
+                fresco:roundingBorderWidth="1dp" />
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@drawable/bg_home_day"></View>
+
+            <TextView
+                android:id="@+id/tv_day2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true"
+                android:text="周一"
+                android:textColor="@color/bgfff" />
+
+            <View
+                android:layout_width="@dimen/x20"
+                android:layout_height="@dimen/y1"
+                android:layout_below="@id/tv_day2"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="@dimen/x5"
+                android:background="@color/bgfff"></View>
+
+        </RelativeLayout>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="@dimen/x5"
+        android:layout_marginRight="@dimen/x5"
+        android:layout_marginTop="@dimen/x5"
+        android:weightSum="4">
+
+        <RelativeLayout
+            android:layout_width="0dp"
+            android:layout_height="@dimen/y65"
+            android:layout_marginRight="@dimen/x5"
+            android:layout_weight="1">
+
+            <com.facebook.drawee.view.SimpleDraweeView
+                android:id="@+id/sim_3"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                fresco:roundedCornerRadius="10dp"
+                fresco:roundingBorderWidth="1dp" />
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@drawable/bg_home_day"></View>
+
+            <TextView
+                android:id="@+id/tv_day3"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true"
+                android:text="周一"
+                android:textColor="@color/bgfff" />
+
+            <View
+                android:layout_width="@dimen/x20"
+                android:layout_height="@dimen/y1"
+                android:layout_below="@id/tv_day3"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="@dimen/x5"
+                android:background="@color/bgfff"></View>
+        </RelativeLayout>
+
+
+        <RelativeLayout
+            android:layout_width="0dp"
+            android:layout_height="@dimen/y65"
+            android:layout_marginRight="@dimen/x5"
+            android:layout_weight="1">
+
+            <com.facebook.drawee.view.SimpleDraweeView
+                android:id="@+id/sim_4"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                fresco:roundedCornerRadius="10dp"
+                fresco:roundingBorderWidth="1dp" />
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@drawable/bg_home_day"></View>
+
+            <TextView
+                android:id="@+id/tv_day4"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true"
+                android:text="周一"
+                android:textColor="@color/bgfff" />
+
+            <View
+                android:layout_width="@dimen/x20"
+                android:layout_height="@dimen/y1"
+                android:layout_below="@id/tv_day4"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="@dimen/x5"
+                android:background="@color/bgfff"></View>
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:layout_width="0dp"
+            android:layout_height="@dimen/y65"
+            android:layout_marginRight="@dimen/x5"
+            android:layout_weight="1">
+
+            <com.facebook.drawee.view.SimpleDraweeView
+                android:id="@+id/sim_5"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                fresco:roundedCornerRadius="10dp"
+                fresco:roundingBorderWidth="1dp" />
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@drawable/bg_home_day"></View>
+
+            <TextView
+                android:id="@+id/tv_day5"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true"
+                android:text="周一"
+                android:textColor="@color/bgfff" />
+
+            <View
+                android:layout_width="@dimen/x20"
+                android:layout_height="@dimen/y1"
+                android:layout_below="@id/tv_day5"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="@dimen/x5"
+                android:background="@color/bgfff"></View>
+
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:layout_width="0dp"
+            android:layout_height="@dimen/y65"
+            android:layout_weight="1">
+
+            <com.facebook.drawee.view.SimpleDraweeView
+                android:id="@+id/sim_6"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                fresco:roundedCornerRadius="10dp"
+                fresco:roundingBorderWidth="1dp" />
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@drawable/bg_home_day"></View>
+
+            <TextView
+                android:id="@+id/tv_day6"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true"
+                android:text="周一"
+                android:textColor="@color/bgfff" />
+
+            <View
+                android:layout_width="@dimen/x20"
+                android:layout_height="@dimen/y1"
+                android:layout_below="@id/tv_day6"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="@dimen/x5"
+                android:background="@color/bgfff"></View>
+        </RelativeLayout>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/y34"
+        android:gravity="center_vertical"
+        android:orientation="horizontal">
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="@dimen/x20"
+            android:layout_marginLeft="@dimen/x13"
+            android:background="@mipmap/home_line" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/x6"
+            android:text="@string/hot_cakes"
+            android:textColor="@color/text000"
+            android:textSize="@dimen/x14" />
+
+    </LinearLayout>
+
+</LinearLayout>

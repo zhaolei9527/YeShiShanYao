@@ -1,0 +1,460 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_marginBottom="@dimen/x20"
+    android:background="@color/bgfff"
+    android:orientation="vertical">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginTop="@dimen/x27"
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:id="@+id/ll_myorder"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/y29"
+            android:gravity="center_vertical"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/x15"
+                android:layout_weight="1"
+                android:gravity="center_vertical"
+                android:text="@string/My_order"
+                android:textColor="@color/text333"
+                android:textSize="@dimen/x13" />
+
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/x15"
+                android:layout_marginRight="@dimen/x5"
+                android:gravity="center_vertical"
+                android:text="@string/Look_at_all"
+                android:textColor="@color/text666"
+                android:textSize="@dimen/x12" />
+
+            <ImageView
+                android:layout_width="@dimen/x5"
+                android:layout_height="@dimen/y8"
+                android:layout_marginRight="@dimen/x8"
+                android:background="@mipmap/togo" />
+
+        </LinearLayout>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/x1"
+            android:background="@color/bgddd"></View>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="@dimen/x10"
+            android:paddingTop="@dimen/x10"
+            android:weightSum="4">
+
+            <LinearLayout
+                android:id="@+id/ll_daifukuan"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:orientation="vertical">
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="@mipmap/daifukuan" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_marginTop="@dimen/x5"
+                    android:text="@string/For_the_payment"
+                    android:textColor="@color/text333"
+                    android:textSize="@dimen/x11" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/ll_daifahuo"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:orientation="vertical">
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="@mipmap/daifahuo" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_marginTop="@dimen/x5"
+                    android:text="@string/To_send_the_goods"
+                    android:textColor="@color/text333"
+                    android:textSize="@dimen/x11" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/ll_daishouhuo"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:orientation="vertical">
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="@mipmap/daishouhuo" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_marginTop="@dimen/x5"
+                    android:text="@string/For_the_goods"
+                    android:textColor="@color/text333"
+                    android:textSize="@dimen/x11" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/ll_daipingjia"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:orientation="vertical">
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="@mipmap/daipingjia" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_marginTop="@dimen/x5"
+                    android:text="@string/To_evaluate"
+                    android:textColor="@color/text333"
+                    android:textSize="@dimen/x11" />
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/x7"
+            android:background="@color/bgddd"></View>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/y29"
+            android:gravity="center_vertical"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/x15"
+                android:layout_weight="1"
+                android:gravity="center_vertical"
+                android:text="@string/financial_management"
+                android:textColor="@color/text333"
+                android:textSize="@dimen/x13" />
+
+        </LinearLayout>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/x1"
+            android:background="@color/bgddd"></View>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="@dimen/x10"
+            android:paddingTop="@dimen/x10"
+            android:weightSum="4">
+
+            <LinearLayout
+                android:id="@+id/ll_caiwumingxi"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:orientation="vertical">
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="@mipmap/caiwumingxi" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_marginTop="@dimen/x5"
+                    android:text="@string/Financial_details"
+                    android:textColor="@color/text333"
+                    android:textSize="@dimen/x11" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/ll_yinhangkaguanli"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:orientation="vertical">
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="@mipmap/yinhangkaguanli" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_marginTop="@dimen/x5"
+                    android:text="@string/Bank_card_management"
+                    android:textColor="@color/text333"
+                    android:textSize="@dimen/x11" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/ll_shenqingtixian"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:orientation="vertical">
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="@mipmap/shenqingtixian" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_marginTop="@dimen/x5"
+                    android:text="@string/cash_withdrawals"
+                    android:textColor="@color/text333"
+                    android:textSize="@dimen/x11" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/ll_tixianjilu"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:orientation="vertical">
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="@mipmap/tixianjilu" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_marginTop="@dimen/x5"
+                    android:text="@string/Withdrawal_record"
+                    android:textColor="@color/text333"
+                    android:textSize="@dimen/x11" />
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/x7"
+            android:background="@color/bgddd"></View>
+
+        <LinearLayout
+            android:visibility="gone"
+            android:id="@+id/ll_zhanneixiaoxi"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/y39"
+            android:gravity="center_vertical"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/x15"
+                android:layout_weight="1"
+                android:gravity="center_vertical"
+                android:text="站内消息"
+                android:textColor="@color/text444" />
+
+            <TextView
+                android:id="@+id/tv_Cartnum"
+                android:layout_width="@dimen/x18"
+                android:layout_height="@dimen/x18"
+                android:layout_alignParentRight="true"
+                android:layout_marginRight="@dimen/x5"
+                android:background="@drawable/shop_price_shape"
+                android:gravity="center"
+                android:text="0"
+                android:textColor="@android:color/white"
+                android:textSize="@dimen/x10"
+                android:visibility="gone" />
+
+            <ImageView
+                android:layout_width="@dimen/x5"
+                android:layout_height="@dimen/y8"
+                android:layout_marginRight="@dimen/x8"
+                android:background="@mipmap/togo" />
+
+        </LinearLayout>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/x1"
+            android:background="@color/bgddd"></View>
+
+        <LinearLayout
+            android:id="@+id/ll_pingtaijieshao"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/y39"
+            android:gravity="center_vertical"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/x15"
+                android:layout_weight="1"
+                android:gravity="center_vertical"
+                android:text="@string/Platform_introduced"
+                android:textColor="@color/text444" />
+
+            <ImageView
+                android:layout_width="@dimen/x5"
+                android:layout_height="@dimen/y8"
+                android:layout_marginRight="@dimen/x8"
+                android:background="@mipmap/togo" />
+
+        </LinearLayout>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/x1"
+            android:background="@color/bgddd"></View>
+
+
+        <LinearLayout
+            android:id="@+id/ll_lianxiwomen"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/y39"
+            android:gravity="center_vertical"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/x15"
+                android:layout_weight="1"
+                android:gravity="center_vertical"
+                android:text="@string/Contact_us"
+                android:textColor="@color/text444" />
+
+            <ImageView
+                android:layout_width="@dimen/x5"
+                android:layout_height="@dimen/y8"
+                android:layout_marginRight="@dimen/x8"
+                android:background="@mipmap/togo" />
+
+        </LinearLayout>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/x1"
+            android:background="@color/bgddd"></View>
+
+        <LinearLayout
+            android:id="@+id/ll_yijianfankui"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/y39"
+            android:gravity="center_vertical"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/x15"
+                android:layout_weight="1"
+                android:gravity="center_vertical"
+                android:text="@string/feedback"
+                android:textColor="@color/text444" />
+
+            <ImageView
+                android:layout_width="@dimen/x5"
+                android:layout_height="@dimen/y8"
+                android:layout_marginRight="@dimen/x8"
+                android:background="@mipmap/togo" />
+
+        </LinearLayout>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/x1"
+            android:background="@color/bgddd"></View>
+
+        <LinearLayout
+            android:id="@+id/ll_banquanxinxi"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/y39"
+            android:gravity="center_vertical"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/x15"
+                android:layout_weight="1"
+                android:gravity="center_vertical"
+                android:text="@string/Copyright_information"
+                android:textColor="@color/text444" />
+
+            <ImageView
+                android:layout_width="@dimen/x5"
+                android:layout_height="@dimen/y8"
+                android:layout_marginRight="@dimen/x8"
+                android:background="@mipmap/togo" />
+
+        </LinearLayout>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/x1"
+            android:background="@color/bgddd"></View>
+    </LinearLayout>
+
+</LinearLayout>

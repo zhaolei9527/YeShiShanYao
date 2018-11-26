@@ -1,0 +1,213 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:fresco="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#fff"
+    android:fitsSystemWindows="true"
+
+    android:focusable="true"
+    android:focusableInTouchMode="true"
+    android:orientation="vertical">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/x38"
+        android:background="#fbfbfb"
+        android:visibility="visible">
+
+        <FrameLayout
+            android:id="@+id/rl_back"
+            android:layout_width="@dimen/x30"
+            android:layout_height="@dimen/x30"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="@dimen/x10">
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_gravity="center"
+                android:background="@mipmap/back" />
+
+        </FrameLayout>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:text="@string/Order_evaluate"
+            android:textColor="#333333"
+            android:textSize="@dimen/x16" />
+    </RelativeLayout>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1px"
+        android:background="#ccc"></View>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/y49"
+                android:orientation="horizontal">
+
+                <com.facebook.drawee.view.SimpleDraweeView
+                    android:id="@+id/SimpleDraweeView"
+                    android:layout_width="@dimen/x33"
+                    android:layout_height="@dimen/x33"
+                    android:layout_gravity="center_vertical"
+                    android:layout_marginLeft="@dimen/x15" />
+
+                <TextView
+                    android:id="@+id/tv_title"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    android:layout_marginLeft="@dimen/x10"
+                    android:layout_marginRight="@dimen/x10"
+                    android:ellipsize="end"
+                    android:singleLine="true"
+                    android:textSize="@dimen/x13" />
+
+            </LinearLayout>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1px"
+                android:background="#ccc"></View>
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/y33">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    android:layout_marginLeft="@dimen/x10"
+                    android:layout_marginRight="@dimen/x10"
+                    android:ellipsize="end"
+                    android:singleLine="true"
+                    android:text="@string/Product_evaluation"
+                    android:textSize="@dimen/x13" />
+
+                <ImageView
+                    android:id="@+id/img_1"
+                    android:layout_width="@dimen/x20"
+                    android:layout_height="@dimen/x20"
+                    android:layout_gravity="center_vertical"
+                    android:background="@mipmap/pingjia1" />
+
+                <ImageView
+                    android:id="@+id/img_2"
+                    android:layout_width="@dimen/x20"
+                    android:layout_height="@dimen/x20"
+                    android:layout_gravity="center_vertical"
+                    android:layout_marginLeft="@dimen/x5"
+                    android:background="@mipmap/pingjia1" />
+
+                <ImageView
+                    android:id="@+id/img_3"
+                    android:layout_width="@dimen/x20"
+                    android:layout_height="@dimen/x20"
+                    android:layout_gravity="center_vertical"
+                    android:layout_marginLeft="@dimen/x5"
+                    android:background="@mipmap/pingjia1" />
+
+                <ImageView
+                    android:id="@+id/img_4"
+                    android:layout_width="@dimen/x20"
+                    android:layout_height="@dimen/x20"
+                    android:layout_gravity="center_vertical"
+                    android:layout_marginLeft="@dimen/x5"
+                    android:background="@mipmap/pingjia1" />
+
+                <ImageView
+                    android:id="@+id/img_5"
+                    android:layout_width="@dimen/x20"
+                    android:layout_height="@dimen/x20"
+                    android:layout_gravity="center_vertical"
+                    android:layout_marginLeft="@dimen/x5"
+                    android:layout_marginRight="@dimen/x5"
+                    android:background="@mipmap/pingjia1" />
+
+                <TextView
+                    android:id="@+id/tv_pingjia_lv"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    android:layout_marginLeft="@dimen/x10"
+                    android:text=""
+                    android:textColor="@color/text666"
+                    android:textSize="@dimen/x12" />
+
+            </LinearLayout>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1px"
+                android:background="#ccc"></View>
+
+            <EditText
+                android:id="@+id/editText"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="@dimen/x5"
+                android:layout_marginLeft="@dimen/x10"
+                android:layout_marginRight="@dimen/x10"
+                android:layout_marginTop="@dimen/x10"
+                android:background="@null"
+                android:gravity="start"
+                android:hint="@string/be_better_products"
+                android:minHeight="@dimen/y100"
+                android:textCursorDrawable="@null"
+                android:textSize="@dimen/x13" />
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1px"
+                android:layout_marginBottom="@dimen/x5"
+                android:background="#ccc"></View>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/x10"
+                android:text="@string/upload_pictures"
+                android:textColor="#333"
+                android:textSize="@dimen/x13" />
+
+            <me.iwf.photopicker.widget.MultiPickResultView
+                android:id="@+id/recycler_view"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
+
+            <Button
+                android:id="@+id/btn_submit"
+                android:layout_width="@dimen/x304"
+                android:layout_height="@dimen/y36"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginBottom="@dimen/x10"
+                android:layout_marginTop="@dimen/x30"
+                android:background="@mipmap/btn_login"
+                android:text="@string/Submit_application"
+                android:textColor="@android:color/white"
+                android:textSize="@dimen/x13" />
+
+        </LinearLayout>
+
+
+    </ScrollView>
+
+
+</LinearLayout>

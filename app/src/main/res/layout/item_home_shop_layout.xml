@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:fresco="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/ll_goods"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical">
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/x1"
+        android:background="@color/bgea"></View>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/y140"
+        android:orientation="horizontal">
+
+        <com.facebook.drawee.view.SimpleDraweeView
+            android:id="@+id/sim_shopimg"
+            android:layout_width="@dimen/x134"
+            android:layout_height="@dimen/x134"
+            android:layout_gravity="center_vertical"
+            android:layout_marginLeft="@dimen/x10"
+            fresco:roundedCornerRadius="10dp"
+            fresco:roundingBorderWidth="1dp" />
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/x10"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/tv_shoptitle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/y15"
+                android:ellipsize="end"
+                android:maxWidth="@dimen/x142"
+                android:maxLines="2"
+                android:text=""
+                android:textColor="@color/text333"
+                android:textSize="@dimen/x12" />
+
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/x5"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:ellipsize="end"
+                    android:maxWidth="@dimen/x142"
+                    android:maxLines="2"
+                    android:text="@string/original_price"
+                    android:textColor="@color/text333"
+                    android:textSize="@dimen/x12" />
+
+                <TextView
+                    android:id="@+id/tv_shopmoney"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:ellipsize="end"
+                    android:maxWidth="@dimen/x142"
+                    android:maxLines="2"
+                    android:text="129.00"
+                    android:textColor="#4d4d4d"
+                    android:textSize="@dimen/x15" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/x5"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/tv_shopnum"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:ellipsize="end"
+                    android:maxWidth="@dimen/x142"
+                    android:maxLines="2"
+                    android:text="@string/Has_brought"
+                    android:textColor="@color/text999"
+                    android:textSize="@dimen/x12" />
+
+                <TextView
+                    android:layout_marginTop="@dimen/x10"
+                    android:id="@+id/btn_buy"
+                    android:layout_width="@dimen/x64"
+                    android:layout_height="@dimen/y23"
+                    android:layout_marginRight="@dimen/x10"
+                    android:background="@drawable/bg_home_buy"
+                    android:gravity="center"
+                    android:text="@string/Buy_now"
+                    android:textColor="@color/bgfff" />
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/x1"
+        android:background="@color/bgea"></View>
+</LinearLayout>

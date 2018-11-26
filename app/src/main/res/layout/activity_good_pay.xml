@@ -1,0 +1,175 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white"
+    android:fitsSystemWindows="true">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/x38"
+            android:background="@color/bgfff"
+            android:visibility="visible">
+
+            <FrameLayout
+                android:id="@+id/rl_back"
+                android:layout_width="@dimen/x30"
+                android:layout_height="@dimen/x30"
+                android:layout_centerVertical="true"
+                android:layout_marginLeft="@dimen/x10">
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:layout_gravity="center"
+                    android:background="@mipmap/back" />
+            </FrameLayout>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true"
+                android:text="@string/Pay_for_results"
+                android:textColor="@color/text333"
+                android:textSize="@dimen/x16" />
+        </RelativeLayout>
+
+        <LinearLayout
+            android:id="@+id/ll_goodPay"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            android:visibility="gone">
+
+            <ImageView
+                android:layout_width="@dimen/x50"
+                android:layout_height="@dimen/x50"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginTop="@dimen/x36"
+                android:background="@mipmap/chenggong" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginTop="@dimen/x28"
+                android:text="@string/successful_payment"
+                android:textColor="@color/bgtitle"
+                android:textSize="@dimen/x18" />
+
+            <TextView
+                android:id="@+id/textView2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginTop="@dimen/x11"
+                android:text="" />
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/y50"
+                android:gravity="center"
+                android:orientation="horizontal">
+
+                <Button
+                    android:id="@+id/btn_lookorder"
+                    android:layout_width="@dimen/x114"
+                    android:layout_height="@dimen/y30"
+                    android:layout_gravity="center"
+                    android:layout_marginRight="@dimen/x35"
+                    android:background="@mipmap/btn_login"
+                    android:gravity="center"
+                    android:text="@string/view_order"
+                    android:textColor="@color/bgfff"
+                    android:textSize="@dimen/y12"
+                    android:visibility="gone" />
+
+                <Button
+                    android:id="@+id/btn_gotomain"
+                    android:layout_width="@dimen/x114"
+                    android:layout_height="@dimen/y30"
+                    android:background="@mipmap/btn_login"
+                    android:gravity="center"
+                    android:text="@string/back"
+                    android:textColor="#fff"
+                    android:textSize="@dimen/y12" />
+            </LinearLayout>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/ll_badPay"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            android:visibility="gone">
+
+            <ImageView
+                android:layout_width="@dimen/x50"
+                android:layout_height="@dimen/x50"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginTop="@dimen/x36"
+                android:background="@mipmap/shibai" />
+
+
+            <TextView
+                android:id="@+id/tv_content"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginTop="@dimen/x28"
+                android:text="@string/payment_failed"
+                android:textColor="#8560A2"
+                android:textSize="@dimen/x18" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginTop="@dimen/x11"
+                android:text="" />
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/y50"
+                android:gravity="center"
+                android:orientation="horizontal">
+
+                <Button
+                    android:id="@+id/btn_repay"
+                    android:layout_width="@dimen/x114"
+                    android:layout_height="@dimen/y30"
+                    android:background="@mipmap/btn_login"
+                    android:gravity="center"
+                    android:text="@string/pay_for"
+                    android:textColor="#fff"
+                    android:textSize="@dimen/y12" />
+
+                <Button
+                    android:id="@+id/btn_abckorder"
+                    android:layout_width="@dimen/x114"
+                    android:layout_height="@dimen/y30"
+                    android:layout_gravity="center"
+                    android:background="@mipmap/btn_login"
+                    android:gravity="center"
+                    android:text="@string/view_order"
+                    android:textColor="@color/bgfff"
+                    android:textSize="@dimen/y12"
+                    android:visibility="gone" />
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+    </LinearLayout>
+</RelativeLayout>

@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/y26"
+        android:gravity="center_vertical"
+        android:orientation="horizontal">
+
+        <TextView
+            android:id="@+id/tv_bank"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/x20"
+            android:text="中国邮政储蓄银行 尾号(2456)"
+            android:textColor="@color/text333" />
+
+        <TextView
+            android:id="@+id/tv_money"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="@dimen/x20"
+            android:gravity="end"
+            android:text="￥1200.00"
+            android:textColor="@color/bgtitle" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_marginBottom="@dimen/x5"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center_vertical"
+        android:orientation="horizontal">
+
+        <TextView
+            android:id="@+id/tv_time"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/x20"
+            android:layout_weight="1"
+            android:text="2018-09-01  10:20:15"
+            android:textColor="@color/text999"
+            android:textSize="@dimen/x11" />
+
+        <ImageView
+            android:id="@+id/img_lookmsg"
+            android:layout_width="@dimen/x15"
+            android:layout_height="@dimen/x15"
+            android:background="@mipmap/error" />
+
+        <TextView
+            android:id="@+id/tv_msg"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/x5"
+            android:layout_marginRight="@dimen/x20"
+            android:gravity="end"
+            android:text="提现失败"
+            android:textColor="@color/bgtitle" />
+
+    </LinearLayout>
+
+
+</LinearLayout>
