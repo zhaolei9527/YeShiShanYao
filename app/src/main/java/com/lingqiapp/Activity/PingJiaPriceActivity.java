@@ -132,7 +132,13 @@ public class PingJiaPriceActivity extends BaseActivity implements View.OnClickLi
         recyclerView.init(this, MultiPickResultView.ACTION_SELECT, null);
         orderResult = getIntent().getStringExtra("orderResult");
         orderDetailBean = new Gson().fromJson(orderResult, OrderDetailBean.class);
-        SimpleDraweeView.setImageURI(UrlUtils.URL + orderDetailBean.getOrder().getImg_feng());
+
+        if (orderDetailBean.getOrder().getImg_feng().contains(".com")) {
+            SimpleDraweeView.setImageURI(orderDetailBean.getOrder().getImg_feng());
+        } else {
+            SimpleDraweeView.setImageURI(UrlUtils.URL + orderDetailBean.getOrder().getImg_feng());
+        }
+
         tvTitle.setText(orderDetailBean.getOrder().getName());
         Acp.getInstance(context).request(new AcpOptions.Builder()
                         .setPermissions(Manifest.permission.CAMERA, Manifest.permission.WRITE_EXTERNAL_STORAGE, Manifest.permission.READ_EXTERNAL_STORAGE)

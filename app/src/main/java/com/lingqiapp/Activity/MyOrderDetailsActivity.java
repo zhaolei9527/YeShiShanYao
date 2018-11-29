@@ -261,25 +261,31 @@ public class MyOrderDetailsActivity extends BaseActivity implements View.OnClick
                         tvOrderExpnum.setText(getString(R.string.Courier_number) + orderDetailBean.getOrder().getExpnum());
                     }
                     if (TextUtils.isEmpty(orderDetailBean.getOrder().getTotalprice())) {
-                        tvBrandPrice.setText("￥0.00");
+                        tvBrandPrice.setText("€0.00");
                     } else {
-                        tvBrandPrice.setText("￥" + orderDetailBean.getOrder().getTotalprice());
+                        tvBrandPrice.setText("€" + orderDetailBean.getOrder().getTotalprice());
                     }
                     if (TextUtils.isEmpty(orderDetailBean.getOrder().getTotalprice())) {
-                        tvPriceTotal.setText("￥0.00");
+                        tvPriceTotal.setText("€0.00");
                     } else {
-                        tvPriceTotal.setText("￥" + orderDetailBean.getOrder().getTotalprice());
+                        tvPriceTotal.setText("€" + orderDetailBean.getOrder().getTotalprice());
                     }
                     tvBianhao.setText(getString(R.string.The_order_no) + orderDetailBean.getOrder().getOrderid());
                     tvOrderTime.setText(getString(R.string.Place_the_order_of_time) + DateUtils.getMillon(Long.parseLong(orderDetailBean.getOrder().getAddtime()) * 1000));
                     final View item_oreder_details_layout = View.inflate(context, R.layout.item_oreder_details_layout, null);
                     item_oreder_details_layout.setTag(orderDetailBean.getOrder().getGid());
                     SimpleDraweeView SimpleDraweeView = (com.facebook.drawee.view.SimpleDraweeView) item_oreder_details_layout.findViewById(R.id.SimpleDraweeView);
-                    SimpleDraweeView.setImageURI(UrlUtils.URL + orderDetailBean.getOrder().getImg_feng());
+
+                    if (orderDetailBean.getOrder().getImg_feng().contains(".com")) {
+                        SimpleDraweeView.setImageURI(orderDetailBean.getOrder().getImg_feng());
+                    } else {
+                        SimpleDraweeView.setImageURI(UrlUtils.URL + orderDetailBean.getOrder().getImg_feng());
+                    }
+
                     final TextView tv_title = (TextView) item_oreder_details_layout.findViewById(R.id.tv_title);
                     tv_title.setText(orderDetailBean.getOrder().getTitle());
                     TextView tv_classify = (TextView) item_oreder_details_layout.findViewById(R.id.tv_classify);
-                    tv_classify.setText("￥" + orderDetailBean.getOrder().getPrice());
+                    tv_classify.setText("€" + orderDetailBean.getOrder().getPrice());
                     TextView tv_size = (TextView) item_oreder_details_layout.findViewById(R.id.tv_size);
                     tv_size.setText("×" + orderDetailBean.getOrder().getNumber());
                     item_oreder_details_layout.setOnClickListener(new View.OnClickListener() {

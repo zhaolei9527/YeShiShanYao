@@ -13,5 +13,6 @@
   <string name="__picker_all_image">Todas as images</string>
   <string name="__picker_over_max_count_tips">Apenas %1$d imagens podem ser selecionadas</string>
   <string name="__picker_image_count">%1$d</string>
+  <string name="noPhoto">Ainda não escolhi a imagem</string>
 
 </resources>

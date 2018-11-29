@@ -87,6 +87,7 @@
                 android:background="@drawable/bg_home_day"></View>
 
             <TextView
+                android:gravity="center"
                 android:id="@+id/tv_day1"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -123,6 +124,7 @@
                 android:background="@drawable/bg_home_day"></View>
 
             <TextView
+                android:gravity="center"
                 android:id="@+id/tv_day2"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -169,6 +171,7 @@
                 android:background="@drawable/bg_home_day"></View>
 
             <TextView
+                android:gravity="center"
                 android:id="@+id/tv_day3"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -205,6 +208,8 @@
                 android:background="@drawable/bg_home_day"></View>
 
             <TextView
+                android:gravity="center"
+
                 android:id="@+id/tv_day4"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -240,6 +245,8 @@
                 android:background="@drawable/bg_home_day"></View>
 
             <TextView
+                android:gravity="center"
+
                 android:id="@+id/tv_day5"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -275,6 +282,8 @@
                 android:background="@drawable/bg_home_day"></View>
 
             <TextView
+                android:gravity="center"
+
                 android:id="@+id/tv_day6"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"

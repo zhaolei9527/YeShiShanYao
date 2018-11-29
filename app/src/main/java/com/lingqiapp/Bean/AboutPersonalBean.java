@@ -18,8 +18,8 @@ public class AboutPersonalBean {
 
 
     /**
-     * status : 0
-     * udate : {"id":"461","img":"/Public/uploads/headimg/default_img.png","tel":"17629345001","ni_name":"靓帝女神"}
+     * status : 1
+     * udate : {"id":"15","img":"/Public/uploads/headimg/default_img.png","email":"975976959@qq.com","ni_name":"叶氏闪耀","is_hui":"1","money":"0.00"}
      */
 
     private int status;
@@ -51,16 +51,20 @@ public class AboutPersonalBean {
 
     public static class UdateBean {
         /**
-         * id : 461
+         * id : 15
          * img : /Public/uploads/headimg/default_img.png
-         * tel : 17629345001
-         * ni_name : 靓帝女神
+         * email : 975976959@qq.com
+         * ni_name : 叶氏闪耀
+         * is_hui : 1
+         * money : 0.00
          */
 
         private String id;
         private String img;
-        private String tel;
+        private String email;
         private String ni_name;
+        private String is_hui;
+        private String money;
 
         public static List<UdateBean> arrayUdateBeanFromData(String str) {
 
@@ -86,12 +90,12 @@ public class AboutPersonalBean {
             this.img = img;
         }
 
-        public String getTel() {
-            return tel;
+        public String getEmail() {
+            return email;
         }
 
-        public void setTel(String tel) {
-            this.tel = tel;
+        public void setEmail(String email) {
+            this.email = email;
         }
 
         public String getNi_name() {
@@ -100,6 +104,22 @@ public class AboutPersonalBean {
 
         public void setNi_name(String ni_name) {
             this.ni_name = ni_name;
+        }
+
+        public String getIs_hui() {
+            return is_hui;
+        }
+
+        public void setIs_hui(String is_hui) {
+            this.is_hui = is_hui;
+        }
+
+        public String getMoney() {
+            return money;
+        }
+
+        public void setMoney(String money) {
+            this.money = money;
         }
     }
 }

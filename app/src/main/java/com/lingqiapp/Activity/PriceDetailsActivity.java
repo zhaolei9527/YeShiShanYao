@@ -392,7 +392,7 @@ public class PriceDetailsActivity extends BaseActivity implements View.OnClickLi
                     if (1 == goodsDetailBean.getStatus()) {
                         SpUtil.putAndApply(context, "goodsDetail" + String.valueOf(getIntent().getStringExtra("id")), result);
                         tvTitle.setText(goodsDetailBean.getGoods().getTitle());
-                        tvPrice.setText("￥" + goodsDetailBean.getGoods().getPrice());
+                        tvPrice.setText("€" + goodsDetailBean.getGoods().getPrice());
                         tvXiaoliang.setText(getString(R.string.sales) + goodsDetailBean.getGoods().getXiaoliang());
                         RollPagerView.setAdapter(new GoodsLoopAdapter(RollPagerView, goodsDetailBean.getGoods()));
                         if ("0".equals(String.valueOf(goodsDetailBean.getPj().getCount()))) {
@@ -405,7 +405,13 @@ public class PriceDetailsActivity extends BaseActivity implements View.OnClickLi
                             if (goodsDetailBean.getPj().get_$0() != null) {
                                 llHasPingjia.setVisibility(View.VISIBLE);
                                 tvPingjiaMax.setText(getString(R.string.Product_evaluation) + "(" + goodsDetailBean.getPj().getCount() + ")");
-                                sdvPingjia.setImageURI(UrlUtils.URL + goodsDetailBean.getPj().get_$0().getImg());
+
+                                if (goodsDetailBean.getPj().get_$0().getImg().contains(".com")) {
+                                    sdvPingjia.setImageURI(goodsDetailBean.getPj().get_$0().getImg());
+                                } else {
+                                    sdvPingjia.setImageURI(UrlUtils.URL + goodsDetailBean.getPj().get_$0().getImg());
+                                }
+
                                 tvPingjiaName.setText(goodsDetailBean.getPj().get_$0().getNi_name());
                                 tvPingjiaContent.setText(goodsDetailBean.getPj().get_$0().getPcontent());
                                 String addtime = goodsDetailBean.getPj().get_$0().getAddtime();

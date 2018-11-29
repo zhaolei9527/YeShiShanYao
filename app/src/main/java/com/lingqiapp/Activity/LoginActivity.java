@@ -21,8 +21,8 @@ import com.android.volley.VolleyError;
 import com.google.gson.Gson;
 import com.lingqiapp.App;
 import com.lingqiapp.Base.BaseActivity;
+import com.lingqiapp.Bean.FBBean;
 import com.lingqiapp.Bean.LoginBean;
-import com.lingqiapp.Bean.WXBean;
 import com.lingqiapp.R;
 import com.lingqiapp.Utils.EasyToast;
 import com.lingqiapp.Utils.SpUtil;
@@ -177,8 +177,8 @@ public class LoginActivity extends BaseActivity implements View.OnClickListener 
                         dialog.dismiss();
                         mesg = arg0.getDb().exportData();
                         Log.e("LoginActivity", mesg);
-                        WXBean wxBean = new Gson().fromJson(mesg, WXBean.class);
-                        openid = wxBean.getUnionid();
+                        FBBean fbBean = new Gson().fromJson(mesg, FBBean.class);
+                        openid = fbBean.getUserID();
                         SpUtil.putAndApply(context, "wxopenid", openid);
                         getLogin("", "", openid);
                     }
@@ -242,7 +242,7 @@ public class LoginActivity extends BaseActivity implements View.OnClickListener 
         params.put("email", tel);
         params.put("password", password);
         if (!TextUtils.isEmpty(openid)) {
-            params.put("openid", openid);
+            params.put("emailid", openid);
         }
         Log.e("LoginActivity", params.toString());
         VolleyRequest.RequestPost(context, UrlUtils.BASE_URL + "login/dologin", "login/dologin", params, new VolleyInterface(context) {
@@ -252,6 +252,13 @@ public class LoginActivity extends BaseActivity implements View.OnClickListener 
                 String decode = result;
                 Log.e("LoginActivity", decode);
                 try {
+
+                    if (decode.contains("\\u672a\\u627e\\u5230\\u7ed1\\u5b9a\\u4fe1\\u606f,\\u8bf7\\u7528\\u5176\\u4ed6\\u65b9\\u5f0f\\u767b\\u5f55")) {
+                        btnLogin.setText(getString(R.string.Binding_to_log_in));
+                        EasyToast.showShort(context, getString(R.string.binding_login));
+                        return;
+                    }
+
                     LoginBean loginBean = new Gson().fromJson(decode, LoginBean.class);
                     EasyToast.showShort(context, loginBean.getMsg().toString());
                     if ("1".equals(loginBean.getStatus())) {

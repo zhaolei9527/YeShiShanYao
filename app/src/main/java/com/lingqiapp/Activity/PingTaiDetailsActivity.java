@@ -105,7 +105,7 @@ public class PingTaiDetailsActivity extends BaseActivity {
 
             }
         });
-        forumContext.loadUrl(UrlUtils.BASE_URL + "danye/jieshao?id=2" );
+        forumContext.loadUrl(UrlUtils.BASE_URL + "danye/jieshao?ltype="+App.LanguageTYPE);
     }
 
     @Override

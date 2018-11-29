@@ -68,7 +68,7 @@ public class MyOrderAdapter extends RecyclerView.Adapter<MyOrderAdapter.ViewHold
     public void onBindViewHolder(final ViewHolder holder, final int position) {
 
         holder.tv_order_form_time.setText(mContext.getString(R.string.The_order_no) + datas.get(position).getOrderid());
-        holder.tv_order_content.setText(mContext.getString(R.string.total_of) + datas.get(position).getNumber() + mContext.getString(R.string.Item_total)+":￥" + datas.get(position).getTotalprice());
+        holder.tv_order_content.setText(mContext.getString(R.string.total_of) + datas.get(position).getNumber() + mContext.getString(R.string.Item_total) + ":€" + datas.get(position).getTotalprice());
         holder.ll_oreders.removeAllViews();
         final String stu = datas.get(position).getStatus();
         if ("1".equals(stu)) {
@@ -107,11 +107,16 @@ public class MyOrderAdapter extends RecyclerView.Adapter<MyOrderAdapter.ViewHold
         View item_oreder_layout = View.inflate(mContext, R.layout.item_orederlist_layout, null);
 
         SimpleDraweeView SimpleDraweeView = (com.facebook.drawee.view.SimpleDraweeView) item_oreder_layout.findViewById(R.id.SimpleDraweeView);
-        SimpleDraweeView.setImageURI(UrlUtils.URL + datas.get(position).getImg_feng());
+
+        if (datas.get(position).getImg_feng().contains("com")) {
+            SimpleDraweeView.setImageURI(datas.get(position).getImg_feng());
+        } else {
+            SimpleDraweeView.setImageURI(UrlUtils.URL + datas.get(position).getImg_feng());
+        }
         TextView tv_title = (TextView) item_oreder_layout.findViewById(R.id.tv_title);
         tv_title.setText(datas.get(position).getTitle());
         TextView tv_price = (TextView) item_oreder_layout.findViewById(R.id.tv_price);
-        tv_price.setText("￥" + datas.get(position).getPrice());
+        tv_price.setText("€" + datas.get(position).getPrice());
         TextView tv_num = (TextView) item_oreder_layout.findViewById(R.id.tv_num);
         tv_num.setText("  X" + datas.get(position).getNumber());
         holder.ll_oreders.addView(item_oreder_layout);

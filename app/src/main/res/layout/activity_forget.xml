@@ -170,7 +170,7 @@
                             android:layout_alignParentRight="true"
                             android:layout_centerVertical="true"
                             android:gravity="center"
-                            android:text="获取验证码"
+                            android:text="@string/Get__verification_code"
                             android:textColor="#0b7de7"
                             android:textSize="@dimen/x13" />
 

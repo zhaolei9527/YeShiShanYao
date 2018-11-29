@@ -57,9 +57,13 @@ public class ShouCangListAdapter extends RecyclerView.Adapter<ShouCangListAdapte
     @Override
     public void onBindViewHolder(final ViewHolder holder, final int position) {
 
-        holder.SimpleDraweeView.setImageURI(UrlUtils.URL + datas.get(position).getImg_feng());
+        if (datas.get(position).getImg_feng().contains("com")) {
+            holder.SimpleDraweeView.setImageURI(datas.get(position).getImg_feng());
+        } else {
+            holder.SimpleDraweeView.setImageURI(UrlUtils.URL + datas.get(position).getImg_feng());
+        }
         holder.tv_title.setText(datas.get(position).getTitle());
-        holder.tv_money.setText("￥" + datas.get(position).getPrice());
+        holder.tv_money.setText("€" + datas.get(position).getPrice());
 
         holder.btnIsChoosed.setTag(new Integer(position));//把组件的状态更新为一个合法的状态值
 

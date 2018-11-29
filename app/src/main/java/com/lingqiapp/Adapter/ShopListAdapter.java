@@ -61,7 +61,12 @@ public class ShopListAdapter extends RecyclerView.Adapter<ShopListAdapter.ViewHo
     @Override
     public void onBindViewHolder(final ViewHolder holder, final int position) {
         Log.e("ShopListAdapter", UrlUtils.URL + datas.get(position).getImg_feng());
-        holder.simShopimg.setImageURI(UrlUtils.URL + datas.get(position).getImg_feng());
+
+        if (datas.get(position).getImg_feng().contains("com")) {
+            holder.simShopimg.setImageURI(datas.get(position).getImg_feng());
+        } else {
+            holder.simShopimg.setImageURI(UrlUtils.URL + datas.get(position).getImg_feng());
+        }
         holder.tvShopmoney.setText(datas.get(position).getPrice() + "元");
         holder.tvShopnum.setText(mContext.getText(R.string.salesNum) + datas.get(position).getXiaoliang());
         holder.tvShoptitle.setText(datas.get(position).getTitle());

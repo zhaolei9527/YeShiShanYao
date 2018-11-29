@@ -15,5 +15,6 @@
   <string name="__picker_image_count">%1$d</string>
 
   <string name="__picker_preview">preview</string>
+  <string name="noPhoto">No images have been selected</string>
 
 </resources>

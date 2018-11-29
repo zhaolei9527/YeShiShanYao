@@ -38,6 +38,8 @@
                     android:background="@mipmap/shoucangtb" />
 
                 <TextView
+                    android:gravity="center"
+
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"
@@ -70,6 +72,8 @@
                     android:background="@mipmap/dizhitb" />
 
                 <TextView
+                    android:gravity="center"
+
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"
@@ -102,6 +106,8 @@
                     android:background="@mipmap/eweimatb" />
 
                 <TextView
+                    android:gravity="center"
+
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"
@@ -134,6 +140,8 @@
                     android:background="@mipmap/yaoqingtb" />
 
                 <TextView
+                    android:gravity="center"
+
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"

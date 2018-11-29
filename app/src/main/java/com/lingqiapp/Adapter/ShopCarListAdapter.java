@@ -71,10 +71,15 @@ public class ShopCarListAdapter extends RecyclerView.Adapter<ShopCarListAdapter.
     @Override
     public void onBindViewHolder(final ViewHolder holder, final int position) {
 
-        holder.SimpleDraweeView.setImageURI(UrlUtils.URL + datas.get(position).getImg_feng());
+        if (datas.get(position).getImg_feng().contains("com")) {
+            holder.SimpleDraweeView.setImageURI(datas.get(position).getImg_feng());
+        } else {
+            holder.SimpleDraweeView.setImageURI(UrlUtils.URL + datas.get(position).getImg_feng());
+        }
+
         holder.btn_shuliang.setText(datas.get(position).getNumber());
         holder.tv_title.setText(datas.get(position).getTitle());
-        holder.tv_money.setText("￥" + datas.get(position).getPrice());
+        holder.tv_money.setText("€" + datas.get(position).getPrice());
         holder.btn_jia.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -128,7 +133,7 @@ public class ShopCarListAdapter extends RecyclerView.Adapter<ShopCarListAdapter.
                         money = money + (v * i1);
                     }
                 }
-                tvMoney.setText("￥" + String.format("%.2f", money));
+                tvMoney.setText("€" + String.format("%.2f", money));
             }
         });
 
@@ -222,7 +227,7 @@ public class ShopCarListAdapter extends RecyclerView.Adapter<ShopCarListAdapter.
                             money = money + (Price * i1);
                         }
                     }
-                    tvMoney.setText("￥" + String.format("%.2f", money));
+                    tvMoney.setText("€" + String.format("%.2f", money));
 
                     result = null;
                 } catch (Exception e) {
@@ -271,7 +276,7 @@ public class ShopCarListAdapter extends RecyclerView.Adapter<ShopCarListAdapter.
                             money = money + (Price * i1);
                         }
                     }
-                    tvMoney.setText("￥" + String.format("%.2f", money));
+                    tvMoney.setText("€" + String.format("%.2f", money));
 
 
                     result = null;

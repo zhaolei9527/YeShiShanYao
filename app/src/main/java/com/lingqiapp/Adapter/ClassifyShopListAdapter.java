@@ -1,6 +1,7 @@
 package com.lingqiapp.Adapter;
 
 import android.content.Context;
+import android.content.Intent;
 import android.os.Build;
 import android.support.annotation.RequiresApi;
 import android.support.v7.widget.RecyclerView;
@@ -11,6 +12,7 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import com.facebook.drawee.view.SimpleDraweeView;
+import com.lingqiapp.Activity.ShopListActivity;
 import com.lingqiapp.Bean.GoodsCateBean;
 import com.lingqiapp.R;
 import com.lingqiapp.Utils.UrlUtils;
@@ -30,7 +32,7 @@ public class ClassifyShopListAdapter extends RecyclerView.Adapter<ClassifyShopLi
 
     private Context mContext;
     private ArrayList<GoodsCateBean.ResBean> datas = new ArrayList();
-    private int position = 0;
+    private int checkPosition = 0;
 
     public ArrayList<GoodsCateBean.ResBean> getDatas() {
         return datas;
@@ -39,7 +41,7 @@ public class ClassifyShopListAdapter extends RecyclerView.Adapter<ClassifyShopLi
     public ClassifyShopListAdapter(Context context, List<GoodsCateBean.ResBean> resBean, int position) {
         this.mContext = context;
         this.datas.addAll(resBean);
-        this.position = position;
+        this.checkPosition = position;
     }
 
     public void setDatas(List<GoodsCateBean.ResBean> datas) {
@@ -57,15 +59,30 @@ public class ClassifyShopListAdapter extends RecyclerView.Adapter<ClassifyShopLi
     @RequiresApi(api = Build.VERSION_CODES.LOLLIPOP)
     @Override
     public void onBindViewHolder(final ViewHolder holder, final int position) {
-        String title = datas.get(this.position).getChild().get(position).getTitle();
-        String img = datas.get(this.position).getChild().get(position).getImg();
+        String title = datas.get(this.checkPosition).getChild().get(position).getTitle();
+        String img = datas.get(this.checkPosition).getChild().get(position).getImg();
         holder.tvTitleShop.setText(title);
-        holder.imgShop.setImageURI(UrlUtils.URL + img);
+
+        if (img.contains(".com")) {
+            holder.imgShop.setImageURI(img);
+        } else {
+            holder.imgShop.setImageURI(UrlUtils.URL + img);
+        }
+
+
+        holder.llShop1.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                mContext.startActivity(new Intent(mContext, ShopListActivity.class).putExtra("keyworld", datas.get(checkPosition).getChild().get(position).getKeywords()));
+            }
+        });
+
+
     }
 
     @Override
     public int getItemCount() {
-        return datas.get(position).getChild().size();
+        return datas.get(checkPosition).getChild().size();
     }
 
     public static class ViewHolder extends RecyclerView.ViewHolder {

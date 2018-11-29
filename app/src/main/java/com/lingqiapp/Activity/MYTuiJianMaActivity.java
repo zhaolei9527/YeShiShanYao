@@ -96,7 +96,7 @@ public class MYTuiJianMaActivity extends BaseActivity {
                     EwmBean ewmBean = new Gson().fromJson(result, EwmBean.class);
                     if (1 == ewmBean.getStatus()) {
                         imgTuijianma.setImageURI(UrlUtils.URL + ewmBean.getErweima());
-                        tvMsgContent.setText("" + ewmBean.getJiang());
+                        tvMsgContent.setText("" + ewmBean.getJiang().getJiang());
                     }
                 } catch (Exception e) {
                     dialog.dismiss();

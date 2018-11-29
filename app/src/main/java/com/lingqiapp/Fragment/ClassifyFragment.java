@@ -2,6 +2,7 @@ package com.lingqiapp.Fragment;
 
 import android.app.Dialog;
 import android.content.Context;
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v7.widget.DefaultItemAnimator;
@@ -11,9 +12,11 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.LinearLayout;
 
 import com.android.volley.VolleyError;
 import com.google.gson.Gson;
+import com.lingqiapp.Activity.ShopListActivity;
 import com.lingqiapp.Adapter.ClassifyShopListAdapter;
 import com.lingqiapp.Adapter.ClassifyShopTypeListAdapter;
 import com.lingqiapp.Bean.GoodsCateBean;
@@ -48,6 +51,8 @@ public class ClassifyFragment extends BaseLazyFragment {
     @BindView(R.id.rv_shop_list)
     WenguoyiRecycleView rvShopList;
     public SakuraLinearLayoutManager line1;
+    @BindView(R.id.ll_search)
+    LinearLayout llSearch;
     private Context context;
     private ClassifyShopTypeListAdapter shopTypeAdapter;
     private ClassifyShopListAdapter shopListAdapter;
@@ -70,6 +75,9 @@ public class ClassifyFragment extends BaseLazyFragment {
         dialog = Utils.showLoadingDialog(context);
         dialog.show();
         getData();
+
+
+
     }
 
     @Override
@@ -96,7 +104,7 @@ public class ClassifyFragment extends BaseLazyFragment {
     /*
      *初始化一级分类列表
      * */
-    public void initShopType(WenguoyiRecycleView rvShopTypeList, Context context, GoodsCateBean goodsCateBean,WenguoyiRecycleView rvShopList) {
+    public void initShopType(WenguoyiRecycleView rvShopTypeList, Context context, GoodsCateBean goodsCateBean, WenguoyiRecycleView rvShopList) {
         this.rvShopTypeList = rvShopTypeList;
         this.context = context;
         line1 = new SakuraLinearLayoutManager(context);
@@ -110,8 +118,8 @@ public class ClassifyFragment extends BaseLazyFragment {
         getShopTypeData(goodsCateBean, rvShopList);
     }
 
-    public void getShopTypeData(final GoodsCateBean goodsCateBean,WenguoyiRecycleView rvShopList) {
-        shopTypeAdapter = new ClassifyShopTypeListAdapter(context, goodsCateBean.getRes(),rvShopList);
+    public void getShopTypeData(final GoodsCateBean goodsCateBean, WenguoyiRecycleView rvShopList) {
+        shopTypeAdapter = new ClassifyShopTypeListAdapter(context, goodsCateBean.getRes(), rvShopList);
         rvShopTypeList.setAdapter(shopTypeAdapter);
     }
 
@@ -148,10 +156,16 @@ public class ClassifyFragment extends BaseLazyFragment {
             public void onMySuccess(String result) {
                 Log.e("ClassifyFragment", result);
                 try {
+                    llSearch.setOnClickListener(new View.OnClickListener() {
+                        @Override
+                        public void onClick(View view) {
+                            startActivity(new Intent(context, ShopListActivity.class));
+                        }
+                    });
                     dialog.dismiss();
                     GoodsCateBean goodsCateBean = new Gson().fromJson(result, GoodsCateBean.class);
                     if ("1".equals(goodsCateBean.getStatus())) {
-                        initShopType(rvShopTypeList, context, goodsCateBean,rvShopList);
+                        initShopType(rvShopTypeList, context, goodsCateBean, rvShopList);
                         initShopList(rvShopList, context, goodsCateBean, 0);
                     }
                     result = null;

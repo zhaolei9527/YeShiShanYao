@@ -50,23 +50,23 @@ public class IntegralListAdapter extends RecyclerView.Adapter<IntegralListAdapte
         holder.tv_time.setText(DateUtils.getMillon(Long.parseLong(resBean.getAdd_time()) * 1000));
         if ("1".equals(resBean.getStu())) {
             holder.tv_type.setText("消费");
-            holder.tv_content.setText("-￥" + resBean.getChange_num());
+            holder.tv_content.setText("-€" + resBean.getChange_num());
         } else if ("2".equals(resBean.getStu())) {
             holder.tv_type.setText("推广奖励");
-            holder.tv_content.setText("+￥" + resBean.getChange_num());
+            holder.tv_content.setText("+€" + resBean.getChange_num());
         }else if ("3".equals(resBean.getStu())) {
             holder.tv_type.setText("后台调整");
-            holder.tv_content.setText("￥" + resBean.getChange_num());
+            holder.tv_content.setText("€" + resBean.getChange_num());
         }else if ("4".equals(resBean.getStu())) {
             holder.tv_type.setText("提现成功");
-            holder.tv_content.setText("-￥" + resBean.getChange_num());
+            holder.tv_content.setText("-€" + resBean.getChange_num());
         }else if ("5".equals(resBean.getStu())) {
             holder.tv_type.setText("提现失败");
-            holder.tv_content.setText("+￥" + resBean.getChange_num());
+            holder.tv_content.setText("+€" + resBean.getChange_num());
 
         }else if ("6".equals(resBean.getStu())) {
             holder.tv_type.setText("充值");
-            holder.tv_content.setText("+￥" + resBean.getChange_num());
+            holder.tv_content.setText("+€" + resBean.getChange_num());
         }
     }
 

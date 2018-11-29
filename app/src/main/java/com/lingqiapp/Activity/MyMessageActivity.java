@@ -269,7 +269,7 @@ public class MyMessageActivity extends BaseActivity {
                     if (1 == aboutPersonalBean.getStatus()) {
                         SimpleDraweeView.setImageURI(UrlUtils.URL + aboutPersonalBean.getUdate().getImg());
                         tvNicheng.setText(aboutPersonalBean.getUdate().getNi_name());
-                        tvPhone.setText(aboutPersonalBean.getUdate().getTel());
+                        tvPhone.setText(aboutPersonalBean.getUdate().getEmail());
                     }
                 } catch (Exception e) {
                     dialog.dismiss();

@@ -33,7 +33,7 @@
                         android:layout_gravity="center"
                         android:layout_marginBottom="@dimen/x10"
                         android:background="@mipmap/btn_login"
-                        android:text="退出登录"
+                        android:text="@string/exit_login"
                         android:textColor="@color/bgfff" />
                 </LinearLayout>
 

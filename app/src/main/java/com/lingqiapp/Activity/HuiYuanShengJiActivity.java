@@ -85,8 +85,14 @@ public class HuiYuanShengJiActivity extends BaseActivity {
 
     @Override
     protected void initview() {
-        SimpleDraweeView.setImageURI(UrlUtils.URL + String.valueOf(SpUtil.get(context, "img", "")));
+
+        if (String.valueOf(SpUtil.get(context, "img", "")).contains(".com")) {
+            SimpleDraweeView.setImageURI(String.valueOf(SpUtil.get(context, "img", "")));
+        } else {
+            SimpleDraweeView.setImageURI(UrlUtils.URL + String.valueOf(SpUtil.get(context, "img", "")));
+        }
         tvUsername.setText(String.valueOf(SpUtil.get(context, "username", "")));
+
 
         if ("1".equals(String.valueOf(SpUtil.get(context, "lv", "1")))) {
             tvContent.setText("您还不是领七商城会员,开通会员，立享权益");

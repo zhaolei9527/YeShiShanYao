@@ -22,7 +22,7 @@ import com.lingqiapp.Base.BaseActivity;
 import com.lingqiapp.Bean.BankEvent;
 import com.lingqiapp.Bean.GoodsOrderBean;
 import com.lingqiapp.Bean.OrderOrderBean;
-import com.lingqiapp.Bean.OrderWxpayBean;
+import com.lingqiapp.Bean.OrderVisaBean;
 import com.lingqiapp.Bean.OrderYueBean;
 import com.lingqiapp.Bean.PayYueBean;
 import com.lingqiapp.R;
@@ -31,9 +31,9 @@ import com.lingqiapp.Utils.EasyToast;
 import com.lingqiapp.Utils.SpUtil;
 import com.lingqiapp.Utils.UrlUtils;
 import com.lingqiapp.Utils.Utils;
+import com.lingqiapp.Visa.CardActivity;
 import com.lingqiapp.Volley.VolleyInterface;
 import com.lingqiapp.Volley.VolleyRequest;
-import com.tencent.mm.opensdk.modelpay.PayReq;
 import com.tencent.mm.opensdk.openapi.IWXAPI;
 import com.tencent.mm.opensdk.openapi.WXAPIFactory;
 
@@ -105,6 +105,9 @@ public class OrderActivity extends BaseActivity implements View.OnClickListener 
     private GoodsOrderBean goodsOrderBean;
     private String type;
     private String checklv = "404";
+    private String name;
+    private String phone;
+    private String address;
 
     @Override
     protected void onDestroy() {
@@ -124,11 +127,11 @@ public class OrderActivity extends BaseActivity implements View.OnClickListener 
                 tvName.setVisibility(View.VISIBLE);
                 tvDizhi.setVisibility(View.VISIBLE);
                 tvPhone.setVisibility(View.VISIBLE);
-                String name = data.getStringExtra("name");
+                name = data.getStringExtra("name");
                 tvName.setText(name);
-                String phone = data.getStringExtra("phone");
+                phone = data.getStringExtra("phone");
                 tvPhone.setText(phone);
-                String address = data.getStringExtra("address");
+                address = data.getStringExtra("address");
                 tvDizhi.setText(address);
                 addressID = data.getStringExtra("addressid");
             }
@@ -188,7 +191,7 @@ public class OrderActivity extends BaseActivity implements View.OnClickListener 
             goodsOrderBean = new Gson().fromJson(order, GoodsOrderBean.class);
 
             Log.e("OrderActivity", order);
-            tvMoney.setText("￥" + goodsOrderBean.getZ_price());
+            tvMoney.setText("€" + goodsOrderBean.getZ_price());
 
             if (goodsOrderBean.getDizhi() != null) {
                 tvAddDizhi.setVisibility(View.INVISIBLE);
@@ -216,11 +219,17 @@ public class OrderActivity extends BaseActivity implements View.OnClickListener 
 
             View inflate = View.inflate(context, R.layout.item_oreder_layout, null);
             SimpleDraweeView simpleDraweeView = (SimpleDraweeView) inflate.findViewById(R.id.SimpleDraweeView);
-            simpleDraweeView.setImageURI(UrlUtils.URL + goodsOrderBean.getGoods().getImg_feng());
+
+            if (goodsOrderBean.getGoods().getImg_feng().contains(".com")) {
+                simpleDraweeView.setImageURI(goodsOrderBean.getGoods().getImg_feng());
+            } else {
+                simpleDraweeView.setImageURI(UrlUtils.URL + goodsOrderBean.getGoods().getImg_feng());
+            }
+
             TextView tv_title = (TextView) inflate.findViewById(R.id.tv_title);
             tv_title.setText(goodsOrderBean.getGoods().getTitle());
             TextView tv_price = (TextView) inflate.findViewById(R.id.tv_price);
-            tv_price.setText("￥" + goodsOrderBean.getGoods().getPrice());
+            tv_price.setText("€" + goodsOrderBean.getGoods().getPrice());
             TextView tv_num = (TextView) inflate.findViewById(R.id.tv_num);
             tv_num.setText(getString(R.string.number_of) + goodsOrderBean.getG_num());
 
@@ -228,14 +237,14 @@ public class OrderActivity extends BaseActivity implements View.OnClickListener 
             tv_xiaojigoodsnum.setText(getString(R.string.total_of) + goodsOrderBean.getG_num() + getString(R.string.items));
 
             TextView tv_xiaojigoodprice = (TextView) inflate.findViewById(R.id.tv_xiaojigoodprice);
-            tv_xiaojigoodprice.setText("￥" + goodsOrderBean.getZ_price());
+            tv_xiaojigoodprice.setText("€" + goodsOrderBean.getZ_price());
 
             llOreders.addView(inflate);
             num = num + Integer.parseInt(goodsOrderBean.getG_num());
 
             tvGoods.setText(getString(R.string.total_of) + num + getString(R.string.items));
 
-            tvPaymoney.setText("￥ " + goodsOrderBean.getZ_price());
+            tvPaymoney.setText("€ " + goodsOrderBean.getZ_price());
 
             if (Utils.isConnected(context)) {
                 dialog = Utils.showLoadingDialog(context);
@@ -248,7 +257,7 @@ public class OrderActivity extends BaseActivity implements View.OnClickListener 
             orderOrderBean = new Gson().fromJson(order, OrderOrderBean.class);
 
             Log.e("OrderActivity", order);
-            tvMoney.setText("￥" + orderOrderBean.getZf_money());
+            tvMoney.setText("€" + orderOrderBean.getZf_money());
 
             if (orderOrderBean.getAddress() != null) {
                 tvAddDizhi.setVisibility(View.INVISIBLE);
@@ -281,15 +290,15 @@ public class OrderActivity extends BaseActivity implements View.OnClickListener 
                 TextView tv_title = (TextView) inflate.findViewById(R.id.tv_title);
                 tv_title.setText(orderOrderBean.getCart().get(i).getTitle());
                 TextView tv_price = (TextView) inflate.findViewById(R.id.tv_price);
-                tv_price.setText("￥" + orderOrderBean.getCart().get(i).getPrice());
+                tv_price.setText("€" + orderOrderBean.getCart().get(i).getPrice());
                 TextView tv_num = (TextView) inflate.findViewById(R.id.tv_num);
                 tv_num.setText(getString(R.string.number_of) + orderOrderBean.getCart().get(i).getNumber());
 
                 TextView tv_xiaojigoodsnum = (TextView) inflate.findViewById(R.id.tv_xiaojigoodsnum);
-                tv_xiaojigoodsnum.setText(getString(R.string.total_of) + orderOrderBean.getCart().get(i).getNumber() +getString( R.string.items));
+                tv_xiaojigoodsnum.setText(getString(R.string.total_of) + orderOrderBean.getCart().get(i).getNumber() + getString(R.string.items));
 
                 TextView tv_xiaojigoodprice = (TextView) inflate.findViewById(R.id.tv_xiaojigoodprice);
-                tv_xiaojigoodprice.setText("￥" + orderOrderBean.getCart().get(i).getZmoney());
+                tv_xiaojigoodprice.setText("€" + orderOrderBean.getCart().get(i).getZmoney());
 
                 llOreders.addView(inflate);
                 num = num + Integer.parseInt(orderOrderBean.getCart().get(i).getNumber());
@@ -298,7 +307,7 @@ public class OrderActivity extends BaseActivity implements View.OnClickListener 
 
             tvGoods.setText(getString(R.string.total_of) + num + getString(R.string.items));
 
-            tvPaymoney.setText("￥ " + orderOrderBean.getZf_money());
+            tvPaymoney.setText("€ " + orderOrderBean.getZf_money());
 
             if (Utils.isConnected(context)) {
                 dialog = Utils.showLoadingDialog(context);
@@ -480,53 +489,43 @@ public class OrderActivity extends BaseActivity implements View.OnClickListener 
         HashMap<String, String> params = new HashMap<>(5);
         params.put("uid", String.valueOf(SpUtil.get(context, "uid", "")));
         params.put("oid", oid);
-        if ("404".equals(checklv)) {
-
-        } else {
-            params.put("type", "200");
-        }
         Log.e("OrderActivity--wx", params.toString());
-        VolleyRequest.RequestPost(context, UrlUtils.BASE_URL + "order/wxpay", "order/wxpay", params, new VolleyInterface(context) {
+        VolleyRequest.RequestPost(context, UrlUtils.BASE_URL + "order/visa", "order/visa", params, new VolleyInterface(context) {
+
+            private Intent intent;
+
             @Override
             public void onMySuccess(String result) {
                 dialog.dismiss();
                 Log.e("OrderActivity", result);
                 try {
                     dialog.dismiss();
-
-                    if (result.contains("msg")) {
-                        PayYueBean payYueBean = new Gson().fromJson(result, PayYueBean.class);
-                        if (1 == payYueBean.getStatus()) {
-                            startActivity(new Intent(context, GoodPayActivity.class)
-                                    .putExtra("type", "good")
-                                    .putExtra("order", oid)
-                                    .putExtra("orderid", oid));
-                            finish();
-                        } else {
-                            EasyToast.showShort(context, payYueBean.getMsg());
-                            startActivity(new Intent(context, GoodPayActivity.class)
-                                    .putExtra("order", oid)
-                                    .putExtra("msg", payYueBean.getMsg())
-                                    .putExtra("orderid", oid));
-                            finish();
-                        }
-                        return;
+                    OrderVisaBean orderVisaBean = new Gson().fromJson(result, OrderVisaBean.class);
+                    if (1 == orderVisaBean.getStatus()) {
+                        intent = new Intent(context, CardActivity.class);
+                        intent.putExtra("money", String.valueOf(orderVisaBean.getZmoney()));
+                        intent.putExtra("oid", orderVisaBean.getPayorder());
+                        intent.putExtra("shippingFirstName", orderVisaBean.getUdate().getName());
+                        intent.putExtra("shippingLastName", "");
+                        intent.putExtra("shippingEmail", String.valueOf(SpUtil.get(context, "tel", "")));
+                        intent.putExtra("shippingPhone", orderVisaBean.getUdate().getTel());
+                        intent.putExtra("shippingZipcode", "475000");
+                        intent.putExtra("shippingSstate", orderVisaBean.getUdate().getCountry());
+                        intent.putExtra("shippingCity", orderVisaBean.getUdate().getCountry());
+                        intent.putExtra("shippingAddress", orderVisaBean.getUdate().getAddress());
+                        intent.putExtra("shippingZipcode", "475000");
+                        intent.putExtra("firstname", orderVisaBean.getUdate().getName());
+                        intent.putExtra("lastname", "");
+                        intent.putExtra("email", String.valueOf(SpUtil.get(context, "tel", "")));
+                        intent.putExtra("phone", orderVisaBean.getUdate().getTel());
+                        intent.putExtra("country", orderVisaBean.getUdate().getCountry());
+                        intent.putExtra("state", orderVisaBean.getUdate().getCountry());
+                        intent.putExtra("city", orderVisaBean.getUdate().getCountry());
+                        intent.putExtra("address", orderVisaBean.getUdate().getAddress());
+                        intent.putExtra("zipcode", "475000");
+                        startActivity(intent);
                     }
 
-                    OrderWxpayBean orderWxpayBean = new Gson().fromJson(result, OrderWxpayBean.class);
-                    if (api != null) {
-                        PayReq req = new PayReq();
-                        req.appId = Constants.APP_ID;
-                        req.partnerId = orderWxpayBean.getData().getMch_id();
-                        req.prepayId = orderWxpayBean.getData().getPrepay_id();
-                        req.packageValue = "Sign=WXPay";
-                        req.nonceStr = orderWxpayBean.getData().getNonceStr();
-                        req.timeStamp = orderWxpayBean.getData().getTimeStamp();
-                        req.sign = "aaaaa";
-                        api.sendReq(req);
-                    }
-                    orderWxpayBean = null;
-                    result = null;
                 } catch (Exception e) {
                     e.printStackTrace();
                 }

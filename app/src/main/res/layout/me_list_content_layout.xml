@@ -74,6 +74,8 @@
                     android:background="@mipmap/daifukuan" />
 
                 <TextView
+                    android:gravity="center"
+
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"
@@ -98,6 +100,8 @@
                     android:background="@mipmap/daifahuo" />
 
                 <TextView
+                    android:gravity="center"
+
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"
@@ -122,6 +126,8 @@
                     android:background="@mipmap/daishouhuo" />
 
                 <TextView
+                    android:gravity="center"
+
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"
@@ -146,6 +152,7 @@
                     android:background="@mipmap/daipingjia" />
 
                 <TextView
+                    android:gravity="center"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"
@@ -207,6 +214,8 @@
                     android:background="@mipmap/caiwumingxi" />
 
                 <TextView
+                    android:gravity="center"
+
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"
@@ -231,6 +240,8 @@
                     android:background="@mipmap/yinhangkaguanli" />
 
                 <TextView
+                    android:gravity="center"
+
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"
@@ -255,6 +266,8 @@
                     android:background="@mipmap/shenqingtixian" />
 
                 <TextView
+                    android:gravity="center"
+
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"
@@ -279,6 +292,8 @@
                     android:background="@mipmap/tixianjilu" />
 
                 <TextView
+                    android:gravity="center"
+
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"

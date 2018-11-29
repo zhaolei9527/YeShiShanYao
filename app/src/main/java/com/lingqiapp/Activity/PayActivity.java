@@ -21,7 +21,7 @@ import com.google.gson.Gson;
 import com.lingqiapp.App;
 import com.lingqiapp.Base.BaseActivity;
 import com.lingqiapp.Bean.BankEvent;
-import com.lingqiapp.Bean.OrderWxpayBean;
+import com.lingqiapp.Bean.OrderVisaBean;
 import com.lingqiapp.Bean.PayResult;
 import com.lingqiapp.Bean.PayYueBean;
 import com.lingqiapp.R;
@@ -30,9 +30,9 @@ import com.lingqiapp.Utils.EasyToast;
 import com.lingqiapp.Utils.SpUtil;
 import com.lingqiapp.Utils.UrlUtils;
 import com.lingqiapp.Utils.Utils;
+import com.lingqiapp.Visa.CardActivity;
 import com.lingqiapp.Volley.VolleyInterface;
 import com.lingqiapp.Volley.VolleyRequest;
-import com.tencent.mm.opensdk.modelpay.PayReq;
 import com.tencent.mm.opensdk.openapi.IWXAPI;
 import com.tencent.mm.opensdk.openapi.WXAPIFactory;
 
@@ -237,47 +237,40 @@ public class PayActivity extends BaseActivity implements View.OnClickListener {
         params.put("oid", orderid);
         params.put("uid", String.valueOf(SpUtil.get(context, "uid", "")));
         Log.e("orderWxpay", params.toString());
-        VolleyRequest.RequestPost(context, UrlUtils.BASE_URL + "order/wxpay", "order/wxpay", params, new VolleyInterface(context) {
+        VolleyRequest.RequestPost(context, UrlUtils.BASE_URL + "order/visa", "order/visa", params, new VolleyInterface(context) {
+            private Intent intent;
             @Override
             public void onMySuccess(String result) {
                 dialog.dismiss();
-                Log.e("orderWxpay", result);
+                Log.e("OrderActivity", result);
                 try {
-                    btnPaynow.setClickable(true);
-                    if (result.contains("msg")) {
-                        PayYueBean payYueBean = new Gson().fromJson(result, PayYueBean.class);
-                        if (1 == payYueBean.getStatus()) {
-                            startActivity(new Intent(context, GoodPayActivity.class)
-                                    .putExtra("type", "good")
-                                    .putExtra("order", orderid)
-                                    .putExtra("orderid", orderid));
-                            finish();
-                        } else {
-                            EasyToast.showShort(context, payYueBean.getMsg());
-                            startActivity(new Intent(context, GoodPayActivity.class)
-                                    .putExtra("order", orderid)
-                                    .putExtra("msg", payYueBean.getMsg())
-                                    .putExtra("orderid", orderid));
-                            finish();
-                        }
-                        return;
+                    dialog.dismiss();
+                    OrderVisaBean orderVisaBean = new Gson().fromJson(result, OrderVisaBean.class);
+                    if (1 == orderVisaBean.getStatus()) {
+                        intent = new Intent(context, CardActivity.class);
+                        intent.putExtra("money", String.valueOf(orderVisaBean.getZmoney()));
+                        intent.putExtra("oid", orderVisaBean.getPayorder());
+                        intent.putExtra("shippingFirstName", orderVisaBean.getUdate().getName());
+                        intent.putExtra("shippingLastName", "");
+                        intent.putExtra("shippingEmail", String.valueOf(SpUtil.get(context, "tel", "")));
+                        intent.putExtra("shippingPhone", orderVisaBean.getUdate().getTel());
+                        intent.putExtra("shippingZipcode", "475000");
+                        intent.putExtra("shippingSstate", orderVisaBean.getUdate().getCountry());
+                        intent.putExtra("shippingCity", orderVisaBean.getUdate().getCountry());
+                        intent.putExtra("shippingAddress", orderVisaBean.getUdate().getAddress());
+                        intent.putExtra("shippingZipcode", "475000");
+                        intent.putExtra("firstname", orderVisaBean.getUdate().getName());
+                        intent.putExtra("lastname", "");
+                        intent.putExtra("email", String.valueOf(SpUtil.get(context, "tel", "")));
+                        intent.putExtra("phone", orderVisaBean.getUdate().getTel());
+                        intent.putExtra("country", orderVisaBean.getUdate().getCountry());
+                        intent.putExtra("state", orderVisaBean.getUdate().getCountry());
+                        intent.putExtra("city", orderVisaBean.getUdate().getCountry());
+                        intent.putExtra("address", orderVisaBean.getUdate().getAddress());
+                        intent.putExtra("zipcode", "475000");
+                        startActivity(intent);
                     }
 
-
-                    OrderWxpayBean orderWxpayBean = new Gson().fromJson(result, OrderWxpayBean.class);
-                    if (api != null) {
-                        PayReq req = new PayReq();
-                        req.appId = Constants.APP_ID;
-                        req.partnerId = orderWxpayBean.getData().getMch_id();
-                        req.prepayId = orderWxpayBean.getData().getPrepay_id();
-                        req.packageValue = "Sign=WXPay";
-                        req.nonceStr = orderWxpayBean.getData().getNonceStr();
-                        req.timeStamp = orderWxpayBean.getData().getTimeStamp();
-                        req.sign = "aaaaa";
-                        api.sendReq(req);
-                    }
-                    orderWxpayBean = null;
-                    result = null;
                 } catch (Exception e) {
                     e.printStackTrace();
                 }

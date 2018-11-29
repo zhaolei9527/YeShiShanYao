@@ -7,6 +7,7 @@ import android.view.View;
 import android.widget.FrameLayout;
 import android.widget.Toast;
 
+import com.lingqiapp.App;
 import com.lingqiapp.Base.BaseActivity;
 import com.lingqiapp.R;
 import com.lingqiapp.Utils.UrlUtils;
@@ -92,7 +93,7 @@ public class ZhuCeXieYiDetailsActivity extends BaseActivity {
 
             }
         });
-        forumContext.loadUrl(UrlUtils.BASE_URL + "danye/xieyi?id=1");
+        forumContext.loadUrl(UrlUtils.BASE_URL + "danye/xieyi?ltype="+App.LanguageTYPE);
 
     }
 

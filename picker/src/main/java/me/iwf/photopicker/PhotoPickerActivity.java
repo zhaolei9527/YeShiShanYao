@@ -85,7 +85,7 @@ public class PhotoPickerActivity extends AppCompatActivity {
           setResult(RESULT_OK, intent);
           finish();
         }else {
-          Toast.makeText(getApplicationContext(),"还没有选择图片",Toast.LENGTH_SHORT).show();
+          Toast.makeText(getApplicationContext(),getString(R.string.noPhoto),Toast.LENGTH_SHORT).show();
         }
       }
     });

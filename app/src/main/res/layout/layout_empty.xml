@@ -25,7 +25,7 @@
             android:layout_centerVertical="true"
             android:layout_marginTop="@dimen/x15"
             android:gravity="center"
-            android:text="暂无内容~"
+            android:text="@string/notmore"
             android:textColor="@color/text999"
             android:textSize="@dimen/x15" />
 

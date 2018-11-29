@@ -1,5 +1,6 @@
 package com.lingqiapp.Fragment;
 
+import android.app.Dialog;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
@@ -47,6 +48,7 @@ public class HomeFragment extends BaseLazyFragment {
     private SakuraLinearLayoutManager line;
     private HomeListAdapter adapter;
     private int page = 1;
+    private Dialog dialog;
 
     @Override
     protected void initPrepare() {
@@ -61,6 +63,8 @@ public class HomeFragment extends BaseLazyFragment {
     @Override
     protected void initData() {
         if (Utils.isConnected(context)) {
+            dialog = Utils.showLoadingDialog(context);
+            dialog.show();
             getData();
         } else {
             EasyToast.showShort(context, getResources().getString(R.string.Networkexception));
@@ -114,6 +118,7 @@ public class HomeFragment extends BaseLazyFragment {
             public void onMySuccess(String result) {
                 Log.e("HomeFragment", result);
                 try {
+                    dialog.dismiss();
                     HomeBean homeBean = new Gson().fromJson(result, HomeBean.class);
                     if (page == 1) {
                         adapter = new HomeListAdapter((MainActivity) getActivity(), homeBean);
@@ -132,12 +137,19 @@ public class HomeFragment extends BaseLazyFragment {
                     homeBean = null;
                     result = null;
                 } catch (Exception e) {
+                    dialog.dismiss();
+                    if (rv_homelist != null) {
+                        rv_homelist.loadMoreComplete();
+                        rv_homelist.loadMoreEnd();
+                        rv_homelist.setCanloadMore(false);
+                    }
                     e.printStackTrace();
                 }
             }
 
             @Override
             public void onMyError(VolleyError error) {
+                dialog.dismiss();
                 error.printStackTrace();
             }
         });

@@ -1,5 +1,6 @@
 package com.lingqiapp.Activity;
 
+import android.app.Dialog;
 import android.os.Bundle;
 import android.support.v7.widget.DefaultItemAnimator;
 import android.support.v7.widget.LinearLayoutManager;
@@ -24,6 +25,7 @@ import com.lingqiapp.R;
 import com.lingqiapp.Utils.EasyToast;
 import com.lingqiapp.Utils.SpUtil;
 import com.lingqiapp.Utils.UrlUtils;
+import com.lingqiapp.Utils.Utils;
 import com.lingqiapp.View.ProgressView;
 import com.lingqiapp.View.SakuraLinearLayoutManager;
 import com.lingqiapp.View.WenguoyiRecycleView;
@@ -63,6 +65,7 @@ public class ShopListActivity extends BaseActivity {
     FrameLayout flTop;
     private int p = 1;
     private SakuraLinearLayoutManager line;
+    private Dialog dialog;
 
     @Override
     protected int setthislayout() {
@@ -106,6 +109,15 @@ public class ShopListActivity extends BaseActivity {
 
     @Override
     protected void initData() {
+        dialog = Utils.showLoadingDialog(context);
+        String keyworld = getIntent().getStringExtra("keyworld");
+
+        if (!TextUtils.isEmpty(keyworld)) {
+            etSearch.setText(keyworld);
+            dialog.show();
+            getNewsList();
+        }
+
 
         etSearch.setOnEditorActionListener(new TextView.OnEditorActionListener() {
             @Override
@@ -115,9 +127,10 @@ public class ShopListActivity extends BaseActivity {
                     //点击搜索要做的操作
                     String trim = etSearch.getText().toString().trim();
                     if (TextUtils.isEmpty(trim)) {
-                        EasyToast.showShort(context,  getString(R.string.Please_enter_keywords));
+                        EasyToast.showShort(context, getString(R.string.Please_enter_keywords));
                         return false;
                     }
+                    dialog.show();
                     getNewsList();
                 }
                 return false;
@@ -146,6 +159,7 @@ public class ShopListActivity extends BaseActivity {
             public void onMySuccess(String result) {
                 String decode = result;
                 try {
+                    dialog.dismiss();
                     Log.e("NewsListFragment", decode.toString());
                     GoodsSouBean newsSearchBean = new Gson().fromJson(decode, GoodsSouBean.class);
                     if ("1".equals(String.valueOf(newsSearchBean.getStatus()))) {
@@ -180,12 +194,14 @@ public class ShopListActivity extends BaseActivity {
                     newsSearchBean = null;
                     decode = null;
                 } catch (Exception e) {
+                    dialog.dismiss();
                     e.printStackTrace();
                 }
             }
 
             @Override
             public void onMyError(VolleyError error) {
+                dialog.dismiss();
                 error.printStackTrace();
             }
         });

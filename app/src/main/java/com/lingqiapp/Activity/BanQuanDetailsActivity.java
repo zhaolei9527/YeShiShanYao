@@ -105,7 +105,9 @@ public class BanQuanDetailsActivity extends BaseActivity {
 
             }
         });
-        forumContext.loadUrl(UrlUtils.BASE_URL + "danye/banquan?id=3");
+
+        forumContext.loadUrl(UrlUtils.BASE_URL + "danye/banquan?ltype="+App.LanguageTYPE);
+
     }
 
     @Override
