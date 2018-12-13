@@ -237,7 +237,7 @@ public class PayActivity extends BaseActivity implements View.OnClickListener {
         params.put("oid", orderid);
         params.put("uid", String.valueOf(SpUtil.get(context, "uid", "")));
         Log.e("orderWxpay", params.toString());
-        VolleyRequest.RequestPost(context, UrlUtils.BASE_URL + "order/visa", "order/visa", params, new VolleyInterface(context) {
+        VolleyRequest.RequestPost(context, UrlUtils.BASE_URL + "order/visa"+ App.LanguageTYPEHTTP, "order/visa", params, new VolleyInterface(context) {
             private Intent intent;
             @Override
             public void onMySuccess(String result) {
@@ -292,7 +292,7 @@ public class PayActivity extends BaseActivity implements View.OnClickListener {
         params.put("uid", String.valueOf(SpUtil.get(context, "uid", "")));
         params.put("oid", oid);
         Log.e("OrderActivity", params.toString());
-        VolleyRequest.RequestPost(context, UrlUtils.BASE_URL + "order/pay_yue", "order/pay_yue", params, new VolleyInterface(context) {
+        VolleyRequest.RequestPost(context, UrlUtils.BASE_URL + "order/pay_yue"+ App.LanguageTYPEHTTP, "order/pay_yue", params, new VolleyInterface(context) {
             @Override
             public void onMySuccess(String result) {
                 dialog.dismiss();

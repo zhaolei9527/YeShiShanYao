@@ -20,6 +20,7 @@ import android.widget.Toast;
 
 import com.android.volley.VolleyError;
 import com.google.gson.Gson;
+import com.lingqiapp.App;
 import com.lingqiapp.Bean.CodeBean;
 import com.lingqiapp.R;
 import com.lingqiapp.Utils.SpUtil;
@@ -188,7 +189,7 @@ public class ChangePasswordActivity extends AppCompatActivity implements View.On
         HashMap<String, String> params = new HashMap<>(2);
         params.put("tel", phone);
         params.put("type", "4");
-        VolleyRequest.RequestPost(context, UrlUtils.BASE_URL + "login/tel", "login/tel", params, new VolleyInterface(context) {
+        VolleyRequest.RequestPost(context, UrlUtils.BASE_URL + "login/tel"+ App.LanguageTYPEHTTP, "login/tel", params, new VolleyInterface(context) {
             @Override
             public void onMySuccess(String result) {
                 String decode = result;
@@ -269,7 +270,7 @@ public class ChangePasswordActivity extends AppCompatActivity implements View.On
         params.put("code", code);
         params.put("password", password);
         params.put("fpassword", password);
-        VolleyRequest.RequestPost(context, UrlUtils.BASE_URL + "about/sav_pwd", "about/sav_pwd", params, new VolleyInterface(context) {
+        VolleyRequest.RequestPost(context, UrlUtils.BASE_URL + "about/sav_pwd"+ App.LanguageTYPEHTTP, "about/sav_pwd", params, new VolleyInterface(context) {
             @Override
             public void onMySuccess(String result) {
                 dialog.dismiss();

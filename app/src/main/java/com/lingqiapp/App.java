@@ -33,7 +33,8 @@ public class App extends MultiDexApplication {
     public static RequestQueue queues;
     public static PausableThreadPoolExecutor pausableThreadPoolExecutor;
 
-    public static String LanguageTYPE = "1";
+    public static String LanguageTYPE = "3";
+    public static String LanguageTYPEHTTP = "?l=zh-cn";
 
 
     public static Context context;
@@ -53,7 +54,7 @@ public class App extends MultiDexApplication {
         MobSDK.init(this);
         QbSdk.initX5Environment(this, null);
         MultiDex.install(this);
-        Bugly.init(getApplicationContext(), "b9e3fb47cb", false);
+        Bugly.init(getApplicationContext(), "072525014e", false);
         queues = Volley.newRequestQueue(getApplicationContext());
         Fresco.initialize(this);
         pausableThreadPoolExecutor = new PausableThreadPoolExecutor(1, 1, 0L, TimeUnit.SECONDS, new PriorityBlockingQueue<Runnable>());

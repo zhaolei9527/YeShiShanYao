@@ -199,8 +199,6 @@ public class OrderActivity extends BaseActivity implements View.OnClickListener 
                 tvName.setText(goodsOrderBean.getDizhi().getName());
                 tvDizhi.setVisibility(View.VISIBLE);
                 StringBuilder stringBuilder = new StringBuilder();
-                stringBuilder.append(goodsOrderBean.getDizhi().getProvince());
-                stringBuilder.append(goodsOrderBean.getDizhi().getCity());
                 stringBuilder.append(goodsOrderBean.getDizhi().getCountry());
                 stringBuilder.append(goodsOrderBean.getDizhi().getAddress());
                 tvDizhi.setText(stringBuilder.toString());
@@ -265,8 +263,6 @@ public class OrderActivity extends BaseActivity implements View.OnClickListener 
                 tvName.setText(orderOrderBean.getAddress().getName());
                 tvDizhi.setVisibility(View.VISIBLE);
                 StringBuilder stringBuilder = new StringBuilder();
-                stringBuilder.append(orderOrderBean.getAddress().getProvince());
-                stringBuilder.append(orderOrderBean.getAddress().getCity());
                 stringBuilder.append(orderOrderBean.getAddress().getCountry());
                 stringBuilder.append(orderOrderBean.getAddress().getAddress());
                 tvDizhi.setText(stringBuilder.toString());
@@ -337,7 +333,7 @@ public class OrderActivity extends BaseActivity implements View.OnClickListener 
         params.put("aid", addressID);
         params.put("number", "" + num);
         Log.e("OrderActivity", params.toString());
-        VolleyRequest.RequestPost(context, UrlUtils.BASE_URL + "order/tj_order", "order/tj_order", params, new VolleyInterface(context) {
+        VolleyRequest.RequestPost(context, UrlUtils.BASE_URL + "order/tj_order"+ App.LanguageTYPEHTTP, "order/tj_order", params, new VolleyInterface(context) {
             @Override
             public void onMySuccess(String result) {
                 dialog.dismiss();
@@ -446,7 +442,7 @@ public class OrderActivity extends BaseActivity implements View.OnClickListener 
             params.put("type", "200");
         }
         Log.e("OrderActivity--yue", params.toString());
-        VolleyRequest.RequestPost(context, UrlUtils.BASE_URL + "order/pay_yue", "order/pay_yue", params, new VolleyInterface(context) {
+        VolleyRequest.RequestPost(context, UrlUtils.BASE_URL + "order/pay_yue"+ App.LanguageTYPEHTTP, "order/pay_yue", params, new VolleyInterface(context) {
             @Override
             public void onMySuccess(String result) {
                 dialog.dismiss();
@@ -490,7 +486,7 @@ public class OrderActivity extends BaseActivity implements View.OnClickListener 
         params.put("uid", String.valueOf(SpUtil.get(context, "uid", "")));
         params.put("oid", oid);
         Log.e("OrderActivity--wx", params.toString());
-        VolleyRequest.RequestPost(context, UrlUtils.BASE_URL + "order/visa", "order/visa", params, new VolleyInterface(context) {
+        VolleyRequest.RequestPost(context, UrlUtils.BASE_URL + "order/visa"+ App.LanguageTYPEHTTP, "order/visa", params, new VolleyInterface(context) {
 
             private Intent intent;
 

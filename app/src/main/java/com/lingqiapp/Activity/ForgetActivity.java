@@ -19,6 +19,7 @@ import android.widget.Toast;
 
 import com.android.volley.VolleyError;
 import com.google.gson.Gson;
+import com.lingqiapp.App;
 import com.lingqiapp.Bean.CodeBean;
 import com.lingqiapp.R;
 import com.lingqiapp.Utils.UrlUtils;
@@ -187,7 +188,7 @@ public class ForgetActivity extends AppCompatActivity implements View.OnClickLis
         HashMap<String, String> params = new HashMap<>(2);
         params.put("email", phone);
         params.put("type", "2");
-        VolleyRequest.RequestPost(context, UrlUtils.BASE_URL + "login/mail", "login/mail", params, new VolleyInterface(context) {
+        VolleyRequest.RequestPost(context, UrlUtils.BASE_URL + "login/mail"+ App.LanguageTYPEHTTP, "login/mail", params, new VolleyInterface(context) {
             @Override
             public void onMySuccess(String result) {
                 String decode = result;
@@ -267,7 +268,7 @@ public class ForgetActivity extends AppCompatActivity implements View.OnClickLis
         params.put("code", code);
         params.put("password", password);
         params.put("fpassword", password);
-        VolleyRequest.RequestPost(context, UrlUtils.BASE_URL + "login/forget", "login/forget", params, new VolleyInterface(context) {
+        VolleyRequest.RequestPost(context, UrlUtils.BASE_URL + "login/forget"+ App.LanguageTYPEHTTP, "login/forget", params, new VolleyInterface(context) {
             @Override
             public void onMySuccess(String result) {
                 dialog.dismiss();

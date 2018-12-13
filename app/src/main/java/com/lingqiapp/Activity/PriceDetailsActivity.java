@@ -21,6 +21,7 @@ import com.google.gson.Gson;
 import com.jude.rollviewpager.OnItemClickListener;
 import com.jude.rollviewpager.hintview.IconHintView;
 import com.lingqiapp.Adapter.GoodsLoopAdapter;
+import com.lingqiapp.App;
 import com.lingqiapp.Base.BaseActivity;
 import com.lingqiapp.Bean.GoodsCangBean;
 import com.lingqiapp.Bean.GoodsDetailBean;
@@ -343,7 +344,7 @@ public class PriceDetailsActivity extends BaseActivity implements View.OnClickLi
         params.put("uid", String.valueOf(SpUtil.get(context, "uid", "")));
         params.put("gid", String.valueOf(getIntent().getStringExtra("id")));
         Log.e("PriceDetailsActivity", params.toString());
-        VolleyRequest.RequestPost(context, UrlUtils.BASE_URL + "goods/goods_order", "goods/goods_order", params, new VolleyInterface(context) {
+        VolleyRequest.RequestPost(context, UrlUtils.BASE_URL + "goods/goods_order"+ App.LanguageTYPEHTTP, "goods/goods_order", params, new VolleyInterface(context) {
             @Override
             public void onMySuccess(String result) {
                 Log.e("PriceDetailsActivity", result);
@@ -383,7 +384,7 @@ public class PriceDetailsActivity extends BaseActivity implements View.OnClickLi
         HashMap<String, String> params = new HashMap<>(1);
         params.put("gid", String.valueOf(getIntent().getStringExtra("id")));
         params.put("uid", String.valueOf(SpUtil.get(context, "uid", "")));
-        VolleyRequest.RequestPost(context, UrlUtils.BASE_URL + "goods/detail", "goods/detail", params, new VolleyInterface(context) {
+        VolleyRequest.RequestPost(context, UrlUtils.BASE_URL + "goods/detail"+ App.LanguageTYPEHTTP, "goods/detail", params, new VolleyInterface(context) {
             @Override
             public void onMySuccess(String result) {
                 Log.e("RegisterActivity", result);
@@ -508,7 +509,7 @@ public class PriceDetailsActivity extends BaseActivity implements View.OnClickLi
         HashMap<String, String> params = new HashMap<>(1);
         params.put("gid", String.valueOf(getIntent().getStringExtra("id")));
         params.put("uid", String.valueOf(SpUtil.get(context, "uid", "")));
-        VolleyRequest.RequestPost(context, UrlUtils.BASE_URL + "goods/cang", "goods/cang", params, new VolleyInterface(context) {
+        VolleyRequest.RequestPost(context, UrlUtils.BASE_URL + "goods/cang"+ App.LanguageTYPEHTTP, "goods/cang", params, new VolleyInterface(context) {
             @Override
             public void onMySuccess(String result) {
                 Log.e("RegisterActivitycang", result);
@@ -546,7 +547,7 @@ public class PriceDetailsActivity extends BaseActivity implements View.OnClickLi
         params.put("gid", String.valueOf(getIntent().getStringExtra("id")));
         params.put("uid", String.valueOf(SpUtil.get(context, "uid", "")));
         Log.e("PriceDetailsActivity", params.toString());
-        VolleyRequest.RequestPost(context, UrlUtils.BASE_URL + "goods/nocang", "goods/nocang", params, new VolleyInterface(context) {
+        VolleyRequest.RequestPost(context, UrlUtils.BASE_URL + "goods/nocang"+ App.LanguageTYPEHTTP, "goods/nocang", params, new VolleyInterface(context) {
             @Override
             public void onMySuccess(String result) {
                 Log.e("RegisterActivitynocang", result);
@@ -584,7 +585,7 @@ public class PriceDetailsActivity extends BaseActivity implements View.OnClickLi
         params.put("gid", String.valueOf(getIntent().getStringExtra("id")));
         params.put("uid", String.valueOf(SpUtil.get(context, "uid", "")));
         params.put("goods_num", btnShuliang.getText().toString());
-        VolleyRequest.RequestPost(context, UrlUtils.BASE_URL + "goods/good_cart", "goods/good_cart", params, new VolleyInterface(context) {
+        VolleyRequest.RequestPost(context, UrlUtils.BASE_URL + "goods/good_cart"+ App.LanguageTYPEHTTP, "goods/good_cart", params, new VolleyInterface(context) {
             @Override
             public void onMySuccess(String result) {
                 dialog.dismiss();

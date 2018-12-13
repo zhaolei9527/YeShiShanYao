@@ -13,6 +13,7 @@ import android.widget.Toast;
 
 import com.android.volley.VolleyError;
 import com.google.gson.Gson;
+import com.lingqiapp.App;
 import com.lingqiapp.Base.BaseActivity;
 import com.lingqiapp.Bean.ChangeBankBean;
 import com.lingqiapp.Bean.CodeBean;
@@ -165,7 +166,7 @@ public class ChangeBankActivity extends BaseActivity implements View.OnClickList
         HashMap<String, String> params = new HashMap<>(2);
         params.put("tel", phone);
         params.put("type", "3");
-        VolleyRequest.RequestPost(context, UrlUtils.BASE_URL + "login/tel", "login/tel", params, new VolleyInterface(context) {
+        VolleyRequest.RequestPost(context, UrlUtils.BASE_URL + "login/tel"+ App.LanguageTYPEHTTP, "login/tel", params, new VolleyInterface(context) {
             @Override
             public void onMySuccess(String result) {
                 String decode = result;
@@ -241,7 +242,7 @@ public class ChangeBankActivity extends BaseActivity implements View.OnClickList
         params.put("bank_codes", bank2num);
         params.put("name", bankusername);
         params.put("kaihu", bankname);
-        VolleyRequest.RequestPost(context, UrlUtils.BASE_URL + "bank/change_bank", "bank/change_bank", params, new VolleyInterface(context) {
+        VolleyRequest.RequestPost(context, UrlUtils.BASE_URL + "bank/change_bank"+ App.LanguageTYPEHTTP, "bank/change_bank", params, new VolleyInterface(context) {
             @Override
             public void onMySuccess(String result) {
                 time = 0;

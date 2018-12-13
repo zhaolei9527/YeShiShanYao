@@ -38,15 +38,13 @@ public class LoopAdapter extends LoopPagerAdapter {
         View inflate = View.inflate(container.getContext(), R.layout.layout_img, null);
         SimpleDraweeView SimpleDraweeView = (com.facebook.drawee.view.SimpleDraweeView) inflate.findViewById(R.id.SimpleDraweeView);
         try {
-
             if (lbdatas.get(position).getImg().toString().contains("com")) {
+                Log.e("LoopAdaptercom--", UrlUtils.URL + lbdatas.get(position).getImg());
                 SimpleDraweeView.setImageURI("" + lbdatas.get(position).getImg());
             } else {
+                Log.e("LoopAdapter--", UrlUtils.URL + lbdatas.get(position).getImg());
                 SimpleDraweeView.setImageURI("" + UrlUtils.URL + lbdatas.get(position).getImg());
             }
-
-            Log.e("LoopAdapter", UrlUtils.URL + lbdatas.get(position).getImg());
-            //SimpleDraweeView.setImageURI("https://ss3.baidu.com/-fo3dSag_xI4khGko9WTAnF6hhy/image/h%3D300/sign=06023fafd82a28345ca6300b6bb4c92e/e61190ef76c6a7efa8408794f1faaf51f3de6619.jpg");
         } catch (Exception e) {
             e.printStackTrace();
         }

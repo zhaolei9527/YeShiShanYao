@@ -219,7 +219,7 @@ public class MyOrderDetailsActivity extends BaseActivity implements View.OnClick
         params.put("uid", String.valueOf(SpUtil.get(context, "uid", "")));
         params.put("id", orderid);
         Log.e("MyOrderDetailsActivity", params.toString());
-        VolleyRequest.RequestPost(context, UrlUtils.BASE_URL + "order/detail", "order/detail", params, new VolleyInterface(context) {
+        VolleyRequest.RequestPost(context, UrlUtils.BASE_URL + "order/detail"+ App.LanguageTYPEHTTP, "order/detail", params, new VolleyInterface(context) {
             @Override
             public void onMySuccess(String result) {
                 dialog.dismiss();

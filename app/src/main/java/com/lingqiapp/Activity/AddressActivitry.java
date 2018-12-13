@@ -107,7 +107,7 @@ public class AddressActivitry extends BaseActivity implements View.OnClickListen
     private void addressIndex() {
         HashMap<String, String> params = new HashMap<>(2);
         params.put("uid", String.valueOf(SpUtil.get(context, "uid", "")));
-        VolleyRequest.RequestPost(context, UrlUtils.BASE_URL + "address/index", "address/index", params, new VolleyInterface(context) {
+        VolleyRequest.RequestPost(context, UrlUtils.BASE_URL + "address/index"+ App.LanguageTYPEHTTP, "address/index", params, new VolleyInterface(context) {
             @Override
             public void onMySuccess(String result) {
                 Log.e("RegisterActivity", result);
@@ -126,8 +126,6 @@ public class AddressActivitry extends BaseActivity implements View.OnClickListen
                             tv_phone.setText(addressIndexBean.getList().get(i).getTel());
                             tv_address = (TextView) item_address.findViewById(R.id.tv_address);
                             StringBuilder stringAddress = new StringBuilder();
-                            stringAddress.append(addressIndexBean.getList().get(i).getProvince());
-                            stringAddress.append(addressIndexBean.getList().get(i).getCity());
                             stringAddress.append(addressIndexBean.getList().get(i).getCountry());
                             stringAddress.append(addressIndexBean.getList().get(i).getAddress());
                             tv_address.setText(stringAddress.toString());
@@ -250,7 +248,7 @@ public class AddressActivitry extends BaseActivity implements View.OnClickListen
         params.put("key", UrlUtils.KEY);
         params.put("id", id);
         params.put("uid", String.valueOf(SpUtil.get(context, "uid", "")));
-        VolleyRequest.RequestPost(context, UrlUtils.BASE_URL + "address/del", "address/del", params, new VolleyInterface(context) {
+        VolleyRequest.RequestPost(context, UrlUtils.BASE_URL + "address/del"+ App.LanguageTYPEHTTP, "address/del", params, new VolleyInterface(context) {
             @Override
             public void onMySuccess(String result) {
                 Log.e("addressDel", result);
@@ -286,7 +284,7 @@ public class AddressActivitry extends BaseActivity implements View.OnClickListen
         params.put("key", UrlUtils.KEY);
         params.put("id", id);
         params.put("uid", String.valueOf(SpUtil.get(context, "uid", "")));
-        VolleyRequest.RequestPost(context, UrlUtils.BASE_URL + "address/qie", "address/qie", params, new VolleyInterface(context) {
+        VolleyRequest.RequestPost(context, UrlUtils.BASE_URL + "address/qie"+ App.LanguageTYPEHTTP, "address/qie", params, new VolleyInterface(context) {
             @Override
             public void onMySuccess(String result) {
                 dialog.dismiss();

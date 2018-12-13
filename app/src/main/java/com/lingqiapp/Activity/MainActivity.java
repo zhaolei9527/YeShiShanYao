@@ -16,6 +16,7 @@ import android.widget.Toast;
 import com.android.volley.VolleyError;
 import com.bigkoo.pickerview.TimePickerView;
 import com.google.gson.Gson;
+import com.lingqiapp.App;
 import com.lingqiapp.Base.BaseActivity;
 import com.lingqiapp.Bean.LoginBean;
 import com.lingqiapp.Fragment.CartFragment;
@@ -181,7 +182,7 @@ public class MainActivity extends BaseActivity {
             params.put("openid", openid);
         }
         Log.e("LoginActivity", "params:" + params);
-        VolleyRequest.RequestPost(context, UrlUtils.BASE_URL + "login/dologin", "login/dologin", params, new VolleyInterface(context) {
+        VolleyRequest.RequestPost(context, UrlUtils.BASE_URL + "login/dologin"+ App.LanguageTYPEHTTP, "login/dologin", params, new VolleyInterface(context) {
             @Override
             public void onMySuccess(String result) {
                 String decode = result;

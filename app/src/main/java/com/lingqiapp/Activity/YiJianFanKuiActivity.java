@@ -12,6 +12,7 @@ import android.widget.TextView;
 
 import com.android.volley.VolleyError;
 import com.google.gson.Gson;
+import com.lingqiapp.App;
 import com.lingqiapp.Base.BaseActivity;
 import com.lingqiapp.Bean.CodeBean;
 import com.lingqiapp.R;
@@ -105,7 +106,7 @@ public class YiJianFanKuiActivity extends BaseActivity {
         params.put("uid", String.valueOf(SpUtil.get(context, "uid", "")));
         params.put("title", etTitle.getText().toString().trim());
         params.put("f_content", etContent.getText().toString().trim());
-        VolleyRequest.RequestPost(context, UrlUtils.BASE_URL + "about/feedback", "about/feedback", params, new VolleyInterface(context) {
+        VolleyRequest.RequestPost(context, UrlUtils.BASE_URL + "about/feedback"+ App.LanguageTYPEHTTP, "about/feedback", params, new VolleyInterface(context) {
             @Override
             public void onMySuccess(String result) {
                 String decode = result;

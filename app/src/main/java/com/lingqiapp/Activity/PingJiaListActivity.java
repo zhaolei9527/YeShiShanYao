@@ -16,6 +16,7 @@ import android.widget.Toast;
 import com.android.volley.VolleyError;
 import com.google.gson.Gson;
 import com.lingqiapp.Adapter.PingJiaListAdapter;
+import com.lingqiapp.App;
 import com.lingqiapp.Base.BaseActivity;
 import com.lingqiapp.Bean.GoodsPingBean;
 import com.lingqiapp.R;
@@ -215,7 +216,7 @@ public class PingJiaListActivity extends BaseActivity {
         params.put("uid", String.valueOf(SpUtil.get(context, "uid", "")));
         params.put("star", star);
         Log.e("NewsListFragment", "params:" + params);
-        VolleyRequest.RequestPost(context, UrlUtils.BASE_URL + "goods/goods_ping", "goods/goods_ping", params, new VolleyInterface(context) {
+        VolleyRequest.RequestPost(context, UrlUtils.BASE_URL + "goods/goods_ping"+ App.LanguageTYPEHTTP, "goods/goods_ping", params, new VolleyInterface(context) {
             @Override
             public void onMySuccess(String result) {
                 String decode = result;

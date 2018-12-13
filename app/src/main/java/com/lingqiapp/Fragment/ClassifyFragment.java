@@ -19,6 +19,7 @@ import com.google.gson.Gson;
 import com.lingqiapp.Activity.ShopListActivity;
 import com.lingqiapp.Adapter.ClassifyShopListAdapter;
 import com.lingqiapp.Adapter.ClassifyShopTypeListAdapter;
+import com.lingqiapp.App;
 import com.lingqiapp.Bean.GoodsCateBean;
 import com.lingqiapp.R;
 import com.lingqiapp.Utils.SpUtil;
@@ -151,7 +152,7 @@ public class ClassifyFragment extends BaseLazyFragment {
         HashMap<String, String> params = new HashMap<>(1);
         params.put("uid", String.valueOf(SpUtil.get(context, "uid", "0")));
         Log.e("ClassifyFragment", params.toString());
-        VolleyRequest.RequestPost(context, UrlUtils.BASE_URL + "goods/cate", "goods/cate", params, new VolleyInterface(context) {
+        VolleyRequest.RequestPost(context, UrlUtils.BASE_URL + "goods/cate"+ App.LanguageTYPEHTTP, "goods/cate", params, new VolleyInterface(context) {
             @Override
             public void onMySuccess(String result) {
                 Log.e("ClassifyFragment", result);

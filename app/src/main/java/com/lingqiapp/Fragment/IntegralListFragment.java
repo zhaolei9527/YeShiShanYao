@@ -18,6 +18,7 @@ import android.widget.Toast;
 import com.android.volley.VolleyError;
 import com.google.gson.Gson;
 import com.lingqiapp.Adapter.IntegralListAdapter;
+import com.lingqiapp.App;
 import com.lingqiapp.Bean.MingxiCaiwuBean;
 import com.lingqiapp.R;
 import com.lingqiapp.Utils.EasyToast;
@@ -60,7 +61,7 @@ public class IntegralListFragment extends Fragment {
         params.put("starttime", start);
         params.put("endtime", end);
         params.put("uid", String.valueOf(SpUtil.get(context, "uid", "")));
-        VolleyRequest.RequestPost(context, UrlUtils.BASE_URL + "about/caiwu", "about/caiwu", params, new VolleyInterface(context) {
+        VolleyRequest.RequestPost(context, UrlUtils.BASE_URL + "about/caiwu"+ App.LanguageTYPEHTTP, "about/caiwu", params, new VolleyInterface(context) {
             @Override
             public void onMySuccess(String result) {
                 dialog.dismiss();

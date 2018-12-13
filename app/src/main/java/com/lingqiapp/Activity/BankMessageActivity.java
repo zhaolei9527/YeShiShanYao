@@ -13,6 +13,7 @@ import android.widget.TextView;
 
 import com.android.volley.VolleyError;
 import com.google.gson.Gson;
+import com.lingqiapp.App;
 import com.lingqiapp.Base.BaseActivity;
 import com.lingqiapp.Bean.BankBean;
 import com.lingqiapp.R;
@@ -134,7 +135,7 @@ public class BankMessageActivity extends BaseActivity {
         HashMap<String, String> params = new HashMap<>(1);
         params.put("uid", String.valueOf(SpUtil.get(context, "uid", "")));
         Log.e("LoginActivity", params.toString());
-        VolleyRequest.RequestPost(context, UrlUtils.BASE_URL + "bank/index", "bank/index", params, new VolleyInterface(context) {
+        VolleyRequest.RequestPost(context, UrlUtils.BASE_URL + "bank/index" + App.LanguageTYPEHTTP, "bank/index", params, new VolleyInterface(context) {
             @Override
             public void onMySuccess(String result) {
                 String decode = result;
@@ -176,7 +177,7 @@ public class BankMessageActivity extends BaseActivity {
         params.put("uid", String.valueOf(SpUtil.get(context, "uid", "")));
         params.put("id", bankBean.getRes().getId());
         Log.e("LoginActivity", params.toString());
-        VolleyRequest.RequestPost(context, UrlUtils.BASE_URL + "bank/delete_bank", "bank/delete_bank", params, new VolleyInterface(context) {
+        VolleyRequest.RequestPost(context, UrlUtils.BASE_URL + "bank/delete_bank" + App.LanguageTYPEHTTP, "bank/delete_bank", params, new VolleyInterface(context) {
             @Override
             public void onMySuccess(String result) {
                 String decode = result;

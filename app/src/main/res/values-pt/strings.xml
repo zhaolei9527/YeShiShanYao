@@ -59,7 +59,7 @@
 	<string name="Please_enter_keywords">Por favor, digite o que está à procura</string>
 	<string name="number_of">Quantidade ×</string>
 	<string name="total_of">Total de </string>
-	<string name="items">Itens：</string>
+	<string name="items">Itens</string>
 	<string name="Abnormal_orders">Ordem de exceção</string>
 	<string name="receiving_address">Preencha com o endereço de envio</string>
 	<string name="select_payment">Por favor, selecione um método de pagamento~</string>

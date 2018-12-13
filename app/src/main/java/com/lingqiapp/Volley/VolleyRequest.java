@@ -36,6 +36,9 @@ public class VolleyRequest {
         request = new StringRequest(Request.Method.GET, url, vif.loadingListener(), vif.errorListener());
         //tag设置
         request.setTag(tag);
+
+
+
         //网络状态检测
         if (Utils.isConnected(context)) {
             App.getQueues().add(request);

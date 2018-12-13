@@ -20,6 +20,7 @@ import com.android.volley.VolleyError;
 import com.google.gson.Gson;
 import com.lingqiapp.Activity.MyOrderDetailsActivity;
 import com.lingqiapp.Adapter.MyOrderAdapter;
+import com.lingqiapp.App;
 import com.lingqiapp.Bean.OrderListsBean;
 import com.lingqiapp.R;
 import com.lingqiapp.Utils.EasyToast;
@@ -126,7 +127,7 @@ public class OrderContentFrameLayout extends LinearLayout {
         params.put("status", stu);
         params.put("page", String.valueOf(p));
         Log.e("OrderContentFrameLayout", params.toString());
-        VolleyRequest.RequestPost(context, UrlUtils.BASE_URL + "order/index", "order/index", params, new VolleyInterface(context) {
+        VolleyRequest.RequestPost(context, UrlUtils.BASE_URL + "order/index"+ App.LanguageTYPEHTTP, "order/index", params, new VolleyInterface(context) {
             @Override
             public void onMySuccess(String result) {
                 Log.e("OrderContentFrameLayout" + stu, result);

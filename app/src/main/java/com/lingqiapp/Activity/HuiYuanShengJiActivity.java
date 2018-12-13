@@ -12,6 +12,7 @@ import android.widget.Toast;
 
 import com.android.volley.VolleyError;
 import com.google.gson.Gson;
+import com.lingqiapp.App;
 import com.lingqiapp.Base.BaseActivity;
 import com.lingqiapp.Bean.HuiYuanBean;
 import com.lingqiapp.Bean.OrderWxpayBean;
@@ -143,7 +144,7 @@ public class HuiYuanShengJiActivity extends BaseActivity {
         HashMap<String, String> params = new HashMap<>(1);
         params.put("uid", String.valueOf(SpUtil.get(context, "uid", "")));
         params.put("hid", hid);
-        VolleyRequest.RequestPost(context, UrlUtils.BASE_URL + "about/kaitong", "about/kaitong", params, new VolleyInterface(context) {
+        VolleyRequest.RequestPost(context, UrlUtils.BASE_URL + "about/kaitong"+ App.LanguageTYPEHTTP, "about/kaitong", params, new VolleyInterface(context) {
             @Override
             public void onMySuccess(String result) {
                 Log.e("RegisterActivity", result);
@@ -185,7 +186,7 @@ public class HuiYuanShengJiActivity extends BaseActivity {
     private void aboutHuiYuan() {
         HashMap<String, String> params = new HashMap<>(1);
         params.put("uid", String.valueOf(SpUtil.get(context, "uid", "")));
-        VolleyRequest.RequestPost(context, UrlUtils.BASE_URL + "about/huiyuan", "about/huiyuan", params, new VolleyInterface(context) {
+        VolleyRequest.RequestPost(context, UrlUtils.BASE_URL + "about/huiyuan"+ App.LanguageTYPEHTTP, "about/huiyuan", params, new VolleyInterface(context) {
             @Override
             public void onMySuccess(String result) {
                 Log.e("RegisterActivity", result);

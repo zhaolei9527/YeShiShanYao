@@ -21,7 +21,9 @@
         android:layout_height="@dimen/y22"
         android:layout_gravity="center"
         android:layout_margin="@dimen/x5"
+        android:ellipsize="end"
         android:gravity="center"
+        android:maxLines="1"
         android:text="产品分类"
         android:textColor="@color/white"
         android:textSize="@dimen/x13" />

@@ -40,9 +40,9 @@
 	<string name="Binding_to_log_in">Bind login</string>
 	<string name="binding_login">Please enter the account password to complete the account binding login</string>
 	<string name="home">Home</string>
-	<string name="fenlei">classification</string>
-	<string name="recommen">Recommended by people</string>
-	<string name="Personal_center">Personal center</string>
+	<string name="fenlei">classify</string>
+	<string name="recommen">Recommended</string>
+	<string name="Personal_center">Me</string>
 	<string name="Please_login_first">please log in first</string>
 	<string name="Login_failed_login">Login is invalid, please log in again</string>
 	<string name="Save_success">Successfully saved</string>
@@ -60,7 +60,7 @@
 	<string name="Please_enter_keywords">Please enter key words</string>
 	<string name="number_of">Quantity ×</string>
 	<string name="total_of">Total</string>
-	<string name="items">Items：</string>
+	<string name="items">Items</string>
 	<string name="Abnormal_orders">Order exception</string>
 	<string name="receiving_address">Please fill in the shipping address</string>
 	<string name="select_payment">Please select the payment method~</string>
@@ -210,7 +210,7 @@
 	<string name="enter">Please fill out</string>
 	<string name="content">content：</string>
 	<string name="comments_on_the_platform">Please describe your issue or suggestions and comments on the platform</string>
-	<string name="shopping_cart">shopping cart</string>
+	<string name="shopping_cart">cart</string>
 	<string name="Recommendation_details">Daren recommendation details</string>
 	<string name="Modify_user_name">Modify username</string>
 	<string name="enter_new_user">Please enter a new username</string>

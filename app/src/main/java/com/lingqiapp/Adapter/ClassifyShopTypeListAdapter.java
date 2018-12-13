@@ -70,11 +70,12 @@ public class ClassifyShopTypeListAdapter extends RecyclerView.Adapter<ClassifySh
 
         if (position == ischeck) {
             holder.tvShoptypeBg.setVisibility(View.VISIBLE);
-            holder.tvShoptype.setTextColor(mContext.getColor(R.color.white));
+            holder.tvShoptype.setTextColor(mContext.getResources().getColor(R.color.white));
         } else {
             holder.tvShoptypeBg.setVisibility(View.GONE);
-            holder.tvShoptype.setTextColor(mContext.getColor(R.color.text666));
+            holder.tvShoptype.setTextColor(mContext.getResources().getColor(R.color.text666));
         }
+
 
     }
 

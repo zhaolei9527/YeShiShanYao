@@ -17,8 +17,10 @@ import android.widget.FrameLayout;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
+
 import com.android.volley.VolleyError;
 import com.google.gson.Gson;
+import com.lingqiapp.App;
 import com.lingqiapp.Bean.CodeBean;
 import com.lingqiapp.R;
 import com.lingqiapp.Utils.EasyToast;
@@ -27,9 +29,11 @@ import com.lingqiapp.Utils.Utils;
 import com.lingqiapp.Utils.Validator;
 import com.lingqiapp.Volley.VolleyInterface;
 import com.lingqiapp.Volley.VolleyRequest;
+
 import java.util.HashMap;
 import java.util.Timer;
 import java.util.TimerTask;
+
 import butterknife.BindView;
 import butterknife.ButterKnife;
 
@@ -193,7 +197,7 @@ public class RegisterActivity extends AppCompatActivity implements View.OnClickL
         HashMap<String, String> params = new HashMap<>(2);
         params.put("email", phone);
         params.put("type", "1");
-        VolleyRequest.RequestPost(context, UrlUtils.BASE_URL + "login/mail", "login/mail", params, new VolleyInterface(context) {
+        VolleyRequest.RequestPost(context, UrlUtils.BASE_URL + "login/mail"+ App.LanguageTYPEHTTP, "login/mail", params, new VolleyInterface(context) {
             @Override
             public void onMySuccess(String result) {
                 String decode = result;
@@ -276,7 +280,7 @@ public class RegisterActivity extends AppCompatActivity implements View.OnClickL
         params.put("password", password);
         params.put("fpassword", password);
         params.put("tel2", etTuijiangma.getText().toString());
-        VolleyRequest.RequestPost(context, UrlUtils.BASE_URL + "login/register", "login/register", params, new VolleyInterface(context) {
+        VolleyRequest.RequestPost(context, UrlUtils.BASE_URL + "login/register"+ App.LanguageTYPEHTTP, "login/register", params, new VolleyInterface(context) {
             @Override
             public void onMySuccess(String result) {
                 dialog.dismiss();

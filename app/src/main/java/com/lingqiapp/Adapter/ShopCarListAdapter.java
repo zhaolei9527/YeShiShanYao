@@ -17,6 +17,7 @@ import android.widget.Toast;
 
 import com.android.volley.VolleyError;
 import com.facebook.drawee.view.SimpleDraweeView;
+import com.lingqiapp.App;
 import com.lingqiapp.Bean.SuckleCartBean;
 import com.lingqiapp.R;
 import com.lingqiapp.Utils.EasyToast;
@@ -208,7 +209,7 @@ public class ShopCarListAdapter extends RecyclerView.Adapter<ShopCarListAdapter.
         HashMap<String, String> params = new HashMap<>(1);
         params.put("id", id);
         params.put("uid", String.valueOf(SpUtil.get(mContext, "uid", "")));
-        VolleyRequest.RequestPost(mContext, UrlUtils.BASE_URL + "cart/join_cart", "cart/join_cart", params, new VolleyInterface(mContext) {
+        VolleyRequest.RequestPost(mContext, UrlUtils.BASE_URL + "cart/join_cart"+ App.LanguageTYPEHTTP, "cart/join_cart", params, new VolleyInterface(mContext) {
             @Override
             public void onMySuccess(String result) {
                 Log.e("RegisterActivitycang", result);
@@ -253,7 +254,7 @@ public class ShopCarListAdapter extends RecyclerView.Adapter<ShopCarListAdapter.
         HashMap<String, String> params = new HashMap<>(1);
         params.put("id", id);
         params.put("uid", String.valueOf(SpUtil.get(mContext, "uid", "")));
-        VolleyRequest.RequestPost(mContext, UrlUtils.BASE_URL + "cart/reduce", "cart/reduce", params, new VolleyInterface(mContext) {
+        VolleyRequest.RequestPost(mContext, UrlUtils.BASE_URL + "cart/reduce"+ App.LanguageTYPEHTTP, "cart/reduce", params, new VolleyInterface(mContext) {
             @Override
             public void onMySuccess(String result) {
                 Log.e("RegisterActivitycang", result);
@@ -304,7 +305,7 @@ public class ShopCarListAdapter extends RecyclerView.Adapter<ShopCarListAdapter.
         HashMap<String, String> params = new HashMap<>(1);
         params.put("ids", id);
         params.put("uid", String.valueOf(SpUtil.get(mContext, "uid", "")));
-        VolleyRequest.RequestPost(mContext, UrlUtils.BASE_URL + "cart/del_car", "cart/del_car", params, new VolleyInterface(mContext) {
+        VolleyRequest.RequestPost(mContext, UrlUtils.BASE_URL + "cart/del_car"+ App.LanguageTYPEHTTP, "cart/del_car", params, new VolleyInterface(mContext) {
             @Override
             public void onMySuccess(String result) {
                 Log.e("RegisterActivitycang", result);

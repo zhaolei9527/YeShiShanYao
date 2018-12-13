@@ -99,7 +99,7 @@ public class LianXiWoMenActivity extends BaseActivity {
     private void getNews() {
         HashMap<String, String> params = new HashMap<>(1);
         params.put("uid", String.valueOf(SpUtil.get(context, "uid", "")));
-        VolleyRequest.RequestPost(context, UrlUtils.BASE_URL + "about/lianxi", "about/lianxi", params, new VolleyInterface(context) {
+        VolleyRequest.RequestPost(context, UrlUtils.BASE_URL + "about/lianxi"+ App.LanguageTYPEHTTP, "about/lianxi", params, new VolleyInterface(context) {
             @Override
             public void onMySuccess(String result) {
                 Log.e("NewsDetailsActivity", result);

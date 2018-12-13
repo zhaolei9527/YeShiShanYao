@@ -17,6 +17,7 @@ import com.android.volley.VolleyError;
 import com.facebook.drawee.view.SimpleDraweeView;
 import com.google.gson.Gson;
 import com.lingqiapp.Activity.PayActivity;
+import com.lingqiapp.App;
 import com.lingqiapp.Bean.CodeBean;
 import com.lingqiapp.Bean.OrderListsBean;
 import com.lingqiapp.R;
@@ -203,7 +204,7 @@ public class MyOrderAdapter extends RecyclerView.Adapter<MyOrderAdapter.ViewHold
         HashMap<String, String> params = new HashMap<>(3);
         params.put("uid", String.valueOf(SpUtil.get(mContext, "uid", "")));
         params.put("id", id);
-        VolleyRequest.RequestPost(mContext, UrlUtils.BASE_URL + "order/quxiao", "order/quxiao", params, new VolleyInterface(mContext) {
+        VolleyRequest.RequestPost(mContext, UrlUtils.BASE_URL + "order/quxiao"+ App.LanguageTYPEHTTP, "order/quxiao", params, new VolleyInterface(mContext) {
             @Override
             public void onMySuccess(String result) {
                 Log.e("RegisterActivity", result);
@@ -237,7 +238,7 @@ public class MyOrderAdapter extends RecyclerView.Adapter<MyOrderAdapter.ViewHold
         params.put("uid", String.valueOf(SpUtil.get(mContext, "uid", "")));
         params.put("id", id);
         Log.e("MyOrderAdapter", "params:" + params);
-        VolleyRequest.RequestPost(mContext, UrlUtils.BASE_URL + "order/queren", "order/queren", params, new VolleyInterface(mContext) {
+        VolleyRequest.RequestPost(mContext, UrlUtils.BASE_URL + "order/queren"+ App.LanguageTYPEHTTP, "order/queren", params, new VolleyInterface(mContext) {
             @Override
             public void onMySuccess(String result) {
                 Log.e("RegisterActivity", result);

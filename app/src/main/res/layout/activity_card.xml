@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:layout_margin="@dimen/x10">
@@ -91,7 +92,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="CardNumber"
-            android:text="4632310044572569" />
+            android:text="" />
     </LinearLayout>
 
     <LinearLayout
@@ -111,14 +112,14 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:hint="Month"
-            android:text="06" />
+            android:text="" />
 
         <EditText
             android:id="@+id/year"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:hint="Year"
-            android:text="25" />
+            android:text="" />
     </LinearLayout>
 
     <LinearLayout
@@ -138,7 +139,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="CVV"
-            android:text="457" />
+            android:text="" />
     </LinearLayout>
 
     <LinearLayout

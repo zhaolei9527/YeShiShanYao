@@ -11,6 +11,7 @@ import android.widget.TextView;
 import com.android.volley.VolleyError;
 import com.facebook.drawee.view.SimpleDraweeView;
 import com.google.gson.Gson;
+import com.lingqiapp.App;
 import com.lingqiapp.Base.BaseActivity;
 import com.lingqiapp.Bean.EwmBean;
 import com.lingqiapp.R;
@@ -87,7 +88,7 @@ public class MYTuiJianMaActivity extends BaseActivity {
     private void getEwm() {
         HashMap<String, String> params = new HashMap<>(2);
         params.put("uid", String.valueOf(SpUtil.get(context, "uid", "")));
-        VolleyRequest.RequestPost(context, UrlUtils.BASE_URL + "about/ewm", "about/ewm", params, new VolleyInterface(context) {
+        VolleyRequest.RequestPost(context, UrlUtils.BASE_URL + "about/ewm"+ App.LanguageTYPEHTTP, "about/ewm", params, new VolleyInterface(context) {
             @Override
             public void onMySuccess(String result) {
                 Log.e("RegisterActivity", result);

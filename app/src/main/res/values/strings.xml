@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">叶氏闪耀</string>
+    <string name="app_name">YeShiDu</string>
     <string name="loading">加载中......</string>
     <string name="requstPerminssions">权限申请</string>
     <string name="notmore">没有更多了</string>
@@ -60,7 +60,7 @@
     <string name="Please_enter_keywords">请输入关键字</string>
     <string name="number_of">数量 ×</string>
     <string name="total_of">共</string>
-    <string name="items">件商品：</string>
+    <string name="items">件商品</string>
     <string name="Abnormal_orders">订单异常</string>
     <string name="receiving_address">请填写收货地址</string>
     <string name="select_payment">请选择支付方式~</string>

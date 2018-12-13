@@ -16,6 +16,7 @@ import android.widget.Toast;
 import com.android.volley.VolleyError;
 import com.google.gson.Gson;
 import com.hss01248.frescopicker.FrescoIniter;
+import com.lingqiapp.App;
 import com.lingqiapp.Base.BaseActivity;
 import com.lingqiapp.Bean.AboutPersonalBean;
 import com.lingqiapp.Bean.TouXiangBean;
@@ -185,7 +186,7 @@ public class MyMessageActivity extends BaseActivity {
         final HashMap<String, String> params = new HashMap<>(2);
         params.put("uid", String.valueOf(SpUtil.get(context, "uid", "")));
         Log.e("MyMessageActivity", params.toString());
-        VolleyRequest.uploadMultipart(context, UrlUtils.BASE_URL + "about/touxiang", imgnames, imgs, params, new VolleyInterface(context) {
+        VolleyRequest.uploadMultipart(context, UrlUtils.BASE_URL + "about/touxiang"+ App.LanguageTYPEHTTP, imgnames, imgs, params, new VolleyInterface(context) {
             @Override
             public void onMySuccess(String result) {
                 Log.e("MyMessageActivity", result);
@@ -220,7 +221,7 @@ public class MyMessageActivity extends BaseActivity {
         HashMap<String, String> params = new HashMap<>(1);
         params.put("uid", String.valueOf(SpUtil.get(context, "uid", "")));
         params.put("name", tvNicheng.getText().toString());
-        VolleyRequest.RequestPost(context, UrlUtils.BASE_URL + "about/sav_name", "about/sav_name", params, new VolleyInterface(context) {
+        VolleyRequest.RequestPost(context, UrlUtils.BASE_URL + "about/sav_name"+ App.LanguageTYPEHTTP, "about/sav_name", params, new VolleyInterface(context) {
             @Override
             public void onMySuccess(String result) {
                 Log.e("RegisterActivity", result);
@@ -259,7 +260,7 @@ public class MyMessageActivity extends BaseActivity {
     private void getEwm() {
         HashMap<String, String> params = new HashMap<>(2);
         params.put("uid", String.valueOf(SpUtil.get(context, "uid", "")));
-        VolleyRequest.RequestPost(context, UrlUtils.BASE_URL + "about/personal", "about/personal", params, new VolleyInterface(context) {
+        VolleyRequest.RequestPost(context, UrlUtils.BASE_URL + "about/personal"+ App.LanguageTYPEHTTP, "about/personal", params, new VolleyInterface(context) {
             @Override
             public void onMySuccess(String result) {
                 Log.e("RegisterActivity", result);

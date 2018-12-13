@@ -107,7 +107,7 @@ public class NewsFragment extends BaseLazyFragment {
         params.put("cid", ncid);
         params.put("uid", String.valueOf(SpUtil.get(context, "uid", "")));
         Log.e("NewsFragment", params.toString());
-        VolleyRequest.RequestPost(getActivity(), UrlUtils.BASE_URL + "news/index", "news/index", params, new VolleyInterface(getActivity()) {
+        VolleyRequest.RequestPost(getActivity(), UrlUtils.BASE_URL + "news/index"+ App.LanguageTYPEHTTP, "news/index", params, new VolleyInterface(getActivity()) {
             @Override
             public void onMySuccess(String result) {
                 String decode = result;

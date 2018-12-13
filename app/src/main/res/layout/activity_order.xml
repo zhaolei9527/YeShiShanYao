@@ -183,7 +183,7 @@
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="@dimen/x12"
                     android:layout_weight="1"
-                    android:text="微信支付"
+                    android:text="VISA 支付"
                     android:textColor="@color/text333"
                     android:textSize="@dimen/x15" />
 

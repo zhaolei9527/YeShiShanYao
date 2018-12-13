@@ -21,6 +21,7 @@ import android.widget.TextView;
 import com.android.volley.VolleyError;
 import com.google.gson.Gson;
 import com.lingqiapp.Adapter.ShouCangListAdapter;
+import com.lingqiapp.App;
 import com.lingqiapp.Base.BaseActivity;
 import com.lingqiapp.Bean.ShouCangBean;
 import com.lingqiapp.R;
@@ -192,7 +193,7 @@ public class MyShouCangAcitivity extends BaseActivity {
         params.put("page", String.valueOf(p));
         params.put("uid", String.valueOf(SpUtil.get(context, "uid", "")));
         Log.e("ShopCarActivity", params.toString());
-        VolleyRequest.RequestPost(context, UrlUtils.BASE_URL + "about/shoucang", "about/shoucang", params, new VolleyInterface(context) {
+        VolleyRequest.RequestPost(context, UrlUtils.BASE_URL + "about/shoucang"+ App.LanguageTYPEHTTP, "about/shoucang", params, new VolleyInterface(context) {
             @Override
             public void onMySuccess(String result) {
                 Log.e("ShopCarActivity", result);
@@ -249,7 +250,7 @@ public class MyShouCangAcitivity extends BaseActivity {
         params.put("ids", ids);
         params.put("uid", String.valueOf(SpUtil.get(context, "uid", "")));
         Log.e("ShopCarActivity", params.toString());
-        VolleyRequest.RequestPost(context, UrlUtils.BASE_URL + "about/sc_dels", "about/sc_dels", params, new VolleyInterface(context) {
+        VolleyRequest.RequestPost(context, UrlUtils.BASE_URL + "about/sc_dels"+ App.LanguageTYPEHTTP, "about/sc_dels", params, new VolleyInterface(context) {
             @Override
             public void onMySuccess(String result) {
                 Log.e("ShopCarActivity", result);

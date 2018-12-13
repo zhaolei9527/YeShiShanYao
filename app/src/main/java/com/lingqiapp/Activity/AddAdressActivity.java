@@ -197,7 +197,8 @@ public class AddAdressActivity extends BaseActivity implements View.OnClickListe
         } else {
             params.put("is_default", "-1");
         }
-        VolleyRequest.RequestPost(context, UrlUtils.BASE_URL + "address/add", "address/add", params, new VolleyInterface(context) {
+        VolleyRequest.RequestPost(context, UrlUtils.BASE_URL + "address/add" +
+               App.LanguageTYPEHTTP, "address/add", params, new VolleyInterface(context) {
             @Override
             public void onMySuccess(String result) {
                 dialog.dismiss();
@@ -245,7 +246,7 @@ public class AddAdressActivity extends BaseActivity implements View.OnClickListe
         } else {
             params.put("is_default", "-1");
         }
-        VolleyRequest.RequestPost(context, UrlUtils.BASE_URL + "address/doedit", "address/doedit", params, new VolleyInterface(context) {
+        VolleyRequest.RequestPost(context, UrlUtils.BASE_URL + "address/doedit" +App.LanguageTYPEHTTP, "address/doedit", params, new VolleyInterface(context) {
             @Override
             public void onMySuccess(String result) {
                 dialog.dismiss();

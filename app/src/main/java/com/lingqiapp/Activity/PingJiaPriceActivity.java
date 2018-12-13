@@ -285,7 +285,7 @@ public class PingJiaPriceActivity extends BaseActivity implements View.OnClickLi
         String s = formatUrlMap(params, false, false);
         String s1 = urlmd5(s, UrlUtils.KEY);
         params.put("pwd", s1);
-        Utils.uploadMultipart(context, UrlUtils.BASE_URL + "order/do_ping", names, imgs, params, new VolleyInterface(context) {
+        Utils.uploadMultipart(context, UrlUtils.BASE_URL + "order/do_ping"+ App.LanguageTYPEHTTP, names, imgs, params, new VolleyInterface(context) {
             @Override
             public void onMySuccess(String result) {
                 dialog.dismiss();

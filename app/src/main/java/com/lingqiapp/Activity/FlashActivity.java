@@ -59,9 +59,9 @@ public class FlashActivity extends BaseActivity {
     @Override
     protected void ready() {
         super.ready();
-       /*set it to be no title*/
+        /*set it to be no title*/
         requestWindowFeature(Window.FEATURE_NO_TITLE);
-       /*set it to be full screen*/
+        /*set it to be full screen*/
         getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,
                 WindowManager.LayoutParams.FLAG_FULLSCREEN);
     }
@@ -95,7 +95,6 @@ public class FlashActivity extends BaseActivity {
 
     @Override
     protected void initListener() {
-
     }
 
     @Override
@@ -137,7 +136,7 @@ public class FlashActivity extends BaseActivity {
             params.put("openid", openid);
         }
         Log.e("LoginActivity", "params:" + params);
-        VolleyRequest.RequestPost(context, UrlUtils.BASE_URL + "login/dologin", "login/dologin", params, new VolleyInterface(context) {
+        VolleyRequest.RequestPost(context, UrlUtils.BASE_URL + "login/dologin"+ App.LanguageTYPEHTTP, "login/dologin", params, new VolleyInterface(context) {
             @Override
             public void onMySuccess(String result) {
                 String decode = result;
@@ -188,11 +187,13 @@ public class FlashActivity extends BaseActivity {
         mHandler.postDelayed(new Runnable() {
             @Override
             public void run() {
-                startActivity(new Intent(context, LoginActivity.class));
+                startActivity(new Intent(context, MainActivity.class));
                 finish();
             }
         }, 2000);
     }
+
+
 
 
 }

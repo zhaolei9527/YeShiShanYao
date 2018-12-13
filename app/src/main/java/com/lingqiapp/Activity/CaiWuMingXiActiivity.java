@@ -31,11 +31,12 @@ public class CaiWuMingXiActiivity extends BaseActivity {
     private RelativeLayout rl_start_time;
     private RelativeLayout rl_end_time;
     private TimePickerView pvTime;
+    private long start = 0l;
+    private long end = 0l;
     private TextView tv_start;
     private TextView tv_end;
 
-    private long start = 0l;
-    private long end = 0l;
+
     private Button btn_search;
 
 

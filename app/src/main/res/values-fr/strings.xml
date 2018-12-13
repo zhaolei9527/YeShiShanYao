@@ -66,7 +66,7 @@
 	<string name="Please_enter_keywords">S,il vous plaît entrer un mot clé</string>
 	<string name="number_of">Quantité ×</string>
 	<string name="total_of">Total</string>
-	<string name="items">Pièce de marchandise：</string>
+	<string name="items">Pièce de marchandise</string>
 	<string name="Abnormal_orders">Exception de commande</string>
 	<string name="receiving_address">S,il vous plaît remplir l,adresse de livraison</string>
 	<string name="select_payment">Veuillez sélectionner un mode de paiement

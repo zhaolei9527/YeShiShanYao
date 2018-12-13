@@ -17,6 +17,7 @@ import android.widget.TextView;
 import com.android.volley.VolleyError;
 import com.google.gson.Gson;
 import com.lingqiapp.Adapter.NewsListAdapter;
+import com.lingqiapp.App;
 import com.lingqiapp.Bean.NewsListBean;
 import com.lingqiapp.R;
 import com.lingqiapp.Utils.SpUtil;
@@ -56,7 +57,7 @@ public class NewsListFragment extends BaseLazyFragment {
         params.put("cid", String.valueOf(news_content_fragment_layout.getTag()));
         params.put("uid", String.valueOf(SpUtil.get(context, "uid", "")));
         Log.e("NewsListFragment", "params:" + params);
-        VolleyRequest.RequestPost(context, UrlUtils.BASE_URL + "news/index", "news/index" + getTag(), params, new VolleyInterface(context) {
+        VolleyRequest.RequestPost(context, UrlUtils.BASE_URL + "news/index"+ App.LanguageTYPEHTTP, "news/index" + getTag(), params, new VolleyInterface(context) {
             @Override
             public void onMySuccess(String result) {
                 String decode = result;

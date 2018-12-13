@@ -113,7 +113,7 @@ public class HomeFragment extends BaseLazyFragment {
         params.put("uid", String.valueOf(SpUtil.get(context, "uid", "0")));
         params.put("page", String.valueOf(page));
         Log.e("HomeFragment", params.toString());
-        VolleyRequest.RequestPost(context, UrlUtils.BASE_URL + "index/index", "index/index", params, new VolleyInterface(context) {
+        VolleyRequest.RequestPost(context, UrlUtils.BASE_URL + "index/index"+ App.LanguageTYPEHTTP, "index/index", params, new VolleyInterface(context) {
             @Override
             public void onMySuccess(String result) {
                 Log.e("HomeFragment", result);

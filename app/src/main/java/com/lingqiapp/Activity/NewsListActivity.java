@@ -20,6 +20,7 @@ import android.widget.Toast;
 import com.android.volley.VolleyError;
 import com.google.gson.Gson;
 import com.lingqiapp.Adapter.NewsListAdapter;
+import com.lingqiapp.App;
 import com.lingqiapp.Base.BaseActivity;
 import com.lingqiapp.Bean.NewsListBean;
 import com.lingqiapp.R;
@@ -71,7 +72,7 @@ public class NewsListActivity extends BaseActivity {
         params.put("title", etSearch.getText().toString().trim());
         params.put("uid", String.valueOf(SpUtil.get(context, "uid", "")));
         Log.e("NewsListFragment", "params:" + params);
-        VolleyRequest.RequestPost(context, UrlUtils.BASE_URL + "news/index", "news/index", params, new VolleyInterface(context) {
+        VolleyRequest.RequestPost(context, UrlUtils.BASE_URL + "news/index"+ App.LanguageTYPEHTTP, "news/index", params, new VolleyInterface(context) {
             @Override
             public void onMySuccess(String result) {
                 String decode = result;

@@ -140,7 +140,7 @@ public class DaRenTuiJianDetailsActivity extends BaseActivity {
         HashMap<String, String> params = new HashMap<>(1);
         params.put("pwd", UrlUtils.KEY);
         params.put("id", id);
-        VolleyRequest.RequestPost(context, UrlUtils.BASE_URL + "news/detail", "news/detail", params, new VolleyInterface(context) {
+        VolleyRequest.RequestPost(context, UrlUtils.BASE_URL + "news/detail"+ App.LanguageTYPEHTTP, "news/detail", params, new VolleyInterface(context) {
             @Override
             public void onMySuccess(String result) {
                 Log.e("NewsDetailsActivity", result);

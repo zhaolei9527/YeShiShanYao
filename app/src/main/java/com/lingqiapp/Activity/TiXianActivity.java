@@ -13,6 +13,7 @@ import android.widget.TextView;
 
 import com.android.volley.VolleyError;
 import com.google.gson.Gson;
+import com.lingqiapp.App;
 import com.lingqiapp.Base.BaseActivity;
 import com.lingqiapp.Bean.TiXianBean;
 import com.lingqiapp.R;
@@ -145,7 +146,7 @@ public class TiXianActivity extends BaseActivity {
         HashMap<String, String> params = new HashMap<>(1);
         params.put("uid", String.valueOf(SpUtil.get(context, "uid", "")));
         Log.e("LoginActivity", params.toString());
-        VolleyRequest.RequestPost(context, UrlUtils.BASE_URL + "about/tixian", "about/tixian", params, new VolleyInterface(context) {
+        VolleyRequest.RequestPost(context, UrlUtils.BASE_URL + "about/tixian"+ App.LanguageTYPEHTTP, "about/tixian", params, new VolleyInterface(context) {
 
             @Override
             public void onMySuccess(String result) {
@@ -187,7 +188,7 @@ public class TiXianActivity extends BaseActivity {
         params.put("no", tiXianBean.getBank().getNo());
         params.put("money", etMoney.getText().toString());
         Log.e("LoginActivity", params.toString());
-        VolleyRequest.RequestPost(context, UrlUtils.BASE_URL + "about/do_tx", "about/do_tx", params, new VolleyInterface(context) {
+        VolleyRequest.RequestPost(context, UrlUtils.BASE_URL + "about/do_tx"+ App.LanguageTYPEHTTP, "about/do_tx", params, new VolleyInterface(context) {
 
             @Override
             public void onMySuccess(String result) {

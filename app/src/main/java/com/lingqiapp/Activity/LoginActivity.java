@@ -83,9 +83,9 @@ public class LoginActivity extends BaseActivity implements View.OnClickListener 
     @Override
     protected void ready() {
         super.ready();
-       /*set it to be no title*/
+        /*set it to be no title*/
         requestWindowFeature(Window.FEATURE_NO_TITLE);
-       /*set it to be full screen*/
+        /*set it to be full screen*/
         getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,
                 WindowManager.LayoutParams.FLAG_FULLSCREEN);
     }
@@ -110,14 +110,13 @@ public class LoginActivity extends BaseActivity implements View.OnClickListener 
         rlBack.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                finish();
+                startActivity(new Intent(context, MainActivity.class));
             }
         });
     }
 
     @Override
     protected void initData() {
-
     }
 
     @Override
@@ -245,7 +244,7 @@ public class LoginActivity extends BaseActivity implements View.OnClickListener 
             params.put("emailid", openid);
         }
         Log.e("LoginActivity", params.toString());
-        VolleyRequest.RequestPost(context, UrlUtils.BASE_URL + "login/dologin", "login/dologin", params, new VolleyInterface(context) {
+        VolleyRequest.RequestPost(context, UrlUtils.BASE_URL + "login/dologin" + App.LanguageTYPEHTTP, "login/dologin", params, new VolleyInterface(context) {
             @Override
             public void onMySuccess(String result) {
                 dialog.dismiss();
