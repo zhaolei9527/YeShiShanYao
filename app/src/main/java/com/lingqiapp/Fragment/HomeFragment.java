@@ -3,6 +3,7 @@ package com.lingqiapp.Fragment;
 import android.app.Dialog;
 import android.content.Context;
 import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v7.widget.DefaultItemAnimator;
@@ -33,6 +34,8 @@ import com.lingqiapp.Volley.VolleyRequest;
 
 import java.util.HashMap;
 
+import butterknife.ButterKnife;
+import butterknife.Unbinder;
 import me.fangx.haorefresh.LoadMoreListener;
 
 /**
@@ -43,6 +46,7 @@ import me.fangx.haorefresh.LoadMoreListener;
  * 功能描述：
  */
 public class HomeFragment extends BaseLazyFragment {
+    Unbinder unbinder;
     private Context context;
     private WenguoyiRecycleView rv_homelist;
     private SakuraLinearLayoutManager line;
@@ -105,6 +109,36 @@ public class HomeFragment extends BaseLazyFragment {
         TextView textView = new TextView(context);
         textView.setText(mContext.getString(R.string.notmore));
         rv_homelist.setFootEndView(textView);
+
+
+        view.findViewById(R.id.img_t).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Uri uri = Uri.parse("https://twitter.com/YeshiDu_Store");
+                Intent intent = new Intent(Intent.ACTION_VIEW, uri);
+                startActivity(intent);
+            }
+        });
+
+        view.findViewById(R.id.img_i).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Uri uri = Uri.parse("https://www.instagram.com/yeshidu_store/");
+                Intent intent = new Intent(Intent.ACTION_VIEW, uri);
+                startActivity(intent);
+            }
+        });
+
+        view.findViewById(R.id.img_f).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Uri uri = Uri.parse("https://www.facebook.com/YeshiDu-328473097747313/?modal=admin_todo_tour");
+                Intent intent = new Intent(Intent.ACTION_VIEW, uri);
+                startActivity(intent);
+            }
+        });
+
+
     }
 
     //数据获取
@@ -113,7 +147,7 @@ public class HomeFragment extends BaseLazyFragment {
         params.put("uid", String.valueOf(SpUtil.get(context, "uid", "0")));
         params.put("page", String.valueOf(page));
         Log.e("HomeFragment", params.toString());
-        VolleyRequest.RequestPost(context, UrlUtils.BASE_URL + "index/index"+ App.LanguageTYPEHTTP, "index/index", params, new VolleyInterface(context) {
+        VolleyRequest.RequestPost(context, UrlUtils.BASE_URL + "index/index" + App.LanguageTYPEHTTP, "index/index", params, new VolleyInterface(context) {
             @Override
             public void onMySuccess(String result) {
                 Log.e("HomeFragment", result);
@@ -162,4 +196,17 @@ public class HomeFragment extends BaseLazyFragment {
         App.getQueues().cancelAll("index/index");
     }
 
+    @Override
+    public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
+        // TODO: inflate a fragment view
+        View rootView = super.onCreateView(inflater, container, savedInstanceState);
+        unbinder = ButterKnife.bind(this, rootView);
+        return rootView;
+    }
+
+    @Override
+    public void onDestroyView() {
+        super.onDestroyView();
+        unbinder.unbind();
+    }
 }

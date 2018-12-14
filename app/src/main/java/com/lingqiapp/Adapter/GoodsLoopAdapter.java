@@ -3,12 +3,12 @@ package com.lingqiapp.Adapter;
 import android.view.View;
 import android.view.ViewGroup;
 
-import com.facebook.drawee.view.SimpleDraweeView;
 import com.jude.rollviewpager.RollPagerView;
 import com.jude.rollviewpager.adapter.LoopPagerAdapter;
 import com.lingqiapp.Bean.GoodsDetailBean;
 import com.lingqiapp.R;
 import com.lingqiapp.Utils.UrlUtils;
+import com.lingqiapp.View.MYSimpleDraweeView;
 
 
 /**
@@ -31,7 +31,7 @@ public class GoodsLoopAdapter extends LoopPagerAdapter {
     @Override
     public View getView(ViewGroup container, int position) {
         View inflate = View.inflate(container.getContext(), R.layout.layout_img, null);
-        SimpleDraweeView SimpleDraweeView = (com.facebook.drawee.view.SimpleDraweeView) inflate.findViewById(R.id.SimpleDraweeView);
+        MYSimpleDraweeView SimpleDraweeView = (MYSimpleDraweeView) inflate.findViewById(R.id.SimpleDraweeView);
         try {
             if (lbdatas.getImg().get(position).contains(".com")) {
                 SimpleDraweeView.setImageURI("" + lbdatas.getImg().get(position));

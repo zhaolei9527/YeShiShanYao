@@ -14,7 +14,6 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.android.volley.VolleyError;
-import com.facebook.drawee.view.SimpleDraweeView;
 import com.google.gson.Gson;
 import com.lingqiapp.Activity.PayActivity;
 import com.lingqiapp.App;
@@ -26,6 +25,7 @@ import com.lingqiapp.Utils.SpUtil;
 import com.lingqiapp.Utils.UrlUtils;
 import com.lingqiapp.Utils.Utils;
 import com.lingqiapp.View.CommomDialog;
+import com.lingqiapp.View.MYSimpleDraweeView;
 import com.lingqiapp.Volley.VolleyInterface;
 import com.lingqiapp.Volley.VolleyRequest;
 
@@ -112,13 +112,9 @@ public class MyOrderAdapter extends RecyclerView.Adapter<MyOrderAdapter.ViewHold
 
         View item_oreder_layout = View.inflate(mContext, R.layout.item_orederlist_layout, null);
 
-        SimpleDraweeView SimpleDraweeView = (com.facebook.drawee.view.SimpleDraweeView) item_oreder_layout.findViewById(R.id.SimpleDraweeView);
+        MYSimpleDraweeView SimpleDraweeView = (MYSimpleDraweeView) item_oreder_layout.findViewById(R.id.SimpleDraweeView);
 
-        if (datas.get(position).getImg_feng().contains("com")) {
-            SimpleDraweeView.setImageURI("https://" + datas.get(position).getImg_feng());
-        } else {
-            SimpleDraweeView.setImageURI(UrlUtils.URL + datas.get(position).getImg_feng());
-        }
+        SimpleDraweeView.setImageURI(datas.get(position).getImg_feng());
         TextView tv_title = (TextView) item_oreder_layout.findViewById(R.id.tv_title);
         tv_title.setText(datas.get(position).getTitle());
         TextView tv_price = (TextView) item_oreder_layout.findViewById(R.id.tv_price);

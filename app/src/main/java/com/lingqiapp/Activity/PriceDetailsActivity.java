@@ -38,6 +38,7 @@ import com.lingqiapp.Utils.UrlUtils;
 import com.lingqiapp.Utils.Utils;
 import com.lingqiapp.Utils.WindowUtil;
 import com.lingqiapp.View.FlowLayout;
+import com.lingqiapp.View.MYSimpleDraweeView;
 import com.lingqiapp.Volley.VolleyInterface;
 import com.lingqiapp.Volley.VolleyRequest;
 import com.tencent.smtt.export.external.interfaces.WebResourceError;
@@ -45,9 +46,7 @@ import com.tencent.smtt.export.external.interfaces.WebResourceRequest;
 import com.tencent.smtt.sdk.WebSettings;
 import com.tencent.smtt.sdk.WebView;
 import com.tencent.smtt.sdk.WebViewClient;
-
 import java.util.HashMap;
-
 import butterknife.BindView;
 import butterknife.ButterKnife;
 
@@ -74,7 +73,7 @@ public class PriceDetailsActivity extends BaseActivity implements View.OnClickLi
     @BindView(R.id.ll_allpingjia)
     LinearLayout llAllpingjia;
     @BindView(R.id.sdv_pingjia)
-    SimpleDraweeView sdvPingjia;
+    MYSimpleDraweeView sdvPingjia;
     @BindView(R.id.tv_pingjia_name)
     TextView tvPingjiaName;
     @BindView(R.id.ll_star)

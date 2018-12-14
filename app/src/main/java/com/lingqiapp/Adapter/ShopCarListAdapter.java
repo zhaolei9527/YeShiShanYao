@@ -25,6 +25,7 @@ import com.lingqiapp.Utils.SpUtil;
 import com.lingqiapp.Utils.UrlUtils;
 import com.lingqiapp.Utils.Utils;
 import com.lingqiapp.View.CommomDialog;
+import com.lingqiapp.View.MYSimpleDraweeView;
 import com.lingqiapp.Volley.VolleyInterface;
 import com.lingqiapp.Volley.VolleyRequest;
 
@@ -198,7 +199,7 @@ public class ShopCarListAdapter extends RecyclerView.Adapter<ShopCarListAdapter.
     //自定义的ViewHolder
     public static class ViewHolder extends RecyclerView.ViewHolder {
         public View rootView;
-        public SimpleDraweeView SimpleDraweeView;
+        public MYSimpleDraweeView SimpleDraweeView;
         public TextView tv_title;
         public TextView tv_money;
         public TextView tv_gg;
@@ -211,7 +212,7 @@ public class ShopCarListAdapter extends RecyclerView.Adapter<ShopCarListAdapter.
         public ViewHolder(View itemView) {
             super(itemView);
             this.rootView = itemView;
-            this.SimpleDraweeView = (SimpleDraweeView) rootView.findViewById(R.id.SimpleDraweeView);
+            this.SimpleDraweeView = (MYSimpleDraweeView) rootView.findViewById(R.id.SimpleDraweeView);
             this.tv_title = (TextView) rootView.findViewById(R.id.tv_title);
             this.tv_gg = (TextView) rootView.findViewById(R.id.tv_gg);
             this.tv_money = (TextView) rootView.findViewById(R.id.tv_money);

@@ -70,7 +70,7 @@
                     android:gravity="center"
                     android:orientation="vertical">
 
-                    <com.facebook.drawee.view.SimpleDraweeView
+                    <com.lingqiapp.View.MYSimpleDraweeView
                         android:id="@+id/SimpleDraweeView1"
                         android:layout_width="@dimen/x61"
                         android:layout_height="@dimen/x61" />
@@ -103,7 +103,7 @@
                         android:gravity="center"
                         android:orientation="vertical">
 
-                        <com.facebook.drawee.view.SimpleDraweeView
+                        <com.lingqiapp.View.MYSimpleDraweeView
                             android:id="@+id/SimpleDraweeView2"
                             android:layout_width="@dimen/x61"
                             android:layout_height="@dimen/x61" />
@@ -143,7 +143,7 @@
                     android:gravity="center"
                     android:orientation="vertical">
 
-                    <com.facebook.drawee.view.SimpleDraweeView
+                    <com.lingqiapp.View.MYSimpleDraweeView
                         android:id="@+id/SimpleDraweeView3"
                         android:layout_width="@dimen/x61"
                         android:layout_height="@dimen/x61" />
@@ -176,7 +176,7 @@
                         android:gravity="center"
                         android:orientation="vertical">
 
-                        <com.facebook.drawee.view.SimpleDraweeView
+                        <com.lingqiapp.View.MYSimpleDraweeView
                             android:id="@+id/SimpleDraweeView4"
                             android:layout_width="@dimen/x61"
                             android:layout_height="@dimen/x61" />
@@ -215,7 +215,7 @@
                     android:background="@color/bgfff"
                     android:orientation="horizontal">
 
-                    <com.facebook.drawee.view.SimpleDraweeView
+                    <com.lingqiapp.View.MYSimpleDraweeView
                         android:id="@+id/SimpleDraweeView5"
                         android:layout_width="@dimen/x61"
                         android:layout_height="@dimen/x61"

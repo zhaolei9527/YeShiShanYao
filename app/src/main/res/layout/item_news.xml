@@ -25,7 +25,7 @@
             android:textColor="#999999"
             android:textSize="@dimen/x11" />
 
-        <com.facebook.drawee.view.SimpleDraweeView
+        <com.lingqiapp.View.MYSimpleDraweeView
             android:id="@+id/SimpleDraweeView"
             android:layout_width="match_parent"
             android:layout_height="@dimen/y121"

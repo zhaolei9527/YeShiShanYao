@@ -12,7 +12,7 @@
         android:gravity="center_horizontal"
         android:orientation="vertical">
 
-        <com.facebook.drawee.view.SimpleDraweeView
+        <com.lingqiapp.View.MYSimpleDraweeView
             android:id="@+id/img_shop"
             android:layout_width="@dimen/x60"
             android:layout_height="@dimen/x60" />

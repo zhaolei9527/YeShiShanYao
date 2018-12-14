@@ -17,6 +17,12 @@ android {
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
     }
+    aaptOptions {
+        cruncherEnabled = false
+        useNewCruncher = false
+    }
+
+
 }
 
 dependencies {
@@ -26,7 +32,7 @@ dependencies {
     })
     //compile 'com.android.support:appcompat-v7:25.3.1'
     compile project(':picker')
-    compile ('com.github.hss01248.ImageLoader:fresco:1.0.6'){
+    compile('com.github.hss01248.ImageLoader:fresco:1.0.6') {
         exclude group: 'com.android.support'
     }
     compile 'com.android.support:appcompat-v7:25.3.1'

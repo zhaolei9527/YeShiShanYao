@@ -164,7 +164,7 @@
                                 android:gravity="center_vertical"
                                 android:orientation="horizontal">
 
-                                <com.facebook.drawee.view.SimpleDraweeView
+                                <com.lingqiapp.View.MYSimpleDraweeView
                                     android:id="@+id/sdv_pingjia"
                                     android:layout_width="@dimen/x30"
                                     android:layout_height="@dimen/x30"
@@ -225,18 +225,18 @@
                                 android:padding="@dimen/x8"
                                 android:visibility="gone">
 
-                                <com.facebook.drawee.view.SimpleDraweeView
+                                <com.lingqiapp.View.MYSimpleDraweeView
                                     android:id="@+id/SimpleDraweeView11"
                                     android:layout_width="@dimen/x97"
                                     android:layout_height="@dimen/x97" />
 
-                                <com.facebook.drawee.view.SimpleDraweeView
+                                <com.lingqiapp.View.MYSimpleDraweeView
                                     android:id="@+id/SimpleDraweeView12"
                                     android:layout_width="@dimen/x97"
                                     android:layout_height="@dimen/x97"
                                     android:layout_marginLeft="@dimen/x5" />
 
-                                <com.facebook.drawee.view.SimpleDraweeView
+                                <com.lingqiapp.View.MYSimpleDraweeView
                                     android:id="@+id/SimpleDraweeView13"
                                     android:layout_width="@dimen/x97"
                                     android:layout_height="@dimen/x97"
@@ -260,7 +260,7 @@
                                 android:gravity="center_vertical"
                                 android:orientation="horizontal">
 
-                                <com.facebook.drawee.view.SimpleDraweeView
+                                <com.lingqiapp.View.MYSimpleDraweeView
                                     android:id="@+id/sdv_pingjia2"
                                     android:layout_width="@dimen/x30"
                                     android:layout_height="@dimen/x30"
@@ -321,18 +321,18 @@
                                 android:padding="@dimen/x8"
                                 android:visibility="gone">
 
-                                <com.facebook.drawee.view.SimpleDraweeView
+                                <com.lingqiapp.View.MYSimpleDraweeView
                                     android:id="@+id/SimpleDraweeView21"
                                     android:layout_width="@dimen/x97"
                                     android:layout_height="@dimen/x97" />
 
-                                <com.facebook.drawee.view.SimpleDraweeView
+                                <com.lingqiapp.View.MYSimpleDraweeView
                                     android:id="@+id/SimpleDraweeView22"
                                     android:layout_width="@dimen/x97"
                                     android:layout_height="@dimen/x97"
                                     android:layout_marginLeft="@dimen/x5" />
 
-                                <com.facebook.drawee.view.SimpleDraweeView
+                                <com.lingqiapp.View.MYSimpleDraweeView
                                     android:id="@+id/SimpleDraweeView23"
                                     android:layout_width="@dimen/x97"
                                     android:layout_height="@dimen/x97"

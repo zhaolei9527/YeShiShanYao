@@ -26,6 +26,7 @@ import com.lingqiapp.Utils.EasyToast;
 import com.lingqiapp.Utils.SpUtil;
 import com.lingqiapp.Utils.UrlUtils;
 import com.lingqiapp.Utils.Utils;
+import com.lingqiapp.View.MYSimpleDraweeView;
 import com.lingqiapp.Volley.VolleyInterface;
 import com.mylhyl.acp.Acp;
 import com.mylhyl.acp.AcpListener;
@@ -49,7 +50,7 @@ public class PingJiaPriceActivity extends BaseActivity implements View.OnClickLi
     @BindView(R.id.rl_back)
     FrameLayout rlBack;
     @BindView(R.id.SimpleDraweeView)
-    com.facebook.drawee.view.SimpleDraweeView SimpleDraweeView;
+    MYSimpleDraweeView SimpleDraweeView;
     @BindView(R.id.tv_title)
     TextView tvTitle;
     @BindView(R.id.img_1)

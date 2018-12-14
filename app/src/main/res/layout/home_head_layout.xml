@@ -50,7 +50,7 @@
             android:layout_weight="2"
             android:clipChildren="false">
 
-            <com.facebook.drawee.view.SimpleDraweeView
+            <com.lingqiapp.View.MYSimpleDraweeView
                 android:id="@+id/sim_now"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
@@ -74,7 +74,7 @@
             android:layout_marginRight="@dimen/x5"
             android:layout_weight="1">
 
-            <com.facebook.drawee.view.SimpleDraweeView
+            <com.lingqiapp.View.MYSimpleDraweeView
                 android:id="@+id/sim_1"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
@@ -111,7 +111,7 @@
             android:layout_height="@dimen/y65"
             android:layout_weight="1">
 
-            <com.facebook.drawee.view.SimpleDraweeView
+            <com.lingqiapp.View.MYSimpleDraweeView
                 android:id="@+id/sim_2"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
@@ -157,7 +157,7 @@
             android:layout_marginRight="@dimen/x5"
             android:layout_weight="1">
 
-            <com.facebook.drawee.view.SimpleDraweeView
+            <com.lingqiapp.View.MYSimpleDraweeView
                 android:id="@+id/sim_3"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
@@ -193,7 +193,7 @@
             android:layout_marginRight="@dimen/x5"
             android:layout_weight="1">
 
-            <com.facebook.drawee.view.SimpleDraweeView
+            <com.lingqiapp.View.MYSimpleDraweeView
                 android:id="@+id/sim_4"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
@@ -229,7 +229,7 @@
             android:layout_marginRight="@dimen/x5"
             android:layout_weight="1">
 
-            <com.facebook.drawee.view.SimpleDraweeView
+            <com.lingqiapp.View.MYSimpleDraweeView
                 android:id="@+id/sim_5"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
@@ -265,7 +265,7 @@
             android:layout_height="@dimen/y65"
             android:layout_weight="1">
 
-            <com.facebook.drawee.view.SimpleDraweeView
+            <com.lingqiapp.View.MYSimpleDraweeView
                 android:id="@+id/sim_6"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"

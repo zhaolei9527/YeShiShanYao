@@ -14,7 +14,6 @@ import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import com.android.volley.VolleyError;
-import com.facebook.drawee.view.SimpleDraweeView;
 import com.google.gson.Gson;
 import com.lingqiapp.App;
 import com.lingqiapp.Base.BaseActivity;
@@ -25,6 +24,7 @@ import com.lingqiapp.Utils.EasyToast;
 import com.lingqiapp.Utils.SpUtil;
 import com.lingqiapp.Utils.UrlUtils;
 import com.lingqiapp.Utils.Utils;
+import com.lingqiapp.View.MYSimpleDraweeView;
 import com.lingqiapp.Volley.VolleyInterface;
 import com.lingqiapp.Volley.VolleyRequest;
 
@@ -285,7 +285,7 @@ public class MyOrderDetailsActivity extends BaseActivity implements View.OnClick
                     tvOrderTime.setText(getString(R.string.Place_the_order_of_time) + DateUtils.getMillon(Long.parseLong(orderDetailBean.getOrder().getAddtime()) * 1000));
                     final View item_oreder_details_layout = View.inflate(context, R.layout.item_oreder_details_layout, null);
                     item_oreder_details_layout.setTag(orderDetailBean.getOrder().getGid());
-                    SimpleDraweeView SimpleDraweeView = (com.facebook.drawee.view.SimpleDraweeView) item_oreder_details_layout.findViewById(R.id.SimpleDraweeView);
+                    MYSimpleDraweeView SimpleDraweeView = (MYSimpleDraweeView) item_oreder_details_layout.findViewById(R.id.SimpleDraweeView);
 
                     if (orderDetailBean.getOrder().getImg_feng().contains(".com")) {
                         SimpleDraweeView.setImageURI(orderDetailBean.getOrder().getImg_feng());

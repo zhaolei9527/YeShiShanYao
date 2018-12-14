@@ -12,11 +12,11 @@ import android.widget.CheckBox;
 import android.widget.CompoundButton;
 import android.widget.TextView;
 
-import com.facebook.drawee.view.SimpleDraweeView;
 import com.lingqiapp.Bean.ShouCangBean;
 import com.lingqiapp.R;
 import com.lingqiapp.Utils.UrlUtils;
 import com.lingqiapp.Utils.Utils;
+import com.lingqiapp.View.MYSimpleDraweeView;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -106,7 +106,7 @@ public class ShouCangListAdapter extends RecyclerView.Adapter<ShouCangListAdapte
     //自定义的ViewHolder
     public static class ViewHolder extends RecyclerView.ViewHolder {
         public View rootView;
-        public SimpleDraweeView SimpleDraweeView;
+        public MYSimpleDraweeView SimpleDraweeView;
         public TextView tv_title;
         public TextView tv_money;
         public TextView btn_shuliang;
@@ -115,7 +115,7 @@ public class ShouCangListAdapter extends RecyclerView.Adapter<ShouCangListAdapte
         public ViewHolder(View itemView) {
             super(itemView);
             this.rootView = itemView;
-            this.SimpleDraweeView = (SimpleDraweeView) rootView.findViewById(R.id.SimpleDraweeView);
+            this.SimpleDraweeView = (MYSimpleDraweeView) rootView.findViewById(R.id.SimpleDraweeView);
             this.tv_title = (TextView) rootView.findViewById(R.id.tv_title);
             this.tv_money = (TextView) rootView.findViewById(R.id.tv_money);
             this.btn_shuliang = (TextView) rootView.findViewById(R.id.btn_shuliang);

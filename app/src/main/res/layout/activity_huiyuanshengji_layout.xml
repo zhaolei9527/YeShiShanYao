@@ -55,7 +55,7 @@
             android:background="@mipmap/grzx_bg"
             android:gravity="center_vertical">
 
-            <com.facebook.drawee.view.SimpleDraweeView
+            <com.lingqiapp.View.MYSimpleDraweeView
                 android:id="@+id/SimpleDraweeView"
                 android:layout_width="@dimen/x64"
                 android:layout_height="@dimen/x64"

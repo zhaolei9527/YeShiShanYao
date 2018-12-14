@@ -26,6 +26,7 @@ import com.lingqiapp.Utils.SpUtil;
 import com.lingqiapp.Utils.UrlUtils;
 import com.lingqiapp.Utils.Utils;
 import com.lingqiapp.View.ChangeNameDialog;
+import com.lingqiapp.View.MYSimpleDraweeView;
 import com.lingqiapp.Volley.VolleyInterface;
 import com.lingqiapp.Volley.VolleyRequest;
 
@@ -51,7 +52,7 @@ public class MyMessageActivity extends BaseActivity {
     @BindView(R.id.tv_Title)
     TextView tvTitle;
     @BindView(R.id.SimpleDraweeView)
-    com.facebook.drawee.view.SimpleDraweeView SimpleDraweeView;
+    MYSimpleDraweeView SimpleDraweeView;
     @BindView(R.id.rl_change_touxiang)
     RelativeLayout rlChangeTouxiang;
     @BindView(R.id.tv_nicheng)
@@ -186,7 +187,7 @@ public class MyMessageActivity extends BaseActivity {
         final HashMap<String, String> params = new HashMap<>(2);
         params.put("uid", String.valueOf(SpUtil.get(context, "uid", "")));
         Log.e("MyMessageActivity", params.toString());
-        VolleyRequest.uploadMultipart(context, UrlUtils.BASE_URL + "about/touxiang"+ App.LanguageTYPEHTTP, imgnames, imgs, params, new VolleyInterface(context) {
+        VolleyRequest.uploadMultipart(context, UrlUtils.BASE_URL + "about/touxiang" + App.LanguageTYPEHTTP, imgnames, imgs, params, new VolleyInterface(context) {
             @Override
             public void onMySuccess(String result) {
                 Log.e("MyMessageActivity", result);
@@ -221,7 +222,7 @@ public class MyMessageActivity extends BaseActivity {
         HashMap<String, String> params = new HashMap<>(1);
         params.put("uid", String.valueOf(SpUtil.get(context, "uid", "")));
         params.put("name", tvNicheng.getText().toString());
-        VolleyRequest.RequestPost(context, UrlUtils.BASE_URL + "about/sav_name"+ App.LanguageTYPEHTTP, "about/sav_name", params, new VolleyInterface(context) {
+        VolleyRequest.RequestPost(context, UrlUtils.BASE_URL + "about/sav_name" + App.LanguageTYPEHTTP, "about/sav_name", params, new VolleyInterface(context) {
             @Override
             public void onMySuccess(String result) {
                 Log.e("RegisterActivity", result);
@@ -260,7 +261,7 @@ public class MyMessageActivity extends BaseActivity {
     private void getEwm() {
         HashMap<String, String> params = new HashMap<>(2);
         params.put("uid", String.valueOf(SpUtil.get(context, "uid", "")));
-        VolleyRequest.RequestPost(context, UrlUtils.BASE_URL + "about/personal"+ App.LanguageTYPEHTTP, "about/personal", params, new VolleyInterface(context) {
+        VolleyRequest.RequestPost(context, UrlUtils.BASE_URL + "about/personal" + App.LanguageTYPEHTTP, "about/personal", params, new VolleyInterface(context) {
             @Override
             public void onMySuccess(String result) {
                 Log.e("RegisterActivity", result);

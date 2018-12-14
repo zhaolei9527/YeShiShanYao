@@ -11,21 +11,20 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
 
-        <com.facebook.drawee.view.SimpleDraweeView
+        <com.lingqiapp.View.MYSimpleDraweeView
             android:id="@+id/SimpleDraweeView"
             android:layout_width="@dimen/x84"
             android:layout_height="@dimen/x84"
             android:layout_marginLeft="@dimen/x8"
-            android:layout_marginTop="@dimen/x5"
-            />
+            android:layout_marginTop="@dimen/x5" />
 
         <TextView
             android:id="@+id/tv_title"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginLeft="@dimen/y90"
-            android:layout_marginRight="@dimen/x10"
             android:layout_marginTop="@dimen/y12"
+            android:layout_marginRight="@dimen/x10"
             android:ellipsize="end"
             android:maxLines="2"
             android:textColor="#333333"
@@ -46,9 +45,8 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_below="@id/tv_price"
-            android:layout_marginBottom="@dimen/x10"
             android:layout_marginLeft="@dimen/y90"
-          />
+            android:layout_marginBottom="@dimen/x10" />
 
         <View
             android:id="@+id/view"

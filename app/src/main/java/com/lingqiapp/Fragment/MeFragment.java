@@ -34,6 +34,7 @@ import com.lingqiapp.R;
 import com.lingqiapp.Utils.SpUtil;
 import com.lingqiapp.Utils.UrlUtils;
 import com.lingqiapp.View.CommomDialog;
+import com.lingqiapp.View.MYSimpleDraweeView;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -47,7 +48,7 @@ import butterknife.Unbinder;
 public class MeFragment extends BaseLazyFragment implements View.OnClickListener {
 
     @BindView(R.id.SimpleDraweeView)
-    com.facebook.drawee.view.SimpleDraweeView SimpleDraweeView;
+    MYSimpleDraweeView SimpleDraweeView;
     @BindView(R.id.tv_username)
     TextView tvUsername;
     @BindView(R.id.tv_yue)

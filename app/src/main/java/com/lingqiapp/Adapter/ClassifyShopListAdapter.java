@@ -11,11 +11,11 @@ import android.view.ViewGroup;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
-import com.facebook.drawee.view.SimpleDraweeView;
 import com.lingqiapp.Activity.ShopListActivity;
 import com.lingqiapp.Bean.GoodsCateBean;
 import com.lingqiapp.R;
 import com.lingqiapp.Utils.UrlUtils;
+import com.lingqiapp.View.MYSimpleDraweeView;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -87,7 +87,7 @@ public class ClassifyShopListAdapter extends RecyclerView.Adapter<ClassifyShopLi
 
     public static class ViewHolder extends RecyclerView.ViewHolder {
         @BindView(R.id.img_shop)
-        SimpleDraweeView imgShop;
+        MYSimpleDraweeView imgShop;
         @BindView(R.id.tv_title_shop)
         TextView tvTitleShop;
         @BindView(R.id.ll_shop1)

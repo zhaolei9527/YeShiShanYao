@@ -12,7 +12,6 @@ import android.view.ViewGroup;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
-import com.facebook.drawee.view.SimpleDraweeView;
 import com.jude.rollviewpager.hintview.IconHintView;
 import com.lingqiapp.Activity.MainActivity;
 import com.lingqiapp.Activity.PriceDetailsActivity;
@@ -21,7 +20,7 @@ import com.lingqiapp.R;
 import com.lingqiapp.Utils.DateUtils;
 import com.lingqiapp.Utils.DensityUtils;
 import com.lingqiapp.Utils.EasyToast;
-import com.lingqiapp.Utils.UrlUtils;
+import com.lingqiapp.View.MYSimpleDraweeView;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -98,7 +97,7 @@ public class HomeListAdapter extends RecyclerView.Adapter<HomeListAdapter.ViewHo
                             if (homeBean.getGoods_pai().get(1).getImg_feng().contains(".com")) {
                                 holder.sim1.setImageURI(homeBean.getGoods_pai().get(1).getImg_feng());
                             } else {
-                                holder.sim1.setImageURI(UrlUtils.URL + homeBean.getGoods_pai().get(1).getImg_feng());
+                                holder.sim1.setImageURI(homeBean.getGoods_pai().get(1).getImg_feng());
                             }
 
                             holder.sim1.setOnClickListener(new View.OnClickListener() {
@@ -111,11 +110,7 @@ public class HomeListAdapter extends RecyclerView.Adapter<HomeListAdapter.ViewHo
 
                             holder.tv_day2.setText(mContext.getString(R.string.Not_at_the));
 
-                            if (homeBean.getGoods_pai().get(2).getImg_feng().contains(".com")) {
-                                holder.sim2.setImageURI(homeBean.getGoods_pai().get(2).getImg_feng());
-                            } else {
-                                holder.sim2.setImageURI(UrlUtils.URL + homeBean.getGoods_pai().get(2).getImg_feng());
-                            }
+                            holder.sim2.setImageURI(homeBean.getGoods_pai().get(2).getImg_feng());
 
                             holder.sim2.setOnClickListener(new View.OnClickListener() {
                                 @Override
@@ -128,12 +123,7 @@ public class HomeListAdapter extends RecyclerView.Adapter<HomeListAdapter.ViewHo
 
                             holder.tv_day3.setText(mContext.getString(R.string.Not_at_the));
 
-                            if (homeBean.getGoods_pai().get(3).getImg_feng().contains(".com")) {
-                                holder.sim3.setImageURI(homeBean.getGoods_pai().get(3).getImg_feng());
-                            } else {
-                                holder.sim3.setImageURI(UrlUtils.URL + homeBean.getGoods_pai().get(3).getImg_feng());
-                            }
-
+                            holder.sim3.setImageURI(homeBean.getGoods_pai().get(3).getImg_feng());
 
                             holder.sim3.setOnClickListener(new View.OnClickListener() {
                                 @Override
@@ -144,7 +134,9 @@ public class HomeListAdapter extends RecyclerView.Adapter<HomeListAdapter.ViewHo
                             });
 
                             holder.tv_day4.setText(mContext.getString(R.string.Not_at_the));
-                            holder.sim4.setImageURI(UrlUtils.URL + homeBean.getGoods_pai().get(4).getImg_feng());
+
+                            holder.sim4.setImageURI(homeBean.getGoods_pai().get(4).getImg_feng());
+
                             holder.sim4.setOnClickListener(new View.OnClickListener() {
                                 @Override
                                 public void onClick(View view) {
@@ -154,11 +146,7 @@ public class HomeListAdapter extends RecyclerView.Adapter<HomeListAdapter.ViewHo
 
                             holder.tv_day5.setText(mContext.getString(R.string.Not_at_the));
 
-                            if (homeBean.getGoods_pai().get(5).getImg_feng().contains(".com")) {
-                                holder.sim5.setImageURI(homeBean.getGoods_pai().get(5).getImg_feng());
-                            } else {
-                                holder.sim5.setImageURI(UrlUtils.URL + homeBean.getGoods_pai().get(5).getImg_feng());
-                            }
+                            holder.sim5.setImageURI(homeBean.getGoods_pai().get(5).getImg_feng());
 
                             holder.sim5.setOnClickListener(new View.OnClickListener() {
                                 @Override
@@ -170,11 +158,7 @@ public class HomeListAdapter extends RecyclerView.Adapter<HomeListAdapter.ViewHo
 
                             holder.tv_day6.setText(mContext.getString(R.string.Not_at_the));
 
-                            if (homeBean.getGoods_pai().get(6).getImg_feng().contains("com")) {
-                                holder.sim6.setImageURI("https://"+homeBean.getGoods_pai().get(6).getImg_feng());
-                            } else {
-                                holder.sim6.setImageURI(UrlUtils.URL + homeBean.getGoods_pai().get(6).getImg_feng());
-                            }
+                            holder.sim6.setImageURI(homeBean.getGoods_pai().get(6).getImg_feng());
 
                             holder.sim6.setOnClickListener(new View.OnClickListener() {
                                 @Override
@@ -184,7 +168,7 @@ public class HomeListAdapter extends RecyclerView.Adapter<HomeListAdapter.ViewHo
                                 }
                             });
 
-                            holder.simNow.setImageURI(UrlUtils.URL + homeBean.getGoods_pai().get(0).getImg_feng());
+                            holder.simNow.setImageURI(homeBean.getGoods_pai().get(0).getImg_feng());
                             holder.simNow.setOnClickListener(new View.OnClickListener() {
                                 @Override
                                 public void onClick(View view) {
@@ -195,11 +179,7 @@ public class HomeListAdapter extends RecyclerView.Adapter<HomeListAdapter.ViewHo
                         } else if (DateUtils.getWeekByDateStr(DateUtils.getMillon(System.currentTimeMillis())).equals(homeBean.getGoods_pai().get(i).getZhou()) && homeBean.getGoods_pai().get(i).getZhou().equals("2")) {
                             holder.tv_day1.setText(mContext.getString(R.string.Monday));
 
-                            if (homeBean.getGoods_pai().get(0).getImg_feng().contains("com")) {
-                                holder.sim1.setImageURI("https://"+homeBean.getGoods_pai().get(0).getImg_feng());
-                            } else {
-                                holder.sim1.setImageURI(UrlUtils.URL + homeBean.getGoods_pai().get(0).getImg_feng());
-                            }
+                            holder.sim1.setImageURI(homeBean.getGoods_pai().get(0).getImg_feng());
 
                             holder.sim1.setOnClickListener(new View.OnClickListener() {
                                 @Override
@@ -212,11 +192,7 @@ public class HomeListAdapter extends RecyclerView.Adapter<HomeListAdapter.ViewHo
                             holder.tv_day2.setText(mContext.getString(R.string.Not_at_the));
 
 
-                            if (homeBean.getGoods_pai().get(2).getImg_feng().contains("com")) {
-                                holder.sim2.setImageURI("https://"+homeBean.getGoods_pai().get(2).getImg_feng());
-                            } else {
-                                holder.sim2.setImageURI(UrlUtils.URL + homeBean.getGoods_pai().get(2).getImg_feng());
-                            }
+                            holder.sim2.setImageURI(homeBean.getGoods_pai().get(2).getImg_feng());
 
                             holder.sim2.setOnClickListener(new View.OnClickListener() {
                                 @Override
@@ -228,7 +204,7 @@ public class HomeListAdapter extends RecyclerView.Adapter<HomeListAdapter.ViewHo
                             });
 
                             holder.tv_day3.setText(mContext.getString(R.string.Not_at_the));
-                            holder.sim3.setImageURI(UrlUtils.URL + homeBean.getGoods_pai().get(3).getImg_feng());
+                            holder.sim3.setImageURI(homeBean.getGoods_pai().get(3).getImg_feng());
                             holder.sim3.setOnClickListener(new View.OnClickListener() {
 
                                 @Override
@@ -239,11 +215,7 @@ public class HomeListAdapter extends RecyclerView.Adapter<HomeListAdapter.ViewHo
                             });
 
                             holder.tv_day4.setText(mContext.getString(R.string.Not_at_the));
-                            if (homeBean.getGoods_pai().get(4).getImg_feng().contains("com")) {
-                                holder.sim4.setImageURI("https://"+homeBean.getGoods_pai().get(4).getImg_feng());
-                            } else {
-                                holder.sim4.setImageURI(UrlUtils.URL + homeBean.getGoods_pai().get(4).getImg_feng());
-                            }
+                            holder.sim4.setImageURI(homeBean.getGoods_pai().get(4).getImg_feng());
                             holder.sim4.setOnClickListener(new View.OnClickListener() {
 
                                 @Override
@@ -255,11 +227,7 @@ public class HomeListAdapter extends RecyclerView.Adapter<HomeListAdapter.ViewHo
 
                             holder.tv_day5.setText(mContext.getString(R.string.Not_at_the));
 
-                            if (homeBean.getGoods_pai().get(5).getImg_feng().contains("com")) {
-                                holder.sim5.setImageURI("https://"+homeBean.getGoods_pai().get(5).getImg_feng());
-                            } else {
-                                holder.sim5.setImageURI(UrlUtils.URL + homeBean.getGoods_pai().get(5).getImg_feng());
-                            }
+                            holder.sim5.setImageURI(homeBean.getGoods_pai().get(5).getImg_feng());
 
                             holder.sim5.setOnClickListener(new View.OnClickListener() {
 
@@ -275,11 +243,7 @@ public class HomeListAdapter extends RecyclerView.Adapter<HomeListAdapter.ViewHo
                             holder.tv_day6.setText(mContext.getString(R.string.Not_at_the));
 
 
-                            if (homeBean.getGoods_pai().get(6).getImg_feng().contains("com")) {
-                                holder.sim6.setImageURI("https://"+homeBean.getGoods_pai().get(6).getImg_feng());
-                            } else {
-                                holder.sim6.setImageURI(UrlUtils.URL + homeBean.getGoods_pai().get(6).getImg_feng());
-                            }
+                            holder.sim6.setImageURI(homeBean.getGoods_pai().get(6).getImg_feng());
 
                             holder.sim6.setOnClickListener(new View.OnClickListener() {
                                 @Override
@@ -291,12 +255,7 @@ public class HomeListAdapter extends RecyclerView.Adapter<HomeListAdapter.ViewHo
                             });
 
 
-                            if (homeBean.getGoods_pai().get(1).getImg_feng().contains("com")) {
-                                holder.simNow.setImageURI("https://"+homeBean.getGoods_pai().get(1).getImg_feng());
-                            } else {
-                                holder.simNow.setImageURI(UrlUtils.URL + homeBean.getGoods_pai().get(1).getImg_feng());
-                            }
-
+                            holder.simNow.setImageURI(homeBean.getGoods_pai().get(1).getImg_feng());
 
                             holder.simNow.setOnClickListener(new View.OnClickListener() {
                                 @Override
@@ -313,50 +272,20 @@ public class HomeListAdapter extends RecyclerView.Adapter<HomeListAdapter.ViewHo
                             holder.tv_day5.setText(mContext.getString(R.string.Not_at_the));
                             holder.tv_day6.setText(mContext.getString(R.string.Not_at_the));
 
-                            if (homeBean.getGoods_pai().get(2).getImg_feng().contains("com")) {
-                                holder.simNow.setImageURI("https://"+homeBean.getGoods_pai().get(2).getImg_feng());
-                            } else {
-                                holder.simNow.setImageURI(UrlUtils.URL + homeBean.getGoods_pai().get(2).getImg_feng());
-                            }
+                            holder.simNow.setImageURI(homeBean.getGoods_pai().get(2).getImg_feng());
 
-                            if (homeBean.getGoods_pai().get(0).getImg_feng().contains("com")) {
-                                holder.sim1.setImageURI("https://"+homeBean.getGoods_pai().get(0).getImg_feng());
-                            } else {
-                                holder.sim1.setImageURI(UrlUtils.URL + homeBean.getGoods_pai().get(0).getImg_feng());
-                            }
+                            holder.sim1.setImageURI(homeBean.getGoods_pai().get(0).getImg_feng());
 
-                            if (homeBean.getGoods_pai().get(1).getImg_feng().contains("com")) {
-                                holder.sim2.setImageURI("https://"+homeBean.getGoods_pai().get(1).getImg_feng());
-                            } else {
-                                holder.sim2.setImageURI(UrlUtils.URL + homeBean.getGoods_pai().get(1).getImg_feng());
-                            }
+                            holder.sim2.setImageURI(homeBean.getGoods_pai().get(1).getImg_feng());
 
-                            if (homeBean.getGoods_pai().get(3).getImg_feng().contains("com")) {
-                                holder.sim3.setImageURI("https://"+homeBean.getGoods_pai().get(3).getImg_feng());
-                            } else {
-                                holder.sim3.setImageURI(UrlUtils.URL + homeBean.getGoods_pai().get(3).getImg_feng());
-                            }
+                            holder.sim3.setImageURI(homeBean.getGoods_pai().get(3).getImg_feng());
 
 
-                            if (homeBean.getGoods_pai().get(4).getImg_feng().contains("com")) {
-                                holder.sim4.setImageURI("https://"+homeBean.getGoods_pai().get(4).getImg_feng());
-                            } else {
-                                holder.sim4.setImageURI(UrlUtils.URL + homeBean.getGoods_pai().get(4).getImg_feng());
-                            }
+                            holder.sim4.setImageURI(homeBean.getGoods_pai().get(4).getImg_feng());
 
+                            holder.sim5.setImageURI(homeBean.getGoods_pai().get(5).getImg_feng());
 
-                            if (homeBean.getGoods_pai().get(5).getImg_feng().contains("com")) {
-                                holder.sim5.setImageURI("https://"+homeBean.getGoods_pai().get(5).getImg_feng());
-                            } else {
-                                holder.sim5.setImageURI(UrlUtils.URL + homeBean.getGoods_pai().get(5).getImg_feng());
-                            }
-
-
-                            if (homeBean.getGoods_pai().get(6).getImg_feng().contains("com")) {
-                                holder.sim6.setImageURI("https://"+homeBean.getGoods_pai().get(6).getImg_feng());
-                            } else {
-                                holder.sim6.setImageURI(UrlUtils.URL + homeBean.getGoods_pai().get(6).getImg_feng());
-                            }
+                            holder.sim6.setImageURI(homeBean.getGoods_pai().get(6).getImg_feng());
 
                             holder.simNow.setOnClickListener(new View.OnClickListener() {
                                 @Override
@@ -416,49 +345,24 @@ public class HomeListAdapter extends RecyclerView.Adapter<HomeListAdapter.ViewHo
                             holder.tv_day5.setText(mContext.getString(R.string.Not_at_the));
                             holder.tv_day6.setText(mContext.getString(R.string.Not_at_the));
 
-                            if (homeBean.getGoods_pai().get(3).getImg_feng().contains("com")) {
-                                holder.simNow.setImageURI("https://"+homeBean.getGoods_pai().get(3).getImg_feng());
-                            } else {
-                                holder.simNow.setImageURI(UrlUtils.URL + homeBean.getGoods_pai().get(3).getImg_feng());
-                            }
+                            holder.simNow.setImageURI(homeBean.getGoods_pai().get(3).getImg_feng());
 
-                            if (homeBean.getGoods_pai().get(0).getImg_feng().contains("com")) {
-                                holder.sim1.setImageURI("https://"+homeBean.getGoods_pai().get(0).getImg_feng());
-                            } else {
-                                holder.sim1.setImageURI(UrlUtils.URL + homeBean.getGoods_pai().get(0).getImg_feng());
-                            }
+                            holder.sim1.setImageURI(homeBean.getGoods_pai().get(0).getImg_feng());
 
-                            if (homeBean.getGoods_pai().get(1).getImg_feng().contains("com")) {
-                                holder.sim2.setImageURI("https://"+homeBean.getGoods_pai().get(1).getImg_feng());
-                            } else {
-                                holder.sim2.setImageURI(UrlUtils.URL + homeBean.getGoods_pai().get(1).getImg_feng());
-                            }
+                            holder.sim2.setImageURI(homeBean.getGoods_pai().get(1).getImg_feng());
 
-                            if (homeBean.getGoods_pai().get(2).getImg_feng().contains("com")) {
-                                holder.sim3.setImageURI("https://"+homeBean.getGoods_pai().get(2).getImg_feng());
-                            } else {
-                                holder.sim3.setImageURI(UrlUtils.URL + homeBean.getGoods_pai().get(2).getImg_feng());
-                            }
+                            holder.sim3.setImageURI(homeBean.getGoods_pai().get(2).getImg_feng());
 
 
-                            if (homeBean.getGoods_pai().get(4).getImg_feng().contains("com")) {
-                                holder.sim4.setImageURI("https://"+homeBean.getGoods_pai().get(4).getImg_feng());
-                            } else {
-                                holder.sim4.setImageURI(UrlUtils.URL + homeBean.getGoods_pai().get(4).getImg_feng());
-                            }
+                            holder.sim4.setImageURI(homeBean.getGoods_pai().get(4).getImg_feng());
 
-
-                            if (homeBean.getGoods_pai().get(5).getImg_feng().contains("com")) {
-                                holder.sim5.setImageURI("https://"+homeBean.getGoods_pai().get(5).getImg_feng());
-                            } else {
-                                holder.sim5.setImageURI(UrlUtils.URL + homeBean.getGoods_pai().get(5).getImg_feng());
-                            }
+                            holder.sim5.setImageURI(homeBean.getGoods_pai().get(5).getImg_feng());
 
 
                             if (homeBean.getGoods_pai().get(6).getImg_feng().contains("com")) {
-                                holder.sim6.setImageURI("https://"+homeBean.getGoods_pai().get(6).getImg_feng());
+                                holder.sim6.setImageURI("https://" + homeBean.getGoods_pai().get(6).getImg_feng());
                             } else {
-                                holder.sim6.setImageURI(UrlUtils.URL + homeBean.getGoods_pai().get(6).getImg_feng());
+                                holder.sim6.setImageURI(homeBean.getGoods_pai().get(6).getImg_feng());
                             }
 
 
@@ -517,50 +421,13 @@ public class HomeListAdapter extends RecyclerView.Adapter<HomeListAdapter.ViewHo
                             holder.tv_day4.setText(mContext.getString(R.string.Thursday));
                             holder.tv_day5.setText(mContext.getString(R.string.Not_at_the));
                             holder.tv_day6.setText(mContext.getString(R.string.Not_at_the));
-                            if (homeBean.getGoods_pai().get(4).getImg_feng().contains("com")) {
-                                holder.simNow.setImageURI("https://"+homeBean.getGoods_pai().get(4).getImg_feng());
-                            } else {
-                                holder.simNow.setImageURI(UrlUtils.URL + homeBean.getGoods_pai().get(4).getImg_feng());
-                            }
-
-                            if (homeBean.getGoods_pai().get(0).getImg_feng().contains("com")) {
-                                holder.sim1.setImageURI("https://"+homeBean.getGoods_pai().get(0).getImg_feng());
-                            } else {
-                                holder.sim1.setImageURI(UrlUtils.URL + homeBean.getGoods_pai().get(0).getImg_feng());
-                            }
-
-                            if (homeBean.getGoods_pai().get(1).getImg_feng().contains("com")) {
-                                holder.sim2.setImageURI("https://"+homeBean.getGoods_pai().get(1).getImg_feng());
-                            } else {
-                                holder.sim2.setImageURI(UrlUtils.URL + homeBean.getGoods_pai().get(1).getImg_feng());
-                            }
-
-                            if (homeBean.getGoods_pai().get(2).getImg_feng().contains("com")) {
-                                holder.sim3.setImageURI("https://"+homeBean.getGoods_pai().get(2).getImg_feng());
-                            } else {
-                                holder.sim3.setImageURI(UrlUtils.URL + homeBean.getGoods_pai().get(2).getImg_feng());
-                            }
-
-
-                            if (homeBean.getGoods_pai().get(3).getImg_feng().contains("com")) {
-                                holder.sim4.setImageURI("https://"+homeBean.getGoods_pai().get(3).getImg_feng());
-                            } else {
-                                holder.sim4.setImageURI(UrlUtils.URL + homeBean.getGoods_pai().get(3).getImg_feng());
-                            }
-
-
-                            if (homeBean.getGoods_pai().get(5).getImg_feng().contains("com")) {
-                                holder.sim5.setImageURI("https://"+homeBean.getGoods_pai().get(5).getImg_feng());
-                            } else {
-                                holder.sim5.setImageURI(UrlUtils.URL + homeBean.getGoods_pai().get(5).getImg_feng());
-                            }
-
-
-                            if (homeBean.getGoods_pai().get(6).getImg_feng().contains("com")) {
-                                holder.sim6.setImageURI("https://"+homeBean.getGoods_pai().get(6).getImg_feng());
-                            } else {
-                                holder.sim6.setImageURI(UrlUtils.URL + homeBean.getGoods_pai().get(6).getImg_feng());
-                            }
+                            holder.simNow.setImageURI(homeBean.getGoods_pai().get(4).getImg_feng());
+                            holder.sim1.setImageURI(homeBean.getGoods_pai().get(0).getImg_feng());
+                            holder.sim2.setImageURI(homeBean.getGoods_pai().get(1).getImg_feng());
+                            holder.sim3.setImageURI(homeBean.getGoods_pai().get(2).getImg_feng());
+                            holder.sim4.setImageURI(homeBean.getGoods_pai().get(3).getImg_feng());
+                            holder.sim5.setImageURI(homeBean.getGoods_pai().get(5).getImg_feng());
+                            holder.sim6.setImageURI(homeBean.getGoods_pai().get(6).getImg_feng());
                             holder.simNow.setOnClickListener(new View.OnClickListener() {
                                 @Override
                                 public void onClick(View view) {
@@ -614,50 +481,13 @@ public class HomeListAdapter extends RecyclerView.Adapter<HomeListAdapter.ViewHo
                             holder.tv_day4.setText(mContext.getString(R.string.Thursday));
                             holder.tv_day5.setText(mContext.getString(R.string.Friday));
                             holder.tv_day6.setText(mContext.getString(R.string.Not_at_the));
-                            if (homeBean.getGoods_pai().get(5).getImg_feng().contains("com")) {
-                                holder.simNow.setImageURI("https://"+homeBean.getGoods_pai().get(5).getImg_feng());
-                            } else {
-                                holder.simNow.setImageURI(UrlUtils.URL + homeBean.getGoods_pai().get(5).getImg_feng());
-                            }
-
-                            if (homeBean.getGoods_pai().get(0).getImg_feng().contains("com")) {
-                                holder.sim1.setImageURI("https://"+homeBean.getGoods_pai().get(0).getImg_feng());
-                            } else {
-                                holder.sim1.setImageURI(UrlUtils.URL + homeBean.getGoods_pai().get(0).getImg_feng());
-                            }
-
-                            if (homeBean.getGoods_pai().get(1).getImg_feng().contains("com")) {
-                                holder.sim2.setImageURI("https://"+homeBean.getGoods_pai().get(1).getImg_feng());
-                            } else {
-                                holder.sim2.setImageURI(UrlUtils.URL + homeBean.getGoods_pai().get(1).getImg_feng());
-                            }
-
-                            if (homeBean.getGoods_pai().get(2).getImg_feng().contains("com")) {
-                                holder.sim3.setImageURI("https://"+homeBean.getGoods_pai().get(2).getImg_feng());
-                            } else {
-                                holder.sim3.setImageURI(UrlUtils.URL + homeBean.getGoods_pai().get(2).getImg_feng());
-                            }
-
-
-                            if (homeBean.getGoods_pai().get(3).getImg_feng().contains("com")) {
-                                holder.sim4.setImageURI("https://"+homeBean.getGoods_pai().get(3).getImg_feng());
-                            } else {
-                                holder.sim4.setImageURI(UrlUtils.URL + homeBean.getGoods_pai().get(3).getImg_feng());
-                            }
-
-
-                            if (homeBean.getGoods_pai().get(4).getImg_feng().contains("com")) {
-                                holder.sim5.setImageURI("https://"+homeBean.getGoods_pai().get(4).getImg_feng());
-                            } else {
-                                holder.sim5.setImageURI(UrlUtils.URL + homeBean.getGoods_pai().get(4).getImg_feng());
-                            }
-
-
-                            if (homeBean.getGoods_pai().get(6).getImg_feng().contains("com")) {
-                                holder.sim6.setImageURI("https://"+homeBean.getGoods_pai().get(6).getImg_feng());
-                            } else {
-                                holder.sim6.setImageURI(UrlUtils.URL + homeBean.getGoods_pai().get(6).getImg_feng());
-                            }
+                            holder.simNow.setImageURI(homeBean.getGoods_pai().get(5).getImg_feng());
+                            holder.sim1.setImageURI(homeBean.getGoods_pai().get(0).getImg_feng());
+                            holder.sim2.setImageURI(homeBean.getGoods_pai().get(1).getImg_feng());
+                            holder.sim3.setImageURI(homeBean.getGoods_pai().get(2).getImg_feng());
+                            holder.sim4.setImageURI(homeBean.getGoods_pai().get(3).getImg_feng());
+                            holder.sim5.setImageURI(homeBean.getGoods_pai().get(4).getImg_feng());
+                            holder.sim6.setImageURI(homeBean.getGoods_pai().get(6).getImg_feng());
                             holder.simNow.setOnClickListener(new View.OnClickListener() {
                                 @Override
                                 public void onClick(View view) {
@@ -709,50 +539,13 @@ public class HomeListAdapter extends RecyclerView.Adapter<HomeListAdapter.ViewHo
                             holder.tv_day4.setText(mContext.getString(R.string.Thursday));
                             holder.tv_day5.setText(mContext.getString(R.string.Friday));
                             holder.tv_day6.setText(mContext.getString(R.string.Saturday));
-                            if (homeBean.getGoods_pai().get(6).getImg_feng().contains("com")) {
-                                holder.simNow.setImageURI("https://"+homeBean.getGoods_pai().get(6).getImg_feng());
-                            } else {
-                                holder.simNow.setImageURI(UrlUtils.URL + homeBean.getGoods_pai().get(6).getImg_feng());
-                            }
-
-                            if (homeBean.getGoods_pai().get(0).getImg_feng().contains("com")) {
-                                holder.sim1.setImageURI("https://"+homeBean.getGoods_pai().get(0).getImg_feng());
-                            } else {
-                                holder.sim1.setImageURI(UrlUtils.URL + homeBean.getGoods_pai().get(0).getImg_feng());
-                            }
-
-                            if (homeBean.getGoods_pai().get(1).getImg_feng().contains("com")) {
-                                holder.sim2.setImageURI("https://"+homeBean.getGoods_pai().get(1).getImg_feng());
-                            } else {
-                                holder.sim2.setImageURI(UrlUtils.URL + homeBean.getGoods_pai().get(1).getImg_feng());
-                            }
-
-                            if (homeBean.getGoods_pai().get(2).getImg_feng().contains("com")) {
-                                holder.sim3.setImageURI("https://"+homeBean.getGoods_pai().get(2).getImg_feng());
-                            } else {
-                                holder.sim3.setImageURI(UrlUtils.URL + homeBean.getGoods_pai().get(2).getImg_feng());
-                            }
-
-
-                            if (homeBean.getGoods_pai().get(3).getImg_feng().contains("com")) {
-                                holder.sim4.setImageURI("https://"+homeBean.getGoods_pai().get(3).getImg_feng());
-                            } else {
-                                holder.sim4.setImageURI(UrlUtils.URL + homeBean.getGoods_pai().get(3).getImg_feng());
-                            }
-
-
-                            if (homeBean.getGoods_pai().get(4).getImg_feng().contains("com")) {
-                                holder.sim5.setImageURI("https://"+homeBean.getGoods_pai().get(4).getImg_feng());
-                            } else {
-                                holder.sim5.setImageURI(UrlUtils.URL + homeBean.getGoods_pai().get(4).getImg_feng());
-                            }
-
-
-                            if (homeBean.getGoods_pai().get(5).getImg_feng().contains("com")) {
-                                holder.sim6.setImageURI("https://"+homeBean.getGoods_pai().get(5).getImg_feng());
-                            } else {
-                                holder.sim6.setImageURI(UrlUtils.URL + homeBean.getGoods_pai().get(5).getImg_feng());
-                            }
+                            holder.simNow.setImageURI(homeBean.getGoods_pai().get(6).getImg_feng());
+                            holder.sim1.setImageURI(homeBean.getGoods_pai().get(0).getImg_feng());
+                            holder.sim2.setImageURI(homeBean.getGoods_pai().get(1).getImg_feng());
+                            holder.sim3.setImageURI(homeBean.getGoods_pai().get(2).getImg_feng());
+                            holder.sim4.setImageURI(homeBean.getGoods_pai().get(3).getImg_feng());
+                            holder.sim5.setImageURI(homeBean.getGoods_pai().get(4).getImg_feng());
+                            holder.sim6.setImageURI(homeBean.getGoods_pai().get(5).getImg_feng());
                             holder.simNow.setOnClickListener(new View.OnClickListener() {
                                 @Override
                                 public void onClick(View view) {
@@ -806,13 +599,8 @@ public class HomeListAdapter extends RecyclerView.Adapter<HomeListAdapter.ViewHo
             }
         } else {
 
-            if (datas.get(position - 1).getImg_feng().contains("com")) {
-                holder.simShopimg.setImageURI("https://"+datas.get(position - 1).getImg_feng());
-                Log.e("HomeListAdapter","https://"+datas.get(position - 1).getImg_feng());
-            } else {
-                holder.simShopimg.setImageURI(UrlUtils.URL + datas.get(position - 1).getImg_feng());
-                Log.e("HomeListAdapter", UrlUtils.URL + datas.get(position - 1).getImg_feng());
-            }
+            holder.simShopimg.setImageURI(datas.get(position - 1).getImg_feng());
+            Log.e("HomeListAdapter", datas.get(position - 1).getImg_feng());
 
             holder.tvShopmoney.setText(datas.get(position - 1).getPrice() + "元");
             holder.tvShopnum.setText(mContext.getString(R.string.salesNum) + datas.get(position - 1).getXiaoliang() + mContext.getString(R.string.jian));
@@ -837,25 +625,25 @@ public class HomeListAdapter extends RecyclerView.Adapter<HomeListAdapter.ViewHo
         com.jude.rollviewpager.RollPagerView RollPagerView;
         @Nullable
         @BindView(R.id.sim_now)
-        SimpleDraweeView simNow;
+        MYSimpleDraweeView simNow;
         @Nullable
         @BindView(R.id.sim_1)
-        SimpleDraweeView sim1;
+        MYSimpleDraweeView sim1;
         @Nullable
         @BindView(R.id.sim_2)
-        SimpleDraweeView sim2;
+        MYSimpleDraweeView sim2;
         @Nullable
         @BindView(R.id.sim_3)
-        SimpleDraweeView sim3;
+        MYSimpleDraweeView sim3;
         @Nullable
         @BindView(R.id.sim_4)
-        SimpleDraweeView sim4;
+        MYSimpleDraweeView sim4;
         @Nullable
         @BindView(R.id.sim_5)
-        SimpleDraweeView sim5;
+        MYSimpleDraweeView sim5;
         @Nullable
         @BindView(R.id.sim_6)
-        SimpleDraweeView sim6;
+        MYSimpleDraweeView sim6;
 
         @Nullable
         @BindView(R.id.tv_day1)
@@ -878,7 +666,7 @@ public class HomeListAdapter extends RecyclerView.Adapter<HomeListAdapter.ViewHo
 
         @Nullable
         @BindView(R.id.sim_shopimg)
-        SimpleDraweeView simShopimg;
+        MYSimpleDraweeView simShopimg;
         @Nullable
         @BindView(R.id.tv_shoptitle)
         TextView tvShoptitle;

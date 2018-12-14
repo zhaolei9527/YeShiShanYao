@@ -76,7 +76,7 @@
                         android:textColor="#333"
                         android:textSize="@dimen/x12" />
 
-                    <com.facebook.drawee.view.SimpleDraweeView
+                    <com.lingqiapp.View.MYSimpleDraweeView
                         android:id="@+id/SimpleDraweeView"
                         android:layout_width="@dimen/x33"
                         android:layout_height="@dimen/x33"

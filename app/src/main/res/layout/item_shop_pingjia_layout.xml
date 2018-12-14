@@ -25,7 +25,7 @@
             android:layout_marginTop="@dimen/x10"
             android:orientation="horizontal">
 
-            <com.facebook.drawee.view.SimpleDraweeView
+            <com.lingqiapp.View.MYSimpleDraweeView
                 android:id="@+id/sdv_pingjia"
                 android:layout_width="@dimen/x30"
                 android:layout_height="@dimen/x30"
@@ -94,18 +94,18 @@
             android:gravity="center_vertical"
             android:padding="@dimen/x8">
 
-            <com.facebook.drawee.view.SimpleDraweeView
+            <com.lingqiapp.View.MYSimpleDraweeView
                 android:id="@+id/SimpleDraweeView1"
                 android:layout_width="@dimen/x97"
                 android:layout_height="@dimen/x97" />
 
-            <com.facebook.drawee.view.SimpleDraweeView
+            <com.lingqiapp.View.MYSimpleDraweeView
                 android:id="@+id/SimpleDraweeView2"
                 android:layout_width="@dimen/x97"
                 android:layout_height="@dimen/x97"
                 android:layout_marginLeft="@dimen/x5" />
 
-            <com.facebook.drawee.view.SimpleDraweeView
+            <com.lingqiapp.View.MYSimpleDraweeView
                 android:id="@+id/SimpleDraweeView3"
                 android:layout_width="@dimen/x97"
                 android:layout_height="@dimen/x97"

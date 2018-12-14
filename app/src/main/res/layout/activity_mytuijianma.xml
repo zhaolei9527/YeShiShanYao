@@ -61,7 +61,7 @@
                     android:layout_marginTop="@dimen/y200"
                     android:background="@color/bgfff">
 
-                    <com.facebook.drawee.view.SimpleDraweeView
+                    <com.lingqiapp.View.MYSimpleDraweeView
                         android:id="@+id/img_tuijianma"
                         android:layout_width="@dimen/x114"
                         android:layout_height="@dimen/x114"

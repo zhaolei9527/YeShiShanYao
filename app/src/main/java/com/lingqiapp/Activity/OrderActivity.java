@@ -15,7 +15,6 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.android.volley.VolleyError;
-import com.facebook.drawee.view.SimpleDraweeView;
 import com.google.gson.Gson;
 import com.lingqiapp.App;
 import com.lingqiapp.Base.BaseActivity;
@@ -31,6 +30,7 @@ import com.lingqiapp.Utils.EasyToast;
 import com.lingqiapp.Utils.SpUtil;
 import com.lingqiapp.Utils.UrlUtils;
 import com.lingqiapp.Utils.Utils;
+import com.lingqiapp.View.MYSimpleDraweeView;
 import com.lingqiapp.Visa.CardActivity;
 import com.lingqiapp.Volley.VolleyInterface;
 import com.lingqiapp.Volley.VolleyRequest;
@@ -221,7 +221,7 @@ public class OrderActivity extends BaseActivity implements View.OnClickListener 
             Log.e("OrderActivity", order);
 
             View inflate = View.inflate(context, R.layout.item_oreder_layout, null);
-            SimpleDraweeView simpleDraweeView = (SimpleDraweeView) inflate.findViewById(R.id.SimpleDraweeView);
+            MYSimpleDraweeView simpleDraweeView = (MYSimpleDraweeView) inflate.findViewById(R.id.SimpleDraweeView);
 
             if (goodsOrderBean.getGoods().getImg_feng().contains(".com")) {
                 simpleDraweeView.setImageURI(goodsOrderBean.getGoods().getImg_feng());
@@ -286,7 +286,7 @@ public class OrderActivity extends BaseActivity implements View.OnClickListener 
             for (int i = 0; i < orderOrderBean.getCart().size(); i++) {
 
                 View inflate = View.inflate(context, R.layout.item_oreder_layout, null);
-                SimpleDraweeView simpleDraweeView = (SimpleDraweeView) inflate.findViewById(R.id.SimpleDraweeView);
+                MYSimpleDraweeView simpleDraweeView = (MYSimpleDraweeView) inflate.findViewById(R.id.SimpleDraweeView);
                 simpleDraweeView.setImageURI(UrlUtils.URL + orderOrderBean.getCart().get(i).getImg_feng());
                 TextView tv_title = (TextView) inflate.findViewById(R.id.tv_title);
                 tv_title.setText(orderOrderBean.getCart().get(i).getTitle());

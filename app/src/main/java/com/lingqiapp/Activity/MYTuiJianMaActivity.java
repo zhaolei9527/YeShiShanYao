@@ -9,7 +9,6 @@ import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import com.android.volley.VolleyError;
-import com.facebook.drawee.view.SimpleDraweeView;
 import com.google.gson.Gson;
 import com.lingqiapp.App;
 import com.lingqiapp.Base.BaseActivity;
@@ -19,6 +18,7 @@ import com.lingqiapp.Utils.EasyToast;
 import com.lingqiapp.Utils.SpUtil;
 import com.lingqiapp.Utils.UrlUtils;
 import com.lingqiapp.Utils.Utils;
+import com.lingqiapp.View.MYSimpleDraweeView;
 import com.lingqiapp.Volley.VolleyInterface;
 import com.lingqiapp.Volley.VolleyRequest;
 
@@ -41,7 +41,7 @@ public class MYTuiJianMaActivity extends BaseActivity {
     @BindView(R.id.tv_Title)
     TextView tvTitle;
     @BindView(R.id.img_tuijianma)
-    SimpleDraweeView imgTuijianma;
+    MYSimpleDraweeView imgTuijianma;
     @BindView(R.id.rl_img)
     RelativeLayout rlImg;
     @BindView(R.id.tv_msg)

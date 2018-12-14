@@ -23,6 +23,7 @@ import com.lingqiapp.Utils.EasyToast;
 import com.lingqiapp.Utils.SpUtil;
 import com.lingqiapp.Utils.UrlUtils;
 import com.lingqiapp.Utils.Utils;
+import com.lingqiapp.View.MYSimpleDraweeView;
 import com.lingqiapp.Volley.VolleyInterface;
 import com.lingqiapp.Volley.VolleyRequest;
 import com.tencent.mm.opensdk.modelpay.PayReq;
@@ -47,7 +48,7 @@ public class HuiYuanShengJiActivity extends BaseActivity {
     @BindView(R.id.tv_Title)
     TextView tvTitle;
     @BindView(R.id.SimpleDraweeView)
-    com.facebook.drawee.view.SimpleDraweeView SimpleDraweeView;
+    MYSimpleDraweeView SimpleDraweeView;
     @BindView(R.id.tv_username)
     TextView tvUsername;
     @BindView(R.id.tv_content)

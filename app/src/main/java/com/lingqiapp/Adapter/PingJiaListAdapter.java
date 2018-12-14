@@ -11,12 +11,12 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
-import com.facebook.drawee.view.SimpleDraweeView;
 import com.lingqiapp.Bean.GoodsPingBean;
 import com.lingqiapp.R;
 import com.lingqiapp.Utils.DateUtils;
 import com.lingqiapp.Utils.PixelUtils;
 import com.lingqiapp.Utils.UrlUtils;
+import com.lingqiapp.View.MYSimpleDraweeView;
 
 import java.util.ArrayList;
 
@@ -102,7 +102,7 @@ public class PingJiaListAdapter extends RecyclerView.Adapter<PingJiaListAdapter.
 
     public static class ViewHolder extends RecyclerView.ViewHolder {
         @BindView(R.id.sdv_pingjia)
-        SimpleDraweeView sdvPingjia;
+        MYSimpleDraweeView sdvPingjia;
         @BindView(R.id.tv_pingjia_name)
         TextView tvPingjiaName;
         @BindView(R.id.ll_star)
@@ -112,11 +112,11 @@ public class PingJiaListAdapter extends RecyclerView.Adapter<PingJiaListAdapter.
         @BindView(R.id.tv_pingjia_content)
         TextView tvPingjiaContent;
         @BindView(R.id.SimpleDraweeView1)
-        SimpleDraweeView SimpleDraweeView1;
+        MYSimpleDraweeView SimpleDraweeView1;
         @BindView(R.id.SimpleDraweeView2)
-        SimpleDraweeView SimpleDraweeView2;
+        MYSimpleDraweeView SimpleDraweeView2;
         @BindView(R.id.SimpleDraweeView3)
-        SimpleDraweeView SimpleDraweeView3;
+        MYSimpleDraweeView SimpleDraweeView3;
         @BindView(R.id.ll_imgs)
         LinearLayout llImgs;
         @BindView(R.id.ll_has_pingjia)

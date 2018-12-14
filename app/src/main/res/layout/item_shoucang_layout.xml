@@ -26,7 +26,7 @@
                 android:background="@drawable/rb_selector"
                 android:button="@null" />
 
-            <com.facebook.drawee.view.SimpleDraweeView
+            <com.lingqiapp.View.MYSimpleDraweeView
                 android:id="@+id/SimpleDraweeView"
                 android:layout_width="@dimen/x84"
                 android:layout_height="@dimen/x84"

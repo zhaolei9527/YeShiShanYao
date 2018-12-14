@@ -15,6 +15,7 @@ import com.lingqiapp.Bean.NewsListBean;
 import com.lingqiapp.R;
 import com.lingqiapp.Utils.DateUtils;
 import com.lingqiapp.Utils.UrlUtils;
+import com.lingqiapp.View.MYSimpleDraweeView;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -78,7 +79,7 @@ public class NewsListAdapter extends RecyclerView.Adapter<NewsListAdapter.ViewHo
         @BindView(R.id.tv_time)
         TextView tvTime;
         @BindView(R.id.SimpleDraweeView)
-        com.facebook.drawee.view.SimpleDraweeView SimpleDraweeView;
+        MYSimpleDraweeView SimpleDraweeView;
         @BindView(R.id.tv_title)
         TextView tvTitle;
         @BindView(R.id.tv_content)
