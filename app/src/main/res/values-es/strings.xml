@@ -248,5 +248,11 @@
 	<string name="Cancel_orde">Anular la orden</string>
 	<string name="Confirm_goods">Confirmación de envío</string>
 	<string name="exit_login">Salida de sesión</string>
-
+	<string name="offlinePayment">Offline payment</string>
+	<string name="visa_pay">VISA payment</string>
+	<string name="daichuli">Processed</string>
+	<string name="jgsx">price ascending</string>
+	<string name="jgjx">Price descending</string>
+	<string name="xlsx">Sales ascending</string>
+	<string name="xljx">Sales descending</string>
 </resources>

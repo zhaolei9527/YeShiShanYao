@@ -18,20 +18,18 @@ import java.util.List;
 public class GoodsDetailBean {
 
     /**
-     * goods : {"id":"42","title":"荣耀畅玩8C 全网通标配版 4GB+32GB 幻夜黑 移动联通电信4G全面屏手机 双卡双待","img":["/Public/uploads/2018-10-16/5bc53e3c72035.jpg"],"addtime":"1539653181","kucun":"49951","xiaoliang":"0","price":"1099.00"}
+     * goods : {"id":"77","title":"Fu Guang water cup","img":["/Public/uploads/2018-12-08/5c0b852cb63f2.jpg","/Public/uploads/2018-12-08/5c0b852ead7c2.jpg"],"addtime":"1544258864","kucun":"9986","price":"69.00","is_gui":"1","xiaoliang":"2"}
+     * gg : [{"id":"758","gid":"77","title":"Color","sx":[{"id":"4128","gid":null,"title":"black","gnid":"758"},{"id":"4129","gid":null,"title":"orange","gnid":"758"}]},{"id":"759","gid":"77","title":"Capacity","sx":[{"id":"4130","gid":null,"title":"500ml","gnid":"759"},{"id":"4131","gid":null,"title":"1000ml","gnid":"759"}]}]
      * is_cang : 0
-     * is_hui : 2
-     * shen : 0
-     * pj : {"0":{"id":"21","uid":"471","orderid":"20181017133717437939","star":"5","pcontent":"vdjsbhssbb","gid":"42","aid":null,"hcontent":null,"p_img":["/Public/uploads/oder_ping/2018-10-17/5bc6dc22608b4.png","/Public/uploads/oder_ping/2018-10-17/5bc6dc2262024.png"],"addtime":"1539759139","stu":"1","hftime":null,"ni_name":"程序猿","img":"/Public/uploads/headimg/default_img.png"},"1":{"id":"19","uid":"471","orderid":"20181017133723866790","star":"5","pcontent":"ghchh","gid":"42","aid":null,"hcontent":null,"p_img":["/Public/uploads/oder_ping/2018-10-17/5bc6dad3c6513.png","/Public/uploads/oder_ping/2018-10-17/5bc6dad3c806b.png"],"addtime":"1539758805","stu":"1","hftime":null,"ni_name":"程序猿","img":"/Public/uploads/headimg/default_img.png"},"count":"2"}
+     * pj : {"0":{"id":"36","uid":"40","orderid":"20181211154656626547","star":"5","pcontent":"哈哈哈哈哈哈","gid":"77","aid":null,"hcontent":null,"p_img":[""],"addtime":"1544514727","stu":"1","hftime":null,"ni_name":"吴先森","img":"/Public/uploads/headers/2018-12-11/2018_12_11_16_28_12_31332.jpg"},"1":{"id":"36","uid":"40","orderid":"20181211154656626547","star":"5","pcontent":"哈哈哈哈哈哈","gid":"77","aid":null,"hcontent":null,"p_img":[""],"addtime":"1544514727","stu":"1","hftime":null,"ni_name":"吴先森","img":"/Public/uploads/headers/2018-12-11/2018_12_11_16_28_12_31332.jpg"},"couant":"1"}
      * status : 1
      */
 
     private GoodsBean goods;
     private String is_cang;
-    private String is_hui;
-    private int shen;
     private PjBean pj;
     private int status;
+    private List<GgBean> gg;
 
     public static List<GoodsDetailBean> arrayGoodsDetailBeanFromData(String str) {
 
@@ -57,22 +55,6 @@ public class GoodsDetailBean {
         this.is_cang = is_cang;
     }
 
-    public String getIs_hui() {
-        return is_hui;
-    }
-
-    public void setIs_hui(String is_hui) {
-        this.is_hui = is_hui;
-    }
-
-    public int getShen() {
-        return shen;
-    }
-
-    public void setShen(int shen) {
-        this.shen = shen;
-    }
-
     public PjBean getPj() {
         return pj;
     }
@@ -89,23 +71,33 @@ public class GoodsDetailBean {
         this.status = status;
     }
 
+    public List<GgBean> getGg() {
+        return gg;
+    }
+
+    public void setGg(List<GgBean> gg) {
+        this.gg = gg;
+    }
+
     public static class GoodsBean {
         /**
-         * id : 42
-         * title : 荣耀畅玩8C 全网通标配版 4GB+32GB 幻夜黑 移动联通电信4G全面屏手机 双卡双待
-         * img : ["/Public/uploads/2018-10-16/5bc53e3c72035.jpg"]
-         * addtime : 1539653181
-         * kucun : 49951
-         * xiaoliang : 0
-         * price : 1099.00
+         * id : 77
+         * title : Fu Guang water cup
+         * img : ["/Public/uploads/2018-12-08/5c0b852cb63f2.jpg","/Public/uploads/2018-12-08/5c0b852ead7c2.jpg"]
+         * addtime : 1544258864
+         * kucun : 9986
+         * price : 69.00
+         * is_gui : 1
+         * xiaoliang : 2
          */
 
         private String id;
         private String title;
         private String addtime;
         private String kucun;
-        private String xiaoliang;
         private String price;
+        private String is_gui;
+        private String xiaoliang;
         private List<String> img;
 
         public static List<GoodsBean> arrayGoodsBeanFromData(String str) {
@@ -148,20 +140,28 @@ public class GoodsDetailBean {
             this.kucun = kucun;
         }
 
-        public String getXiaoliang() {
-            return xiaoliang;
-        }
-
-        public void setXiaoliang(String xiaoliang) {
-            this.xiaoliang = xiaoliang;
-        }
-
         public String getPrice() {
             return price;
         }
 
         public void setPrice(String price) {
             this.price = price;
+        }
+
+        public String getIs_gui() {
+            return is_gui;
+        }
+
+        public void setIs_gui(String is_gui) {
+            this.is_gui = is_gui;
+        }
+
+        public String getXiaoliang() {
+            return xiaoliang;
+        }
+
+        public void setXiaoliang(String xiaoliang) {
+            this.xiaoliang = xiaoliang;
         }
 
         public List<String> getImg() {
@@ -175,16 +175,16 @@ public class GoodsDetailBean {
 
     public static class PjBean {
         /**
-         * 0 : {"id":"21","uid":"471","orderid":"20181017133717437939","star":"5","pcontent":"vdjsbhssbb","gid":"42","aid":null,"hcontent":null,"p_img":["/Public/uploads/oder_ping/2018-10-17/5bc6dc22608b4.png","/Public/uploads/oder_ping/2018-10-17/5bc6dc2262024.png"],"addtime":"1539759139","stu":"1","hftime":null,"ni_name":"程序猿","img":"/Public/uploads/headimg/default_img.png"}
-         * 1 : {"id":"19","uid":"471","orderid":"20181017133723866790","star":"5","pcontent":"ghchh","gid":"42","aid":null,"hcontent":null,"p_img":["/Public/uploads/oder_ping/2018-10-17/5bc6dad3c6513.png","/Public/uploads/oder_ping/2018-10-17/5bc6dad3c806b.png"],"addtime":"1539758805","stu":"1","hftime":null,"ni_name":"程序猿","img":"/Public/uploads/headimg/default_img.png"}
-         * count : 2
+         * 0 : {"id":"36","uid":"40","orderid":"20181211154656626547","star":"5","pcontent":"哈哈哈哈哈哈","gid":"77","aid":null,"hcontent":null,"p_img":[""],"addtime":"1544514727","stu":"1","hftime":null,"ni_name":"吴先森","img":"/Public/uploads/headers/2018-12-11/2018_12_11_16_28_12_31332.jpg"}
+         * 1 : {"id":"36","uid":"40","orderid":"20181211154656626547","star":"5","pcontent":"哈哈哈哈哈哈","gid":"77","aid":null,"hcontent":null,"p_img":[""],"addtime":"1544514727","stu":"1","hftime":null,"ni_name":"吴先森","img":"/Public/uploads/headers/2018-12-11/2018_12_11_16_28_12_31332.jpg"}
+         * couant : 1
          */
 
         @SerializedName("0")
         private _$0Bean _$0;
         @SerializedName("1")
         private _$1Bean _$1;
-        private String count;
+        private String couant;
 
         public static List<PjBean> arrayPjBeanFromData(String str) {
 
@@ -210,30 +210,30 @@ public class GoodsDetailBean {
             this._$1 = _$1;
         }
 
-        public String getCount() {
-            return count;
+        public String getCouant() {
+            return couant;
         }
 
-        public void setCount(String count) {
-            this.count = count;
+        public void setCouant(String couant) {
+            this.couant = couant;
         }
 
         public static class _$0Bean {
             /**
-             * id : 21
-             * uid : 471
-             * orderid : 20181017133717437939
+             * id : 36
+             * uid : 40
+             * orderid : 20181211154656626547
              * star : 5
-             * pcontent : vdjsbhssbb
-             * gid : 42
+             * pcontent : 哈哈哈哈哈哈
+             * gid : 77
              * aid : null
              * hcontent : null
-             * p_img : ["/Public/uploads/oder_ping/2018-10-17/5bc6dc22608b4.png","/Public/uploads/oder_ping/2018-10-17/5bc6dc2262024.png"]
-             * addtime : 1539759139
+             * p_img : [""]
+             * addtime : 1544514727
              * stu : 1
              * hftime : null
-             * ni_name : 程序猿
-             * img : /Public/uploads/headimg/default_img.png
+             * ni_name : 吴先森
+             * img : /Public/uploads/headers/2018-12-11/2018_12_11_16_28_12_31332.jpg
              */
 
             private String id;
@@ -242,11 +242,11 @@ public class GoodsDetailBean {
             private String star;
             private String pcontent;
             private String gid;
-            private Object aid;
-            private Object hcontent;
+            private String aid;
+            private String hcontent;
             private String addtime;
             private String stu;
-            private Object hftime;
+            private String hftime;
             private String ni_name;
             private String img;
             private List<String> p_img;
@@ -307,19 +307,19 @@ public class GoodsDetailBean {
                 this.gid = gid;
             }
 
-            public Object getAid() {
+            public String getAid() {
                 return aid;
             }
 
-            public void setAid(Object aid) {
+            public void setAid(String aid) {
                 this.aid = aid;
             }
 
-            public Object getHcontent() {
+            public String getHcontent() {
                 return hcontent;
             }
 
-            public void setHcontent(Object hcontent) {
+            public void setHcontent(String hcontent) {
                 this.hcontent = hcontent;
             }
 
@@ -339,11 +339,11 @@ public class GoodsDetailBean {
                 this.stu = stu;
             }
 
-            public Object getHftime() {
+            public String getHftime() {
                 return hftime;
             }
 
-            public void setHftime(Object hftime) {
+            public void setHftime(String hftime) {
                 this.hftime = hftime;
             }
 
@@ -374,20 +374,20 @@ public class GoodsDetailBean {
 
         public static class _$1Bean {
             /**
-             * id : 19
-             * uid : 471
-             * orderid : 20181017133723866790
+             * id : 36
+             * uid : 40
+             * orderid : 20181211154656626547
              * star : 5
-             * pcontent : ghchh
-             * gid : 42
+             * pcontent : 哈哈哈哈哈哈
+             * gid : 77
              * aid : null
              * hcontent : null
-             * p_img : ["/Public/uploads/oder_ping/2018-10-17/5bc6dad3c6513.png","/Public/uploads/oder_ping/2018-10-17/5bc6dad3c806b.png"]
-             * addtime : 1539758805
+             * p_img : [""]
+             * addtime : 1544514727
              * stu : 1
              * hftime : null
-             * ni_name : 程序猿
-             * img : /Public/uploads/headimg/default_img.png
+             * ni_name : 吴先森
+             * img : /Public/uploads/headers/2018-12-11/2018_12_11_16_28_12_31332.jpg
              */
 
             private String id;
@@ -396,11 +396,11 @@ public class GoodsDetailBean {
             private String star;
             private String pcontent;
             private String gid;
-            private Object aid;
-            private Object hcontent;
+            private String aid;
+            private String hcontent;
             private String addtime;
             private String stu;
-            private Object hftime;
+            private String hftime;
             private String ni_name;
             private String img;
             private List<String> p_img;
@@ -461,19 +461,19 @@ public class GoodsDetailBean {
                 this.gid = gid;
             }
 
-            public Object getAid() {
+            public String getAid() {
                 return aid;
             }
 
-            public void setAid(Object aid) {
+            public void setAid(String aid) {
                 this.aid = aid;
             }
 
-            public Object getHcontent() {
+            public String getHcontent() {
                 return hcontent;
             }
 
-            public void setHcontent(Object hcontent) {
+            public void setHcontent(String hcontent) {
                 this.hcontent = hcontent;
             }
 
@@ -493,11 +493,11 @@ public class GoodsDetailBean {
                 this.stu = stu;
             }
 
-            public Object getHftime() {
+            public String getHftime() {
                 return hftime;
             }
 
-            public void setHftime(Object hftime) {
+            public void setHftime(String hftime) {
                 this.hftime = hftime;
             }
 
@@ -523,6 +523,114 @@ public class GoodsDetailBean {
 
             public void setP_img(List<String> p_img) {
                 this.p_img = p_img;
+            }
+        }
+    }
+
+    public static class GgBean {
+        /**
+         * id : 758
+         * gid : 77
+         * title : Color
+         * sx : [{"id":"4128","gid":null,"title":"black","gnid":"758"},{"id":"4129","gid":null,"title":"orange","gnid":"758"}]
+         */
+
+        private String id;
+        private String gid;
+        private String title;
+        private List<SxBean> sx;
+
+        public static List<GgBean> arrayGgBeanFromData(String str) {
+
+            Type listType = new TypeToken<ArrayList<GgBean>>() {
+            }.getType();
+
+            return new Gson().fromJson(str, listType);
+        }
+
+        public String getId() {
+            return id;
+        }
+
+        public void setId(String id) {
+            this.id = id;
+        }
+
+        public String getGid() {
+            return gid;
+        }
+
+        public void setGid(String gid) {
+            this.gid = gid;
+        }
+
+        public String getTitle() {
+            return title;
+        }
+
+        public void setTitle(String title) {
+            this.title = title;
+        }
+
+        public List<SxBean> getSx() {
+            return sx;
+        }
+
+        public void setSx(List<SxBean> sx) {
+            this.sx = sx;
+        }
+
+        public static class SxBean {
+            /**
+             * id : 4128
+             * gid : null
+             * title : black
+             * gnid : 758
+             */
+
+            private String id;
+            private String gid;
+            private String title;
+            private String gnid;
+
+            public static List<SxBean> arraySxBeanFromData(String str) {
+
+                Type listType = new TypeToken<ArrayList<SxBean>>() {
+                }.getType();
+
+                return new Gson().fromJson(str, listType);
+            }
+
+            public String getId() {
+                return id;
+            }
+
+            public void setId(String id) {
+                this.id = id;
+            }
+
+            public String getGid() {
+                return gid;
+            }
+
+            public void setGid(String gid) {
+                this.gid = gid;
+            }
+
+            public String getTitle() {
+                return title;
+            }
+
+            public void setTitle(String title) {
+                this.title = title;
+            }
+
+            public String getGnid() {
+                return gnid;
+            }
+
+            public void setGnid(String gnid) {
+                this.gnid = gnid;
             }
         }
     }

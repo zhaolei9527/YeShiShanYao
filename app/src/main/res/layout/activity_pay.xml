@@ -109,7 +109,7 @@
                 android:layout_height="@dimen/x21"
                 android:layout_centerVertical="true"
                 android:layout_marginLeft="@dimen/x10"
-                android:background="@mipmap/lwechat" />
+                android:background="@mipmap/visa" />
 
             <TextView
                 android:layout_width="wrap_content"
@@ -117,7 +117,7 @@
                 android:layout_centerVertical="true"
                 android:layout_marginLeft="@dimen/x10"
                 android:layout_toRightOf="@id/img_weixin"
-                android:text="微信" />
+                android:text="@string/visa_pay" />
 
             <CheckBox
                 android:id="@+id/Choosedweixin"
@@ -158,6 +158,44 @@
 
             <CheckBox
                 android:id="@+id/Choosedyue"
+                android:layout_width="@dimen/x18"
+                android:layout_height="@dimen/x18"
+                android:layout_alignParentRight="true"
+                android:layout_centerVertical="true"
+                android:layout_gravity="center_vertical"
+                android:layout_marginLeft="@dimen/x5"
+                android:layout_marginRight="@dimen/x15"
+                android:background="@drawable/rb_selector"
+                android:button="@null"
+                android:checked="false"
+                android:clickable="false"
+                android:focusable="false" />
+
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:id="@+id/rl_xianxia"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/y30">
+
+            <ImageView
+                android:id="@+id/img_xianxia"
+                android:layout_width="@dimen/x21"
+                android:layout_height="@dimen/x21"
+                android:layout_centerVertical="true"
+                android:layout_marginLeft="@dimen/x10"
+                android:background="@mipmap/xianxia" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_marginLeft="@dimen/x10"
+                android:layout_toRightOf="@id/img_xianxia"
+                android:text="@string/offlinePayment" />
+
+            <CheckBox
+                android:id="@+id/Choosexianxia"
                 android:layout_width="@dimen/x18"
                 android:layout_height="@dimen/x18"
                 android:layout_alignParentRight="true"

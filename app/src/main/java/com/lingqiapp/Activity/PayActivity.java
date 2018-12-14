@@ -73,6 +73,12 @@ public class PayActivity extends BaseActivity implements View.OnClickListener {
     RelativeLayout rlWeixinpay;
     @BindView(R.id.rl_yuepay)
     RelativeLayout rlYuepay;
+    @BindView(R.id.img_xianxia)
+    ImageView imgXianxia;
+    @BindView(R.id.Choosexianxia)
+    CheckBox Choosexianxia;
+    @BindView(R.id.rl_xianxia)
+    RelativeLayout rlXianxia;
     private String orderid;
     private String order;
     private Dialog dialog;
@@ -177,6 +183,7 @@ public class PayActivity extends BaseActivity implements View.OnClickListener {
             public void onClick(View view) {
                 Choosedweixin.setChecked(true);
                 Choosedyue.setChecked(false);
+                Choosexianxia.setChecked(false);
             }
         });
 
@@ -184,7 +191,17 @@ public class PayActivity extends BaseActivity implements View.OnClickListener {
             @Override
             public void onClick(View view) {
                 Choosedweixin.setChecked(false);
+                Choosexianxia.setChecked(false);
                 Choosedyue.setChecked(true);
+            }
+        });
+
+        rlXianxia.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Choosedweixin.setChecked(false);
+                Choosedyue.setChecked(false);
+                Choosexianxia.setChecked(true);
             }
         });
 
@@ -209,8 +226,13 @@ public class PayActivity extends BaseActivity implements View.OnClickListener {
                     if (Choosedweixin.isChecked()) {
                         orderWxpay();
                         return;
-                    } else {
+                    } else if (Choosedyue.isChecked()) {
                         payYue(getIntent().getStringExtra("orderid"));
+                    } else if (Choosexianxia.isChecked()) {
+                        startActivity(new Intent(context, XianXiaPayActivity.class)
+                                .putExtra("oid", getIntent().getStringExtra("orderid"))
+                        );
+                        finish();
                     }
                     if (!dialog.isShowing()) {
                         dialog.show();
@@ -237,8 +259,9 @@ public class PayActivity extends BaseActivity implements View.OnClickListener {
         params.put("oid", orderid);
         params.put("uid", String.valueOf(SpUtil.get(context, "uid", "")));
         Log.e("orderWxpay", params.toString());
-        VolleyRequest.RequestPost(context, UrlUtils.BASE_URL + "order/visa"+ App.LanguageTYPEHTTP, "order/visa", params, new VolleyInterface(context) {
+        VolleyRequest.RequestPost(context, UrlUtils.BASE_URL + "order/visa" + App.LanguageTYPEHTTP, "order/visa", params, new VolleyInterface(context) {
             private Intent intent;
+
             @Override
             public void onMySuccess(String result) {
                 dialog.dismiss();
@@ -292,7 +315,7 @@ public class PayActivity extends BaseActivity implements View.OnClickListener {
         params.put("uid", String.valueOf(SpUtil.get(context, "uid", "")));
         params.put("oid", oid);
         Log.e("OrderActivity", params.toString());
-        VolleyRequest.RequestPost(context, UrlUtils.BASE_URL + "order/pay_yue"+ App.LanguageTYPEHTTP, "order/pay_yue", params, new VolleyInterface(context) {
+        VolleyRequest.RequestPost(context, UrlUtils.BASE_URL + "order/pay_yue" + App.LanguageTYPEHTTP, "order/pay_yue", params, new VolleyInterface(context) {
             @Override
             public void onMySuccess(String result) {
                 dialog.dismiss();

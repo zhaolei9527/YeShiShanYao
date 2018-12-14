@@ -18,7 +18,7 @@ public class OrderDetailBean {
 
     /**
      * status : 1
-     * order : {"id":"290","orderid":"20180928111246860665","totalprice":"3920","uid":"461","status":"4","paytime":null,"addressid":"183","addtime":"1538104366","number":"4","yemoney":null,"paytype":null,"payment":null,"fhtime":null,"exp":null,"expnum":null,"fhbeizhu":null,"paybeizhu":null,"shtime":null,"sheng":"河南省","shi":"郑州市","xian":"中原区","address":"asdadasfdasdasfasfasf","tel":"17629345001","name":"asdasdasasd","is_ziti":"1","gid":"22","cid":"137","l_num":null,"title":"爱美丽","img_feng":"/Public/uploads/goods/2018-09-26/5bab23c7ba090.png","price":"30"}
+     * order : {"id":"664","orderid":"20181214174208201843","totalprice":"50.00","uid":"15","status":"1","paytime":null,"addressid":"35","addtime":"1544780528","number":"1","yemoney":null,"paytype":null,"fhtime":null,"exp":null,"expnum":null,"fhbeizhu":null,"paybeizhu":null,"shtime":null,"country":"西班牙","address":"1545641216546","tel":"1545465456","name":"asdasdas","xing":null,"is_ziti":"1","gid":"71","cid":"849","l_num":null,"ltype":"3","ont0":null,"onts0":null,"ont1":null,"onts1":null,"ont2":null,"onts2":null,"ont3":null,"onts3":null,"no":"没有收到款","title":"Cazlan Little Red Lip and Lipstick Value Persistent Moisturizing, Non-decoloring and Non-staining Cup","img_feng":"/Public/uploads/2018-11-29/5bff400fc6810.jpg","price":"50.00"}
      */
 
     private int status;
@@ -50,37 +50,45 @@ public class OrderDetailBean {
 
     public static class OrderBean {
         /**
-         * id : 290
-         * orderid : 20180928111246860665
-         * totalprice : 3920
-         * uid : 461
-         * status : 4
+         * id : 664
+         * orderid : 20181214174208201843
+         * totalprice : 50.00
+         * uid : 15
+         * status : 1
          * paytime : null
-         * addressid : 183
-         * addtime : 1538104366
-         * number : 4
+         * addressid : 35
+         * addtime : 1544780528
+         * number : 1
          * yemoney : null
          * paytype : null
-         * payment : null
          * fhtime : null
          * exp : null
          * expnum : null
          * fhbeizhu : null
          * paybeizhu : null
          * shtime : null
-         * sheng : 河南省
-         * shi : 郑州市
-         * xian : 中原区
-         * address : asdadasfdasdasfasfasf
-         * tel : 17629345001
-         * name : asdasdasasd
+         * country : 西班牙
+         * address : 1545641216546
+         * tel : 1545465456
+         * name : asdasdas
+         * xing : null
          * is_ziti : 1
-         * gid : 22
-         * cid : 137
+         * gid : 71
+         * cid : 849
          * l_num : null
-         * title : 爱美丽
-         * img_feng : /Public/uploads/goods/2018-09-26/5bab23c7ba090.png
-         * price : 30
+         * ltype : 3
+         * ont0 : null
+         * onts0 : null
+         * ont1 : null
+         * onts1 : null
+         * ont2 : null
+         * onts2 : null
+         * ont3 : null
+         * onts3 : null
+         * no : 没有收到款
+         * title : Cazlan Little Red Lip and Lipstick Value Persistent Moisturizing, Non-decoloring and Non-staining Cup
+         * img_feng : /Public/uploads/2018-11-29/5bff400fc6810.jpg
+         * price : 50.00
          */
 
         private String id;
@@ -94,23 +102,31 @@ public class OrderDetailBean {
         private String number;
         private String yemoney;
         private String paytype;
-        private String payment;
         private String fhtime;
         private String exp;
         private String expnum;
         private String fhbeizhu;
         private String paybeizhu;
         private String shtime;
-        private String sheng;
-        private String shi;
-        private String xian;
+        private String country;
         private String address;
         private String tel;
         private String name;
+        private String xing;
         private String is_ziti;
         private String gid;
         private String cid;
         private String l_num;
+        private String ltype;
+        private String ont0;
+        private String onts0;
+        private String ont1;
+        private String onts1;
+        private String ont2;
+        private String onts2;
+        private String ont3;
+        private String onts3;
+        private String no;
         private String title;
         private String img_feng;
         private String price;
@@ -211,14 +227,6 @@ public class OrderDetailBean {
             this.paytype = paytype;
         }
 
-        public String getPayment() {
-            return payment;
-        }
-
-        public void setPayment(String payment) {
-            this.payment = payment;
-        }
-
         public String getFhtime() {
             return fhtime;
         }
@@ -267,28 +275,12 @@ public class OrderDetailBean {
             this.shtime = shtime;
         }
 
-        public String getSheng() {
-            return sheng;
+        public String getCountry() {
+            return country;
         }
 
-        public void setSheng(String sheng) {
-            this.sheng = sheng;
-        }
-
-        public String getShi() {
-            return shi;
-        }
-
-        public void setShi(String shi) {
-            this.shi = shi;
-        }
-
-        public String getXian() {
-            return xian;
-        }
-
-        public void setXian(String xian) {
-            this.xian = xian;
+        public void setCountry(String country) {
+            this.country = country;
         }
 
         public String getAddress() {
@@ -313,6 +305,14 @@ public class OrderDetailBean {
 
         public void setName(String name) {
             this.name = name;
+        }
+
+        public String getXing() {
+            return xing;
+        }
+
+        public void setXing(String xing) {
+            this.xing = xing;
         }
 
         public String getIs_ziti() {
@@ -345,6 +345,86 @@ public class OrderDetailBean {
 
         public void setL_num(String l_num) {
             this.l_num = l_num;
+        }
+
+        public String getLtype() {
+            return ltype;
+        }
+
+        public void setLtype(String ltype) {
+            this.ltype = ltype;
+        }
+
+        public String getOnt0() {
+            return ont0;
+        }
+
+        public void setOnt0(String ont0) {
+            this.ont0 = ont0;
+        }
+
+        public String getOnts0() {
+            return onts0;
+        }
+
+        public void setOnts0(String onts0) {
+            this.onts0 = onts0;
+        }
+
+        public String getOnt1() {
+            return ont1;
+        }
+
+        public void setOnt1(String ont1) {
+            this.ont1 = ont1;
+        }
+
+        public String getOnts1() {
+            return onts1;
+        }
+
+        public void setOnts1(String onts1) {
+            this.onts1 = onts1;
+        }
+
+        public String getOnt2() {
+            return ont2;
+        }
+
+        public void setOnt2(String ont2) {
+            this.ont2 = ont2;
+        }
+
+        public String getOnts2() {
+            return onts2;
+        }
+
+        public void setOnts2(String onts2) {
+            this.onts2 = onts2;
+        }
+
+        public String getOnt3() {
+            return ont3;
+        }
+
+        public void setOnt3(String ont3) {
+            this.ont3 = ont3;
+        }
+
+        public String getOnts3() {
+            return onts3;
+        }
+
+        public void setOnts3(String onts3) {
+            this.onts3 = onts3;
+        }
+
+        public String getNo() {
+            return no;
+        }
+
+        public void setNo(String no) {
+            this.no = no;
         }
 
         public String getTitle() {

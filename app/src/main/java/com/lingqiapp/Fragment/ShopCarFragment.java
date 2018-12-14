@@ -249,7 +249,7 @@ public class ShopCarFragment extends BaseLazyFragment {
         params.put("page", String.valueOf(p));
         params.put("uid", String.valueOf(SpUtil.get(context, "uid", "")));
         Log.e("ShopCarActivity", params.toString());
-        VolleyRequest.RequestPost(context, UrlUtils.BASE_URL + "cart/index"+ App.LanguageTYPEHTTP, "cart/index", params, new VolleyInterface(context) {
+        VolleyRequest.RequestPost(context, UrlUtils.BASE_URL + "cart/index" + App.LanguageTYPEHTTP, "cart/index", params, new VolleyInterface(context) {
             @Override
             public void onMySuccess(String result) {
                 Log.e("ShopCarActivity", result);
@@ -308,7 +308,7 @@ public class ShopCarFragment extends BaseLazyFragment {
         params.put("uid", String.valueOf(SpUtil.get(context, "uid", "")));
         params.put("id", id);
         Log.e("RegisterActivity", params.toString());
-        VolleyRequest.RequestPost(context, UrlUtils.BASE_URL + "goods/cartdel"+ App.LanguageTYPEHTTP, "goods/cartdel", params, new VolleyInterface(context) {
+        VolleyRequest.RequestPost(context, UrlUtils.BASE_URL + "goods/cartdel" + App.LanguageTYPEHTTP, "goods/cartdel", params, new VolleyInterface(context) {
             @Override
             public void onMySuccess(String result) {
                 Log.e("RegisterActivity", result);
@@ -343,7 +343,7 @@ public class ShopCarFragment extends BaseLazyFragment {
         params.put("cid", cid);
         params.put("gid", gid);
         Log.e("ShopCarFragment", params.toString());
-        VolleyRequest.RequestPost(context, UrlUtils.BASE_URL + "order/order"+ App.LanguageTYPEHTTP, "order/order", params, new VolleyInterface(context) {
+        VolleyRequest.RequestPost(context, UrlUtils.BASE_URL + "order/order" + App.LanguageTYPEHTTP, "order/order", params, new VolleyInterface(context) {
             @Override
             public void onMySuccess(String result) {
                 Log.e("ShopCarFragment", result);

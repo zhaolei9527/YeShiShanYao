@@ -6,9 +6,11 @@ import android.graphics.Bitmap;
 import android.os.Bundle;
 import android.text.TextUtils;
 import android.util.Log;
+import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.CheckedTextView;
 import android.widget.FrameLayout;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
@@ -35,6 +37,7 @@ import com.lingqiapp.Utils.SpUtil;
 import com.lingqiapp.Utils.UrlUtils;
 import com.lingqiapp.Utils.Utils;
 import com.lingqiapp.Utils.WindowUtil;
+import com.lingqiapp.View.FlowLayout;
 import com.lingqiapp.Volley.VolleyInterface;
 import com.lingqiapp.Volley.VolleyRequest;
 import com.tencent.smtt.export.external.interfaces.WebResourceError;
@@ -130,10 +133,20 @@ public class PriceDetailsActivity extends BaseActivity implements View.OnClickLi
     SimpleDraweeView SimpleDraweeView23;
     @BindView(R.id.ll_imgs2)
     LinearLayout llImgs2;
+    @BindView(R.id.addshopbtn)
+    TextView addshopbtn;
+    @BindView(R.id.shopnowbtn)
+    TextView shopnowbtn;
+    @BindView(R.id.ll_typecontent)
+    LinearLayout llTypecontent;
+    @BindView(R.id.ll_type)
+    LinearLayout llType;
     private Dialog dialog;
     private GoodsDetailBean goodsDetailBean;
     private String uid;
     private int i;
+    private HashMap<String, String> typeMap;
+    private LayoutInflater mInflater;
 
     @Override
     protected void onDestroy() {
@@ -148,6 +161,7 @@ public class PriceDetailsActivity extends BaseActivity implements View.OnClickLi
 
     @Override
     protected void initview() {
+        mInflater = LayoutInflater.from(this);
         llAllpingjia.setOnClickListener(this);
         uid = (String) SpUtil.get(context, "uid", "");
     }
@@ -173,6 +187,11 @@ public class PriceDetailsActivity extends BaseActivity implements View.OnClickLi
         btnJia.setOnClickListener(this);
         btnJian.setOnClickListener(this);
         llShouye.setOnClickListener(this);
+
+        addshopbtn.setOnClickListener(this);
+        shopnowbtn.setOnClickListener(this);
+        llType.setOnClickListener(this);
+
     }
 
     @Override
@@ -223,9 +242,23 @@ public class PriceDetailsActivity extends BaseActivity implements View.OnClickLi
         wb.loadUrl(UrlUtils.BASE_URL + "danye/goodsdetail?gid=" + getIntent().getStringExtra("id"));
     }
 
+    private boolean ShopType = false;
+
     @Override
     public void onClick(View v) {
         switch (v.getId()) {
+            case R.id.addshopbtn:
+                ShopType = true;
+                llType.setVisibility(View.VISIBLE);
+                break;
+            case R.id.shopnowbtn:
+                ShopType = true;
+                llType.setVisibility(View.VISIBLE);
+                break;
+            case R.id.ll_type:
+                ShopType = false;
+                llType.setVisibility(View.GONE);
+                break;
             case R.id.tv_lv:
                 Intent intent3 = new Intent(context, HuiYuanShengJiActivity.class);
                 startActivity(intent3);
@@ -339,12 +372,24 @@ public class PriceDetailsActivity extends BaseActivity implements View.OnClickLi
      * 确认订单（立即购买）
      */
     private void orderBuy() {
+
+        llType.setVisibility(View.GONE);
+
         final HashMap<String, String> params = new HashMap<>(1);
+
+        if (null!=typeMap&&!typeMap.isEmpty()) {
+            if (!typeMap.containsValue("!!!")) {
+                for (int i1 = 0; i1 < typeMap.size(); i1++) {
+                    params.put("nt" + i1, typeMap.get(String.valueOf(i1)));
+                }
+            }
+        }
+
         params.put("g_num", btnShuliang.getText().toString());
         params.put("uid", String.valueOf(SpUtil.get(context, "uid", "")));
         params.put("gid", String.valueOf(getIntent().getStringExtra("id")));
         Log.e("PriceDetailsActivity", params.toString());
-        VolleyRequest.RequestPost(context, UrlUtils.BASE_URL + "goods/goods_order"+ App.LanguageTYPEHTTP, "goods/goods_order", params, new VolleyInterface(context) {
+        VolleyRequest.RequestPost(context, UrlUtils.BASE_URL + "goods/goods_order" + App.LanguageTYPEHTTP, "goods/goods_order", params, new VolleyInterface(context) {
             @Override
             public void onMySuccess(String result) {
                 Log.e("PriceDetailsActivity", result);
@@ -384,7 +429,7 @@ public class PriceDetailsActivity extends BaseActivity implements View.OnClickLi
         HashMap<String, String> params = new HashMap<>(1);
         params.put("gid", String.valueOf(getIntent().getStringExtra("id")));
         params.put("uid", String.valueOf(SpUtil.get(context, "uid", "")));
-        VolleyRequest.RequestPost(context, UrlUtils.BASE_URL + "goods/detail"+ App.LanguageTYPEHTTP, "goods/detail", params, new VolleyInterface(context) {
+        VolleyRequest.RequestPost(context, UrlUtils.BASE_URL + "goods/detail" + App.LanguageTYPEHTTP, "goods/detail", params, new VolleyInterface(context) {
             @Override
             public void onMySuccess(String result) {
                 Log.e("RegisterActivity", result);
@@ -396,8 +441,8 @@ public class PriceDetailsActivity extends BaseActivity implements View.OnClickLi
                         tvPrice.setText("€" + goodsDetailBean.getGoods().getPrice());
                         tvXiaoliang.setText(getString(R.string.sales) + goodsDetailBean.getGoods().getXiaoliang());
                         RollPagerView.setAdapter(new GoodsLoopAdapter(RollPagerView, goodsDetailBean.getGoods()));
-                        if ("0".equals(String.valueOf(goodsDetailBean.getPj().getCount()))) {
-                            tvPingjiaMax.setText(getString(R.string.Product_evaluation) + "（" + goodsDetailBean.getPj().getCount() + ")");
+                        if ("0".equals(String.valueOf(goodsDetailBean.getPj().getCouant()))) {
+                            tvPingjiaMax.setText(getString(R.string.Product_evaluation) + "（" + goodsDetailBean.getPj().getCouant() + ")");
                             tvNoPingjia.setVisibility(View.GONE);
                             llHasPingjia.setVisibility(View.GONE);
                             llHasPingjia2.setVisibility(View.GONE);
@@ -405,7 +450,7 @@ public class PriceDetailsActivity extends BaseActivity implements View.OnClickLi
                             tvNoPingjia.setVisibility(View.GONE);
                             if (goodsDetailBean.getPj().get_$0() != null) {
                                 llHasPingjia.setVisibility(View.VISIBLE);
-                                tvPingjiaMax.setText(getString(R.string.Product_evaluation) + "(" + goodsDetailBean.getPj().getCount() + ")");
+                                tvPingjiaMax.setText(getString(R.string.Product_evaluation) + "(" + goodsDetailBean.getPj().getCouant() + ")");
 
                                 if (goodsDetailBean.getPj().get_$0().getImg().contains(".com")) {
                                     sdvPingjia.setImageURI(goodsDetailBean.getPj().get_$0().getImg());
@@ -481,6 +526,62 @@ public class PriceDetailsActivity extends BaseActivity implements View.OnClickLi
                         } else {
                             imgShoucang.setBackground(getResources().getDrawable(R.mipmap.pingjia1));
                         }
+
+                        /**
+                         * 规格标签
+                         */
+                        if (null != goodsDetailBean.getGg() && !goodsDetailBean.getGg().isEmpty()) {
+                            typeMap = new HashMap<>();
+                            for (int i = 0; i < goodsDetailBean.getGg().size(); i++) {
+                                View goodtype_layout = View.inflate(context, R.layout.good_details_goodtype_layout, null);
+                                TextView tv_type_title = goodtype_layout.findViewById(R.id.tv_type_title);
+                                tv_type_title.setText(goodsDetailBean.getGg().get(i).getTitle());
+                                final FlowLayout mFlowLayout = goodtype_layout.findViewById(R.id.id_flowlayout);
+                                typeMap.put(String.valueOf(i), "!!!");
+                                for (int j = 0; j < goodsDetailBean.getGg().get(i).getSx().size(); j++) {
+                                    final CheckedTextView tv = (CheckedTextView) mInflater.inflate(
+                                            R.layout.label_tv_keshi_layout, mFlowLayout, false);
+                                    tv.setText(goodsDetailBean.getGg().get(i).getSx().get(j).getTitle());
+                                    tv.setTag(goodsDetailBean.getGg().get(i).getSx().get(j).getId());
+                                    //点击事件
+                                    final int finalI = i;
+                                    tv.setOnClickListener(new View.OnClickListener() {
+                                        @Override
+                                        public void onClick(View v) {
+                                            for (int i1 = 0; i1 < mFlowLayout.getChildCount(); i1++) {
+                                                CheckedTextView childAt = (CheckedTextView) mFlowLayout.getChildAt(i1);
+                                                if (tv.getTag().equals(childAt.getTag())) {
+                                                    typeMap.put(String.valueOf(finalI), String.valueOf(childAt.getTag()));
+                                                    childAt.setChecked(true);
+                                                    childAt.setBackground(getResources().getDrawable(R.drawable.bg_keshi_lable_check));
+                                                } else {
+                                                    childAt.setChecked(false);
+                                                    childAt.setBackground(getResources().getDrawable(R.drawable.bg_keshi_lable_nocheck));
+                                                }
+                                            }
+                                            if (!typeMap.containsValue("!!!")) {
+                                                StringBuilder stringBuilder = new StringBuilder();
+                                                for (int i1 = 0; i1 < typeMap.size(); i1++) {
+                                                    if (i1 == 0) {
+                                                        stringBuilder.append(typeMap.get(String.valueOf(i1)));
+                                                    } else {
+                                                        stringBuilder.append("|" + typeMap.get(String.valueOf(i1)));
+                                                    }
+                                                }
+                                                if (Utils.isConnected(context)) {
+                                                    Log.e("PriceDetailsActivity", "stringBuilder:" + stringBuilder);
+                                                } else {
+                                                    EasyToast.showShort(context, R.string.Networkexception);
+                                                }
+                                            }
+                                        }
+                                    });
+                                    mFlowLayout.addView(tv);//添加到父View
+                                }
+                                llTypecontent.addView(goodtype_layout);
+                            }
+                        }
+
                     } else {
                         Toast.makeText(context, getString(R.string.Abnormalserver), Toast.LENGTH_SHORT).show();
                     }
@@ -509,7 +610,7 @@ public class PriceDetailsActivity extends BaseActivity implements View.OnClickLi
         HashMap<String, String> params = new HashMap<>(1);
         params.put("gid", String.valueOf(getIntent().getStringExtra("id")));
         params.put("uid", String.valueOf(SpUtil.get(context, "uid", "")));
-        VolleyRequest.RequestPost(context, UrlUtils.BASE_URL + "goods/cang"+ App.LanguageTYPEHTTP, "goods/cang", params, new VolleyInterface(context) {
+        VolleyRequest.RequestPost(context, UrlUtils.BASE_URL + "goods/cang" + App.LanguageTYPEHTTP, "goods/cang", params, new VolleyInterface(context) {
             @Override
             public void onMySuccess(String result) {
                 Log.e("RegisterActivitycang", result);
@@ -547,7 +648,7 @@ public class PriceDetailsActivity extends BaseActivity implements View.OnClickLi
         params.put("gid", String.valueOf(getIntent().getStringExtra("id")));
         params.put("uid", String.valueOf(SpUtil.get(context, "uid", "")));
         Log.e("PriceDetailsActivity", params.toString());
-        VolleyRequest.RequestPost(context, UrlUtils.BASE_URL + "goods/nocang"+ App.LanguageTYPEHTTP, "goods/nocang", params, new VolleyInterface(context) {
+        VolleyRequest.RequestPost(context, UrlUtils.BASE_URL + "goods/nocang" + App.LanguageTYPEHTTP, "goods/nocang", params, new VolleyInterface(context) {
             @Override
             public void onMySuccess(String result) {
                 Log.e("RegisterActivitynocang", result);
@@ -581,11 +682,21 @@ public class PriceDetailsActivity extends BaseActivity implements View.OnClickLi
      * 加入购物车
      */
     private void cartJoinCart() {
+
         HashMap<String, String> params = new HashMap<>(1);
+
+        if (null != typeMap && !typeMap.isEmpty()) {
+            if (!typeMap.containsValue("!!!")) {
+                for (int i1 = 0; i1 < typeMap.size(); i1++) {
+                    params.put("nt" + i1, typeMap.get(String.valueOf(i1)));
+                }
+            }
+        }
+
         params.put("gid", String.valueOf(getIntent().getStringExtra("id")));
         params.put("uid", String.valueOf(SpUtil.get(context, "uid", "")));
         params.put("goods_num", btnShuliang.getText().toString());
-        VolleyRequest.RequestPost(context, UrlUtils.BASE_URL + "goods/good_cart"+ App.LanguageTYPEHTTP, "goods/good_cart", params, new VolleyInterface(context) {
+        VolleyRequest.RequestPost(context, UrlUtils.BASE_URL + "goods/good_cart" + App.LanguageTYPEHTTP, "goods/good_cart", params, new VolleyInterface(context) {
             @Override
             public void onMySuccess(String result) {
                 dialog.dismiss();

@@ -73,7 +73,7 @@ public class ShopCarListAdapter extends RecyclerView.Adapter<ShopCarListAdapter.
     public void onBindViewHolder(final ViewHolder holder, final int position) {
 
         if (datas.get(position).getImg_feng().contains("com")) {
-            holder.SimpleDraweeView.setImageURI(datas.get(position).getImg_feng());
+            holder.SimpleDraweeView.setImageURI("https://" + datas.get(position).getImg_feng());
         } else {
             holder.SimpleDraweeView.setImageURI(UrlUtils.URL + datas.get(position).getImg_feng());
         }
@@ -167,6 +167,27 @@ public class ShopCarListAdapter extends RecyclerView.Adapter<ShopCarListAdapter.
             }
         });
 
+        List<SuckleCartBean.ListBean.GuigeBean> guige = datas.get(position).getGuige();
+
+        if (null != guige && !guige.isEmpty()) {
+
+            StringBuffer stringBuffer = new StringBuffer();
+
+            for (int i = 0; i < guige.size(); i++) {
+
+                if (i == 0) {
+                    stringBuffer.append(guige.get(i).getTitles() + " : " + guige.get(i).getTitle());
+                } else {
+                    stringBuffer.append(" ; " + guige.get(i).getTitles() + " : " + guige.get(i).getTitle());
+                }
+
+            }
+
+            holder.tv_gg.setText(stringBuffer.toString());
+
+        }
+
+
     }
 
     @Override
@@ -180,6 +201,7 @@ public class ShopCarListAdapter extends RecyclerView.Adapter<ShopCarListAdapter.
         public SimpleDraweeView SimpleDraweeView;
         public TextView tv_title;
         public TextView tv_money;
+        public TextView tv_gg;
         public TextView btn_shuliang;
         public CheckBox btnIsChoosed;
         public Button btn_jian;
@@ -191,6 +213,7 @@ public class ShopCarListAdapter extends RecyclerView.Adapter<ShopCarListAdapter.
             this.rootView = itemView;
             this.SimpleDraweeView = (SimpleDraweeView) rootView.findViewById(R.id.SimpleDraweeView);
             this.tv_title = (TextView) rootView.findViewById(R.id.tv_title);
+            this.tv_gg = (TextView) rootView.findViewById(R.id.tv_gg);
             this.tv_money = (TextView) rootView.findViewById(R.id.tv_money);
             this.btn_shuliang = (TextView) rootView.findViewById(R.id.btn_shuliang);
             this.btnIsChoosed = (CheckBox) rootView.findViewById(R.id.btnIsChoosed);
@@ -209,7 +232,7 @@ public class ShopCarListAdapter extends RecyclerView.Adapter<ShopCarListAdapter.
         HashMap<String, String> params = new HashMap<>(1);
         params.put("id", id);
         params.put("uid", String.valueOf(SpUtil.get(mContext, "uid", "")));
-        VolleyRequest.RequestPost(mContext, UrlUtils.BASE_URL + "cart/join_cart"+ App.LanguageTYPEHTTP, "cart/join_cart", params, new VolleyInterface(mContext) {
+        VolleyRequest.RequestPost(mContext, UrlUtils.BASE_URL + "cart/join_cart" + App.LanguageTYPEHTTP, "cart/join_cart", params, new VolleyInterface(mContext) {
             @Override
             public void onMySuccess(String result) {
                 Log.e("RegisterActivitycang", result);
@@ -254,7 +277,7 @@ public class ShopCarListAdapter extends RecyclerView.Adapter<ShopCarListAdapter.
         HashMap<String, String> params = new HashMap<>(1);
         params.put("id", id);
         params.put("uid", String.valueOf(SpUtil.get(mContext, "uid", "")));
-        VolleyRequest.RequestPost(mContext, UrlUtils.BASE_URL + "cart/reduce"+ App.LanguageTYPEHTTP, "cart/reduce", params, new VolleyInterface(mContext) {
+        VolleyRequest.RequestPost(mContext, UrlUtils.BASE_URL + "cart/reduce" + App.LanguageTYPEHTTP, "cart/reduce", params, new VolleyInterface(mContext) {
             @Override
             public void onMySuccess(String result) {
                 Log.e("RegisterActivitycang", result);
@@ -305,7 +328,7 @@ public class ShopCarListAdapter extends RecyclerView.Adapter<ShopCarListAdapter.
         HashMap<String, String> params = new HashMap<>(1);
         params.put("ids", id);
         params.put("uid", String.valueOf(SpUtil.get(mContext, "uid", "")));
-        VolleyRequest.RequestPost(mContext, UrlUtils.BASE_URL + "cart/del_car"+ App.LanguageTYPEHTTP, "cart/del_car", params, new VolleyInterface(mContext) {
+        VolleyRequest.RequestPost(mContext, UrlUtils.BASE_URL + "cart/del_car" + App.LanguageTYPEHTTP, "cart/del_car", params, new VolleyInterface(mContext) {
             @Override
             public void onMySuccess(String result) {
                 Log.e("RegisterActivitycang", result);

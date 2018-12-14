@@ -40,7 +40,7 @@ public class LoopAdapter extends LoopPagerAdapter {
         try {
             if (lbdatas.get(position).getImg().toString().contains("com")) {
                 Log.e("LoopAdaptercom--", UrlUtils.URL + lbdatas.get(position).getImg());
-                SimpleDraweeView.setImageURI("" + lbdatas.get(position).getImg());
+                SimpleDraweeView.setImageURI("https://"+lbdatas.get(position).getImg());
             } else {
                 Log.e("LoopAdapter--", UrlUtils.URL + lbdatas.get(position).getImg());
                 SimpleDraweeView.setImageURI("" + UrlUtils.URL + lbdatas.get(position).getImg());

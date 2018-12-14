@@ -256,5 +256,11 @@
 	<string name="Cancel_orde">Annulation des commandes</string>
 	<string name="Confirm_goods">Confirmation de la réception</string>
 	<string name="exit_login">Sortie de l,enregistrement</string>
-
+	<string name="offlinePayment">Offline payment</string>
+	<string name="visa_pay">VISA payment</string>
+	<string name="daichuli">Processed</string>
+	<string name="jgsx">price ascending</string>
+	<string name="jgjx">Price descending</string>
+	<string name="xlsx">Sales ascending</string>
+	<string name="xljx">Sales descending</string>
 </resources>

@@ -47,7 +47,7 @@ import me.fangx.haorefresh.LoadMoreListener;
  * @date 2018/9/15
  * 功能描述：
  */
-public class ShopListActivity extends BaseActivity {
+public class ShopListActivity extends BaseActivity implements View.OnClickListener {
 
     @BindView(R.id.ll_search)
     LinearLayout llSearch;
@@ -64,7 +64,16 @@ public class ShopListActivity extends BaseActivity {
     ShopListAdapter adapter;
     @BindView(R.id.fl_top)
     FrameLayout flTop;
+    @BindView(R.id.tv_jgsx)
+    TextView tvJgsx;
+    @BindView(R.id.tv_jgjx)
+    TextView tvJgjx;
+    @BindView(R.id.tv_xlsx)
+    TextView tvXlsx;
+    @BindView(R.id.tv_xljx)
+    TextView tvXljx;
     private int p = 1;
+    private String ptype = "";
     private SakuraLinearLayoutManager line;
     private Dialog dialog;
 
@@ -106,6 +115,12 @@ public class ShopListActivity extends BaseActivity {
                 ceShiLv.scrollToPosition(0);
             }
         });
+
+        tvJgjx.setOnClickListener(this);
+        tvJgsx.setOnClickListener(this);
+        tvXljx.setOnClickListener(this);
+        tvXlsx.setOnClickListener(this);
+
     }
 
     @Override
@@ -118,7 +133,6 @@ public class ShopListActivity extends BaseActivity {
             dialog.show();
             getNewsList();
         }
-
 
         etSearch.setOnEditorActionListener(new TextView.OnEditorActionListener() {
             @Override
@@ -152,10 +166,11 @@ public class ShopListActivity extends BaseActivity {
     private void getNewsList() {
         HashMap<String, String> params = new HashMap<>(1);
         params.put("page", String.valueOf(p));
+        params.put("ptype", ptype);
         params.put("title", etSearch.getText().toString().trim());
         params.put("uid", String.valueOf(SpUtil.get(context, "uid", "")));
         Log.e("NewsListFragment", "params:" + params);
-        VolleyRequest.RequestPost(context, UrlUtils.BASE_URL + "goods/goods_list"+ App.LanguageTYPEHTTP, "goods/goods_list", params, new VolleyInterface(context) {
+        VolleyRequest.RequestPost(context, UrlUtils.BASE_URL + "goods/goods_list" + App.LanguageTYPEHTTP, "goods/goods_list", params, new VolleyInterface(context) {
             @Override
             public void onMySuccess(String result) {
                 String decode = result;
@@ -208,4 +223,43 @@ public class ShopListActivity extends BaseActivity {
         });
     }
 
+    @Override
+    public void onClick(View view) {
+        switch (view.getId()) {
+            case R.id.tv_jgsx:
+                tvJgsx.setTextColor(getResources().getColor(R.color.bgtitle));
+                tvJgjx.setTextColor(getResources().getColor(R.color.text333));
+                tvXlsx.setTextColor(getResources().getColor(R.color.text333));
+                tvXljx.setTextColor(getResources().getColor(R.color.text333));
+                ptype = "1";
+                getNewsList();
+                break;
+            case R.id.tv_jgjx:
+                tvJgsx.setTextColor(getResources().getColor(R.color.text333));
+                tvJgjx.setTextColor(getResources().getColor(R.color.bgtitle));
+                tvXlsx.setTextColor(getResources().getColor(R.color.text333));
+                tvXljx.setTextColor(getResources().getColor(R.color.text333));
+                ptype = "2";
+                getNewsList();
+                break;
+            case R.id.tv_xlsx:
+                tvJgsx.setTextColor(getResources().getColor(R.color.text333));
+                tvJgjx.setTextColor(getResources().getColor(R.color.text333));
+                tvXlsx.setTextColor(getResources().getColor(R.color.bgtitle));
+                tvXljx.setTextColor(getResources().getColor(R.color.text333));
+                ptype = "3";
+                getNewsList();
+                break;
+            case R.id.tv_xljx:
+                tvJgsx.setTextColor(getResources().getColor(R.color.text333));
+                tvJgjx.setTextColor(getResources().getColor(R.color.text333));
+                tvXlsx.setTextColor(getResources().getColor(R.color.text333));
+                tvXljx.setTextColor(getResources().getColor(R.color.bgtitle));
+                ptype = "4";
+                getNewsList();
+                break;
+            default:
+                break;
+        }
+    }
 }

@@ -92,6 +92,11 @@ public class MyOrderAdapter extends RecyclerView.Adapter<MyOrderAdapter.ViewHold
             holder.btn_pay_order.setVisibility(View.GONE);
             holder.btn_isget_order.setVisibility(View.GONE);
             holder.btn_delete_order.setVisibility(View.GONE);
+        } else if ("6".equals(stu)) {
+            holder.tv_order_type.setText(mContext.getString(R.string.daichuli));
+            holder.btn_pay_order.setVisibility(View.GONE);
+            holder.btn_isget_order.setVisibility(View.GONE);
+            holder.btn_delete_order.setVisibility(View.GONE);
         } else {
             holder.tv_order_type.setText(mContext.getString(R.string.Has_been_cancelled));
             holder.btn_pay_order.setVisibility(View.GONE);
@@ -110,7 +115,7 @@ public class MyOrderAdapter extends RecyclerView.Adapter<MyOrderAdapter.ViewHold
         SimpleDraweeView SimpleDraweeView = (com.facebook.drawee.view.SimpleDraweeView) item_oreder_layout.findViewById(R.id.SimpleDraweeView);
 
         if (datas.get(position).getImg_feng().contains("com")) {
-            SimpleDraweeView.setImageURI(datas.get(position).getImg_feng());
+            SimpleDraweeView.setImageURI("https://" + datas.get(position).getImg_feng());
         } else {
             SimpleDraweeView.setImageURI(UrlUtils.URL + datas.get(position).getImg_feng());
         }
@@ -204,7 +209,7 @@ public class MyOrderAdapter extends RecyclerView.Adapter<MyOrderAdapter.ViewHold
         HashMap<String, String> params = new HashMap<>(3);
         params.put("uid", String.valueOf(SpUtil.get(mContext, "uid", "")));
         params.put("id", id);
-        VolleyRequest.RequestPost(mContext, UrlUtils.BASE_URL + "order/quxiao"+ App.LanguageTYPEHTTP, "order/quxiao", params, new VolleyInterface(mContext) {
+        VolleyRequest.RequestPost(mContext, UrlUtils.BASE_URL + "order/quxiao" + App.LanguageTYPEHTTP, "order/quxiao", params, new VolleyInterface(mContext) {
             @Override
             public void onMySuccess(String result) {
                 Log.e("RegisterActivity", result);
@@ -238,7 +243,7 @@ public class MyOrderAdapter extends RecyclerView.Adapter<MyOrderAdapter.ViewHold
         params.put("uid", String.valueOf(SpUtil.get(mContext, "uid", "")));
         params.put("id", id);
         Log.e("MyOrderAdapter", "params:" + params);
-        VolleyRequest.RequestPost(mContext, UrlUtils.BASE_URL + "order/queren"+ App.LanguageTYPEHTTP, "order/queren", params, new VolleyInterface(mContext) {
+        VolleyRequest.RequestPost(mContext, UrlUtils.BASE_URL + "order/queren" + App.LanguageTYPEHTTP, "order/queren", params, new VolleyInterface(mContext) {
             @Override
             public void onMySuccess(String result) {
                 Log.e("RegisterActivity", result);

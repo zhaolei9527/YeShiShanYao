@@ -1,8 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:fresco="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/white"
@@ -104,65 +102,6 @@
                     android:layout_width="match_parent"
                     android:layout_height="@dimen/x5"
                     android:layout_marginTop="@dimen/x11"
-                    android:background="#EEE"></View>
-
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="@dimen/y35"
-                    android:gravity="center_vertical">
-
-                    <TextView
-                        android:layout_width="0dp"
-                        android:layout_height="wrap_content"
-                        android:layout_marginLeft="@dimen/x10"
-                        android:layout_marginRight="@dimen/x5"
-                        android:layout_weight="1"
-                        android:maxLines="2"
-                        android:text="@string/Purchase_quantity"
-                        android:textColor="@color/text666"
-                        android:textSize="@dimen/x13" />
-
-
-                    <LinearLayout
-                        android:id="@+id/ll_checkmax"
-                        android:layout_width="wrap_content"
-                        android:layout_height="@dimen/x26"
-                        android:layout_below="@id/tv_money"
-                        android:layout_marginRight="@dimen/x5"
-                        android:layout_toRightOf="@id/SimpleDraweeView">
-
-                        <Button
-                            android:id="@+id/btn_jian"
-                            android:layout_width="@dimen/x25"
-                            android:layout_height="match_parent"
-                            android:background="@drawable/bg_shop_jian"
-                            android:text="-"
-                            android:textColor="#666" />
-
-                        <TextView
-                            android:id="@+id/btn_shuliang"
-                            android:layout_width="@dimen/x26"
-                            android:layout_height="match_parent"
-                            android:background="@drawable/bg_shop_text"
-                            android:gravity="center"
-                            android:text="1"
-                            android:textColor="#666"
-                            android:textSize="@dimen/x11" />
-
-                        <Button
-                            android:id="@+id/btn_jia"
-                            android:layout_width="@dimen/x25"
-                            android:layout_height="match_parent"
-                            android:background="@drawable/bg_shop_jia"
-                            android:text="+"
-                            android:textColor="#666" />
-                    </LinearLayout>
-
-                </LinearLayout>
-
-                <View
-                    android:layout_width="match_parent"
-                    android:layout_height="@dimen/x5"
                     android:background="#EEE"></View>
 
                 <LinearLayout
@@ -526,7 +465,7 @@
             android:weightSum="2">
 
             <TextView
-                android:id="@+id/tv_addshop"
+                android:id="@+id/addshopbtn"
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
@@ -537,7 +476,7 @@
                 android:textSize="@dimen/x12" />
 
             <TextView
-                android:id="@+id/shopnow"
+                android:id="@+id/shopnowbtn"
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
@@ -548,6 +487,115 @@
                 android:textSize="@dimen/x12" />
 
         </LinearLayout>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/ll_type"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="#8000"
+        android:visibility="gone">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="bottom"
+            android:background="@color/bgfff"
+            android:clipChildren="false"
+            android:orientation="vertical">
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="@dimen/x15"
+                    android:layout_marginTop="@dimen/x15"
+                    android:text="@string/number_of"
+                    android:textColor="@color/text333"
+                    android:textSize="@dimen/x15" />
+
+                <LinearLayout
+                    android:id="@+id/ll_checkmax"
+                    android:layout_width="wrap_content"
+                    android:layout_height="@dimen/x26"
+                    android:layout_alignParentRight="true"
+                    android:layout_marginLeft="@dimen/x15"
+                    android:layout_marginTop="@dimen/x10"
+                    android:layout_marginRight="@dimen/x5"
+                    android:layout_marginBottom="@dimen/x15">
+
+                    <Button
+                        android:id="@+id/btn_jian"
+                        android:layout_width="@dimen/x25"
+                        android:layout_height="match_parent"
+                        android:background="@drawable/bg_shop_jian"
+                        android:text="-"
+                        android:textColor="#666" />
+
+                    <TextView
+                        android:id="@+id/btn_shuliang"
+                        android:layout_width="@dimen/x26"
+                        android:layout_height="match_parent"
+                        android:background="@drawable/bg_shop_text"
+                        android:gravity="center"
+                        android:text="1"
+                        android:textColor="#666"
+                        android:textSize="@dimen/x11" />
+
+                    <Button
+                        android:id="@+id/btn_jia"
+                        android:layout_width="@dimen/x25"
+                        android:layout_height="match_parent"
+                        android:background="@drawable/bg_shop_jia"
+                        android:text="+"
+                        android:textColor="#666" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_below="@id/ll_checkmax"
+                    android:id="@+id/ll_typecontent"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"></LinearLayout>
+
+            </RelativeLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/y41"
+                android:weightSum="2">
+
+                <TextView
+                    android:id="@+id/tv_addshop"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:background="#f2a4c3"
+                    android:gravity="center"
+                    android:text="@string/Add_cart"
+                    android:textColor="@android:color/white"
+                    android:textSize="@dimen/x12" />
+
+                <TextView
+                    android:id="@+id/shopnow"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:background="#f23882"
+                    android:gravity="center"
+                    android:text="@string/Buy_now"
+                    android:textColor="@android:color/white"
+                    android:textSize="@dimen/x12" />
+
+            </LinearLayout>
+
+        </LinearLayout>
+
 
     </LinearLayout>
 

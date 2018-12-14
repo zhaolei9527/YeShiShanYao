@@ -28,7 +28,6 @@ import com.lingqiapp.Utils.EasyToast;
 import com.lingqiapp.Utils.SpUtil;
 import com.lingqiapp.Utils.UrlUtils;
 import com.lingqiapp.Utils.Utils;
-import com.lingqiapp.Utils.Validator;
 import com.lingqiapp.Volley.VolleyInterface;
 import com.lingqiapp.Volley.VolleyRequest;
 
@@ -209,11 +208,6 @@ public class LoginActivity extends BaseActivity implements View.OnClickListener 
         account = etAccount.getText().toString().trim();
         if (TextUtils.isEmpty(account)) {
             Toast.makeText(this, getString(R.string.Please_enter_email), Toast.LENGTH_SHORT).show();
-            return;
-        }
-
-        if (!Validator.isEmail(account)) {
-            Toast.makeText(context, getString(R.string.Please_enter_email_true), Toast.LENGTH_SHORT).show();
             return;
         }
 

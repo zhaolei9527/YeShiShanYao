@@ -58,7 +58,7 @@ public class ShouCangListAdapter extends RecyclerView.Adapter<ShouCangListAdapte
     public void onBindViewHolder(final ViewHolder holder, final int position) {
 
         if (datas.get(position).getImg_feng().contains("com")) {
-            holder.SimpleDraweeView.setImageURI(datas.get(position).getImg_feng());
+            holder.SimpleDraweeView.setImageURI("https://"+datas.get(position).getImg_feng());
         } else {
             holder.SimpleDraweeView.setImageURI(UrlUtils.URL + datas.get(position).getImg_feng());
         }

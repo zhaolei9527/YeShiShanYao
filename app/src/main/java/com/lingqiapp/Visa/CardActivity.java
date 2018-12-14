@@ -1,6 +1,7 @@
 package com.lingqiapp.Visa;
 
 
+import android.app.Dialog;
 import android.content.Context;
 import android.content.Intent;
 import android.net.ConnectivityManager;
@@ -19,10 +20,17 @@ import android.widget.RadioGroup;
 import android.widget.TextView;
 
 import com.android.util.MyProgressDialog;
+import com.android.volley.VolleyError;
 import com.google.gson.Gson;
 import com.lingqiapp.Activity.GoodPayActivity;
+import com.lingqiapp.App;
 import com.lingqiapp.Bean.VisaBean;
 import com.lingqiapp.R;
+import com.lingqiapp.Utils.SpUtil;
+import com.lingqiapp.Utils.UrlUtils;
+import com.lingqiapp.Utils.Utils;
+import com.lingqiapp.Volley.VolleyInterface;
+import com.lingqiapp.Volley.VolleyRequest;
 
 import net.tsz.afinal.FinalHttp;
 import net.tsz.afinal.http.AjaxCallBack;
@@ -33,6 +41,7 @@ import java.net.InetAddress;
 import java.net.NetworkInterface;
 import java.net.SocketException;
 import java.util.Enumeration;
+import java.util.HashMap;
 
 public class CardActivity extends AppCompatActivity implements View.OnClickListener {
 
@@ -75,6 +84,7 @@ public class CardActivity extends AppCompatActivity implements View.OnClickListe
     private String shippingCity;
     private String shippingSstate;
     private String shippingCountry;
+    private Dialog dialogLoding;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -134,6 +144,7 @@ public class CardActivity extends AppCompatActivity implements View.OnClickListe
         rbjcb = (RadioButton) findViewById(R.id.rbjcb);
         rbvisa = (RadioButton) findViewById(R.id.rbvisa);
         rbmaster = (RadioButton) findViewById(R.id.rbmaster);
+        dialogLoding = Utils.showLoadingDialog(this);
     }
 
     @Override
@@ -151,7 +162,7 @@ public class CardActivity extends AppCompatActivity implements View.OnClickListe
         Amountparams = amount.getText().toString().trim();
         Currencyparams = "2";
         Languageparams = "en";
-        ReturnURLparams = "http://danyh.t.100help.net/visa/pay_return.php";
+        ReturnURLparams = "https://danyh.t.100help.net/visa/pay_return.php";
         HASHparams = MD5Utils.getMessageDigest((merchantMIDparams + BillNoparams + Currencyparams + Amountparams + Languageparams
                 + ReturnURLparams + "g{avHCmy").getBytes());
         Log.e("result", "onClick: " + HASHparams);
@@ -203,7 +214,7 @@ public class CardActivity extends AppCompatActivity implements View.OnClickListe
         params.put("country", country);
         params.put("ipAddr", ipAddr);
         params.put("products", products);
-        params.put("tradeAdd_Bturc", "http://danyh.t.100help.net/");//商户交易网址，比如，http://www.aaa.com
+        params.put("tradeAdd_Bturc", "https://danyh.t.100help.net/");//商户交易网址，比如，http://www.aaa.com
 
         FinalHttp http = new FinalHttp();
         http.post("https://www.win4mall.com/onlinepayByWin", params, new AjaxCallBack<String>() {
@@ -218,7 +229,9 @@ public class CardActivity extends AppCompatActivity implements View.OnClickListe
                             .putExtra("type", "good")
                             .putExtra("msg", visaBean.getResult())
                             .putExtra("orderid", getIntent().getStringExtra("oid")));
-                    finish();
+
+                    dialogLoding.show();
+                    getVisaPaySet(visaBean.getBillNo());
                 } else {
                     startActivity(new Intent(CardActivity.this, GoodPayActivity.class)
                             .putExtra("msg", visaBean.getResult())
@@ -281,4 +294,36 @@ public class CardActivity extends AppCompatActivity implements View.OnClickListe
                 ((ip >> 16) & 0xFF) + "." +
                 (ip >> 24 & 0xFF);
     }
+
+    /**
+     * 新闻列表获取
+     */
+    private void getVisaPaySet(String payorder) {
+        HashMap<String, String> params = new HashMap<>(1);
+        params.put("uid", String.valueOf(SpUtil.get(this, "uid", "")));
+        params.put("payorder ", payorder);
+        Log.e("NewsListFragment", "params:" + params);
+        VolleyRequest.RequestPost(this, UrlUtils.BASE_URL + "order/visa_pay_set" + App.LanguageTYPEHTTP, "order/visa_pay_set", params, new VolleyInterface(this) {
+            @Override
+            public void onMySuccess(String result) {
+                String decode = result;
+                try {
+                    dialogLoding.dismiss();
+                    Log.e("NewsListFragment", decode.toString());
+                    finish();
+                    decode = null;
+                } catch (Exception e) {
+                    dialogLoding.dismiss();
+                    e.printStackTrace();
+                }
+            }
+
+            @Override
+            public void onMyError(VolleyError error) {
+                dialogLoding.dismiss();
+                error.printStackTrace();
+            }
+        });
+    }
+
 }

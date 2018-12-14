@@ -62,15 +62,16 @@
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="-6dp"
                 android:layout_marginTop="-5dp"
-                android:background="@mipmap/home_bg_now" />
+                android:background="@mipmap/home_bg_now"
+                android:visibility="gone" />
 
         </RelativeLayout>
 
         <RelativeLayout
             android:layout_width="0dp"
             android:layout_height="@dimen/y65"
-            android:layout_marginRight="@dimen/x5"
             android:layout_marginLeft="@dimen/x5"
+            android:layout_marginRight="@dimen/x5"
             android:layout_weight="1">
 
             <com.facebook.drawee.view.SimpleDraweeView
@@ -87,12 +88,11 @@
                 android:background="@drawable/bg_home_day"></View>
 
             <TextView
-                android:gravity="center"
                 android:id="@+id/tv_day1"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_centerInParent="true"
-                android:text="周一"
+                android:gravity="center"
                 android:textColor="@color/bgfff" />
 
             <View
@@ -124,12 +124,11 @@
                 android:background="@drawable/bg_home_day"></View>
 
             <TextView
-                android:gravity="center"
                 android:id="@+id/tv_day2"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_centerInParent="true"
-                android:text="周一"
+                android:gravity="center"
                 android:textColor="@color/bgfff" />
 
             <View
@@ -148,8 +147,8 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginLeft="@dimen/x5"
-        android:layout_marginRight="@dimen/x5"
         android:layout_marginTop="@dimen/x5"
+        android:layout_marginRight="@dimen/x5"
         android:weightSum="4">
 
         <RelativeLayout
@@ -171,12 +170,11 @@
                 android:background="@drawable/bg_home_day"></View>
 
             <TextView
-                android:gravity="center"
                 android:id="@+id/tv_day3"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_centerInParent="true"
-                android:text="周一"
+                android:gravity="center"
                 android:textColor="@color/bgfff" />
 
             <View
@@ -208,13 +206,12 @@
                 android:background="@drawable/bg_home_day"></View>
 
             <TextView
-                android:gravity="center"
-
                 android:id="@+id/tv_day4"
+
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_centerInParent="true"
-                android:text="周一"
+                android:gravity="center"
                 android:textColor="@color/bgfff" />
 
             <View
@@ -245,13 +242,12 @@
                 android:background="@drawable/bg_home_day"></View>
 
             <TextView
-                android:gravity="center"
-
                 android:id="@+id/tv_day5"
+
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_centerInParent="true"
-                android:text="周一"
+                android:gravity="center"
                 android:textColor="@color/bgfff" />
 
             <View
@@ -282,13 +278,12 @@
                 android:background="@drawable/bg_home_day"></View>
 
             <TextView
-                android:gravity="center"
-
                 android:id="@+id/tv_day6"
+
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_centerInParent="true"
-                android:text="周一"
+                android:gravity="center"
                 android:textColor="@color/bgfff" />
 
             <View

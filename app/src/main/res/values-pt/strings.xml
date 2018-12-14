@@ -249,4 +249,11 @@
 	<string name="Confirm_goods">Confirmação da recepção</string>
 	<string name="exit_login">Sair do login</string>
 	<string name="fenlei">classificação</string>
+	<string name="offlinePayment">Offline payment</string>
+	<string name="visa_pay">VISA payment</string>
+	<string name="daichuli">Processed</string>
+	<string name="jgsx">price ascending</string>
+	<string name="jgjx">Price descending</string>
+	<string name="xlsx">Sales ascending</string>
+	<string name="xljx">Sales descending</string>
 </resources>

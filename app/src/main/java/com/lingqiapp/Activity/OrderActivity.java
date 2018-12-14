@@ -93,6 +93,10 @@ public class OrderActivity extends BaseActivity implements View.OnClickListener 
     TextView tvPay;
     @BindView(R.id.ll_pay)
     LinearLayout llPay;
+    @BindView(R.id.img_checkxianxia)
+    ImageView imgCheckxianxia;
+    @BindView(R.id.ll_xianxia)
+    LinearLayout llXianxia;
     private IWXAPI api;
 
     private Dialog dialog;
@@ -152,6 +156,7 @@ public class OrderActivity extends BaseActivity implements View.OnClickListener 
         llCheckwechat.setOnClickListener(this);
         tvPay.setOnClickListener(this);
         shopnow.setOnClickListener(this);
+        llXianxia.setOnClickListener(this);
 
         //注册EventBus
         if (!EventBus.getDefault().isRegistered(OrderActivity.this)) {
@@ -294,7 +299,7 @@ public class OrderActivity extends BaseActivity implements View.OnClickListener 
                 tv_xiaojigoodsnum.setText(getString(R.string.total_of) + orderOrderBean.getCart().get(i).getNumber() + getString(R.string.items));
 
                 TextView tv_xiaojigoodprice = (TextView) inflate.findViewById(R.id.tv_xiaojigoodprice);
-                tv_xiaojigoodprice.setText("€" + orderOrderBean.getCart().get(i).getZmoney());
+                tv_xiaojigoodprice.setText("€" + orderOrderBean.getCart().get(i).getPrice());
 
                 llOreders.addView(inflate);
                 num = num + Integer.parseInt(orderOrderBean.getCart().get(i).getNumber());
@@ -333,7 +338,7 @@ public class OrderActivity extends BaseActivity implements View.OnClickListener 
         params.put("aid", addressID);
         params.put("number", "" + num);
         Log.e("OrderActivity", params.toString());
-        VolleyRequest.RequestPost(context, UrlUtils.BASE_URL + "order/tj_order"+ App.LanguageTYPEHTTP, "order/tj_order", params, new VolleyInterface(context) {
+        VolleyRequest.RequestPost(context, UrlUtils.BASE_URL + "order/tj_order" + App.LanguageTYPEHTTP, "order/tj_order", params, new VolleyInterface(context) {
             @Override
             public void onMySuccess(String result) {
                 dialog.dismiss();
@@ -389,11 +394,21 @@ public class OrderActivity extends BaseActivity implements View.OnClickListener 
                 pay = 1;
                 imgCheckali.setVisibility(View.VISIBLE);
                 imgCheckwechat.setVisibility(View.GONE);
+                imgCheckxianxia.setVisibility(View.GONE);
                 break;
             case R.id.ll_checkwechat:
                 pay = 2;
                 imgCheckali.setVisibility(View.GONE);
                 imgCheckwechat.setVisibility(View.VISIBLE);
+                imgCheckxianxia.setVisibility(View.GONE);
+                break;
+            case R.id.ll_xianxia:
+                pay = 3;
+                imgCheckali.setVisibility(View.GONE);
+                imgCheckwechat.setVisibility(View.GONE);
+                imgCheckxianxia.setVisibility(View.VISIBLE);
+
+
                 break;
             case R.id.tv_pay:
                 if (pay == 0) {
@@ -422,6 +437,23 @@ public class OrderActivity extends BaseActivity implements View.OnClickListener 
                         }
                     }
                     payYue(stringBuffer.toString());
+                } else if (pay == 3) {
+                    StringBuffer stringBuffer = new StringBuffer();
+
+                    for (int i = 0; i < orderYueBean.getOrderid().size(); i++) {
+                        if (stringBuffer.length() == 0) {
+                            stringBuffer.append(orderYueBean.getOrderid().get(i));
+                        } else {
+                            stringBuffer.append("," + orderYueBean.getOrderid().get(i));
+                        }
+                    }
+
+                    startActivity(new Intent(context, XianXiaPayActivity.class)
+                            .putExtra("oid", stringBuffer.toString())
+                    );
+
+                    finish();
+
                 }
                 break;
             default:
@@ -442,7 +474,7 @@ public class OrderActivity extends BaseActivity implements View.OnClickListener 
             params.put("type", "200");
         }
         Log.e("OrderActivity--yue", params.toString());
-        VolleyRequest.RequestPost(context, UrlUtils.BASE_URL + "order/pay_yue"+ App.LanguageTYPEHTTP, "order/pay_yue", params, new VolleyInterface(context) {
+        VolleyRequest.RequestPost(context, UrlUtils.BASE_URL + "order/pay_yue" + App.LanguageTYPEHTTP, "order/pay_yue", params, new VolleyInterface(context) {
             @Override
             public void onMySuccess(String result) {
                 dialog.dismiss();
@@ -477,7 +509,6 @@ public class OrderActivity extends BaseActivity implements View.OnClickListener 
         });
     }
 
-
     /**
      * 微信支付
      */
@@ -486,7 +517,7 @@ public class OrderActivity extends BaseActivity implements View.OnClickListener 
         params.put("uid", String.valueOf(SpUtil.get(context, "uid", "")));
         params.put("oid", oid);
         Log.e("OrderActivity--wx", params.toString());
-        VolleyRequest.RequestPost(context, UrlUtils.BASE_URL + "order/visa"+ App.LanguageTYPEHTTP, "order/visa", params, new VolleyInterface(context) {
+        VolleyRequest.RequestPost(context, UrlUtils.BASE_URL + "order/visa" + App.LanguageTYPEHTTP, "order/visa", params, new VolleyInterface(context) {
 
             private Intent intent;
 

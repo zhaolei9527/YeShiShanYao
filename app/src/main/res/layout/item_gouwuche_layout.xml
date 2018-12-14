@@ -40,8 +40,8 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="@dimen/x5"
-                android:layout_marginRight="@dimen/x5"
                 android:layout_marginTop="@dimen/x16"
+                android:layout_marginRight="@dimen/x5"
                 android:layout_toRightOf="@id/SimpleDraweeView"
                 android:ellipsize="end"
                 android:maxLines="2"
@@ -59,14 +59,25 @@
                 android:textColor="#F0667F"
                 android:textSize="@dimen/x13" />
 
+            <TextView
+                android:id="@+id/tv_gg"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/tv_money"
+                android:layout_marginLeft="@dimen/x5"
+                android:layout_marginTop="@dimen/x10"
+                android:layout_toRightOf="@id/SimpleDraweeView"
+                android:textColor="#F0667F"
+                android:textSize="@dimen/x13" />
+
             <LinearLayout
                 android:id="@+id/ll_checkmax"
                 android:layout_width="wrap_content"
                 android:layout_height="@dimen/x26"
-                android:layout_below="@id/tv_money"
-                android:layout_marginBottom="@dimen/x8"
+                android:layout_below="@id/tv_gg"
                 android:layout_marginLeft="@dimen/x5"
                 android:layout_marginTop="@dimen/x10"
+                android:layout_marginBottom="@dimen/x8"
                 android:layout_toRightOf="@id/SimpleDraweeView">
 
                 <Button
@@ -100,10 +111,10 @@
                 android:id="@+id/img_close"
                 android:layout_width="@dimen/x15"
                 android:layout_height="@dimen/x15"
+                android:layout_below="@id/tv_gg"
                 android:layout_alignParentRight="true"
-                android:layout_below="@id/tv_money"
-                android:layout_marginRight="@dimen/x15"
                 android:layout_marginTop="@dimen/x15"
+                android:layout_marginRight="@dimen/x15"
                 android:background="@mipmap/close" />
 
         </RelativeLayout>

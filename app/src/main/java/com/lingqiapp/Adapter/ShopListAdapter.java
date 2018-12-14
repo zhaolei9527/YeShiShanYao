@@ -63,9 +63,11 @@ public class ShopListAdapter extends RecyclerView.Adapter<ShopListAdapter.ViewHo
         Log.e("ShopListAdapter", UrlUtils.URL + datas.get(position).getImg_feng());
 
         if (datas.get(position).getImg_feng().contains("com")) {
-            holder.simShopimg.setImageURI(datas.get(position).getImg_feng());
+            holder.simShopimg.setImageURI("https://"+datas.get(position).getImg_feng());
+            Log.e("ShopListAdapter", "https://" + datas.get(position).getImg_feng());
         } else {
             holder.simShopimg.setImageURI(UrlUtils.URL + datas.get(position).getImg_feng());
+            Log.e("ShopListAdapter", UrlUtils.URL + datas.get(position).getImg_feng());
         }
         holder.tvShopmoney.setText(datas.get(position).getPrice() + "元");
         holder.tvShopnum.setText(mContext.getText(R.string.salesNum) + datas.get(position).getXiaoliang());

@@ -12,8 +12,8 @@
         android:id="@+id/rl_title"
         android:layout_width="match_parent"
         android:layout_height="@dimen/x38"
-        android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
+        android:layout_alignParentLeft="true"
         android:layout_alignParentTop="true"
         android:background="@color/bgfff"
         android:visibility="visible">
@@ -71,6 +71,16 @@
 
 
             </LinearLayout>
+
+            <TextView
+                android:id="@+id/tv_no"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="@dimen/x3"
+                android:textColor="@color/textred"
+                android:textSize="@dimen/x15"
+                android:visibility="gone" />
+
 
             <include layout="@layout/order_address"></include>
 

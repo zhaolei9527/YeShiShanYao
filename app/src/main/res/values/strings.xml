@@ -248,4 +248,11 @@
     <string name="Cancel_orde">取消订单</string>
     <string name="Confirm_goods">确认收货</string>
     <string name="exit_login">退出登录</string>
+    <string name="offlinePayment">线下支付</string>
+    <string name="visa_pay">VISA 支付</string>
+    <string name="daichuli">待处理</string>
+    <string name="jgsx">价格升序</string>
+    <string name="jgjx">价格降序</string>
+    <string name="xlsx">销量升序</string>
+    <string name="xljx">销量降序</string>
 </resources>

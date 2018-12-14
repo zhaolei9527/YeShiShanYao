@@ -108,6 +108,8 @@ public class MyOrderDetailsActivity extends BaseActivity implements View.OnClick
     TextView tvOrderExp;
     @BindView(R.id.tv_order_expnum)
     TextView tvOrderExpnum;
+    @BindView(R.id.tv_no)
+    TextView tvNo;
     private String orderid;
     private String order;
     private Dialog dialog;
@@ -219,7 +221,7 @@ public class MyOrderDetailsActivity extends BaseActivity implements View.OnClick
         params.put("uid", String.valueOf(SpUtil.get(context, "uid", "")));
         params.put("id", orderid);
         Log.e("MyOrderDetailsActivity", params.toString());
-        VolleyRequest.RequestPost(context, UrlUtils.BASE_URL + "order/detail"+ App.LanguageTYPEHTTP, "order/detail", params, new VolleyInterface(context) {
+        VolleyRequest.RequestPost(context, UrlUtils.BASE_URL + "order/detail" + App.LanguageTYPEHTTP, "order/detail", params, new VolleyInterface(context) {
             @Override
             public void onMySuccess(String result) {
                 dialog.dismiss();
@@ -230,6 +232,15 @@ public class MyOrderDetailsActivity extends BaseActivity implements View.OnClick
                     tvName.setText(orderDetailBean.getOrder().getName());
                     tvPhone.setText(orderDetailBean.getOrder().getTel());
                     tvDizhi.setText(orderDetailBean.getOrder().getAddress());
+
+
+                    if (!TextUtils.isEmpty(orderDetailBean.getOrder().getNo())){
+                        tvNo.setVisibility(View.VISIBLE);
+                        tvNo.setText(orderDetailBean.getOrder().getNo());
+                    }else {
+                        tvNo.setVisibility(View.GONE);
+                    }
+
                     String stu = orderDetailBean.getOrder().getStatus();
                     if ("1".equals(stu)) {
                         //holder.tv_order_type.setText("待付款");

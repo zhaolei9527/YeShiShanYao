@@ -30,21 +30,25 @@ public class OrderPageAdapter extends PagerAdapter {
         orderContentFrameLayout2.setTag("1");
         PageS.add(orderContentFrameLayout2);
 
-        OrderContentFrameLayout orderContentFrameLayout3 = new OrderContentFrameLayout(context, "2");
-        orderContentFrameLayout3.setTag("2");
+        OrderContentFrameLayout orderContentFrameLayout3 = new OrderContentFrameLayout(context, "6");
+        orderContentFrameLayout3.setTag("6");
         PageS.add(orderContentFrameLayout3);
 
-        OrderContentFrameLayout orderContentFrameLayout4 = new OrderContentFrameLayout(context, "3");
-        orderContentFrameLayout4.setTag("3");
+        OrderContentFrameLayout orderContentFrameLayout4 = new OrderContentFrameLayout(context, "2");
+        orderContentFrameLayout4.setTag("2");
         PageS.add(orderContentFrameLayout4);
 
-        OrderContentFrameLayout orderContentFrameLayout5 = new OrderContentFrameLayout(context, "4");
-        orderContentFrameLayout5.setTag("4");
+        OrderContentFrameLayout orderContentFrameLayout5 = new OrderContentFrameLayout(context, "3");
+        orderContentFrameLayout5.setTag("3");
         PageS.add(orderContentFrameLayout5);
 
-        OrderContentFrameLayout orderContentFrameLayout6 = new OrderContentFrameLayout(context, "5");
-        orderContentFrameLayout6.setTag("5");
+        OrderContentFrameLayout orderContentFrameLayout6 = new OrderContentFrameLayout(context, "4");
+        orderContentFrameLayout6.setTag("4");
         PageS.add(orderContentFrameLayout6);
+
+        OrderContentFrameLayout orderContentFrameLayout7 = new OrderContentFrameLayout(context, "5");
+        orderContentFrameLayout7.setTag("5");
+        PageS.add(orderContentFrameLayout7);
 
     }
 

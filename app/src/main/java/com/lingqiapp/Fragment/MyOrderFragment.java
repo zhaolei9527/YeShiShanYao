@@ -56,8 +56,10 @@ public class MyOrderFragment extends BaseLazyFragment {
                 VpNews_context.setCurrentItem(3);
             } else if ("4".equals(MyOrderActivity.cid)) {
                 VpNews_context.setCurrentItem(4);
-            }else if ("5".equals(MyOrderActivity.cid)) {
+            } else if ("5".equals(MyOrderActivity.cid)) {
                 VpNews_context.setCurrentItem(5);
+            } else if ("6".equals(MyOrderActivity.cid)) {
+                VpNews_context.setCurrentItem(6);
             }
         }
 
@@ -76,9 +78,12 @@ public class MyOrderFragment extends BaseLazyFragment {
                     context.sendBroadcast(new Intent("OrderContentRefresh").putExtra("stu", "1"));
                     stu = "1";
                 } else if (position == 2) {
+                    context.sendBroadcast(new Intent("OrderContentRefresh").putExtra("stu", "6"));
+                    stu = "6";
+                } else if (position == 3) {
                     context.sendBroadcast(new Intent("OrderContentRefresh").putExtra("stu", "2"));
                     stu = "2";
-                } else if (position == 3) {
+                } else if (position == 4) {
                     context.sendBroadcast(new Intent("OrderContentRefresh").putExtra("stu", "3"));
                     stu = "3";
                 } else if (position == 4) {
@@ -108,6 +113,7 @@ public class MyOrderFragment extends BaseLazyFragment {
         titles.clear();
         titles.add(getString(R.string.all));
         titles.add(context.getString(R.string.For_the_payment));
+        titles.add(getString(R.string.daichuli));
         titles.add(context.getString(R.string.To_send_the_goods));
         titles.add(context.getString(R.string.For_the_goods));
         titles.add(context.getString(R.string.To_evaluate));

@@ -151,6 +151,7 @@
                     android:layout_height="@dimen/y30"
                     android:background="@mipmap/btn_login"
                     android:gravity="center"
+                    android:visibility="gone"
                     android:text="@string/pay_for"
                     android:textColor="#fff"
                     android:textSize="@dimen/y12" />
