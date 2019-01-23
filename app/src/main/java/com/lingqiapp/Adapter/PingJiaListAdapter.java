@@ -15,7 +15,6 @@ import com.lingqiapp.Bean.GoodsPingBean;
 import com.lingqiapp.R;
 import com.lingqiapp.Utils.DateUtils;
 import com.lingqiapp.Utils.PixelUtils;
-import com.lingqiapp.Utils.UrlUtils;
 import com.lingqiapp.View.MYSimpleDraweeView;
 
 import java.util.ArrayList;
@@ -60,7 +59,7 @@ public class PingJiaListAdapter extends RecyclerView.Adapter<PingJiaListAdapter.
     @Override
     public void onBindViewHolder(final ViewHolder holder, final int position) {
 
-        holder.sdvPingjia.setImageURI(UrlUtils.URL + datas.get(position).getImg());
+        holder.sdvPingjia.setImageURI(datas.get(position).getImg());
         holder.tvPingjiaName.setText(datas.get(position).getNi_name());
         holder.tvPingjiaContent.setText(datas.get(position).getPcontent());
         holder.tvPingjiaTime.setText(DateUtils.getMillon(Long.parseLong(datas.get(position).getAddtime()) * 1000));
@@ -82,11 +81,11 @@ public class PingJiaListAdapter extends RecyclerView.Adapter<PingJiaListAdapter.
             holder.llImgs.setVisibility(View.VISIBLE);
             for (int i1 = 0; i1 < datas.get(position).getP_img().size(); i1++) {
                 if (i1 == 0) {
-                    holder.SimpleDraweeView1.setImageURI(UrlUtils.URL + datas.get(position).getP_img().get(0));
+                    holder.SimpleDraweeView1.setImageURI(datas.get(position).getP_img().get(0));
                 } else if (i1 == 1) {
-                    holder.SimpleDraweeView2.setImageURI(UrlUtils.URL + datas.get(position).getP_img().get(1));
+                    holder.SimpleDraweeView2.setImageURI(datas.get(position).getP_img().get(1));
                 } else {
-                    holder.SimpleDraweeView3.setImageURI(UrlUtils.URL + datas.get(position).getP_img().get(2));
+                    holder.SimpleDraweeView3.setImageURI(datas.get(position).getP_img().get(2));
                 }
             }
         } else {

@@ -14,7 +14,6 @@ import android.widget.TextView;
 import com.lingqiapp.Activity.ShopListActivity;
 import com.lingqiapp.Bean.GoodsCateBean;
 import com.lingqiapp.R;
-import com.lingqiapp.Utils.UrlUtils;
 import com.lingqiapp.View.MYSimpleDraweeView;
 
 import java.util.ArrayList;
@@ -63,12 +62,7 @@ public class ClassifyShopListAdapter extends RecyclerView.Adapter<ClassifyShopLi
         String img = datas.get(this.checkPosition).getChild().get(position).getImg();
         holder.tvTitleShop.setText(title);
 
-        if (img.contains(".com")) {
-            holder.imgShop.setImageURI(img);
-        } else {
-            holder.imgShop.setImageURI(UrlUtils.URL + img);
-        }
-
+        holder.imgShop.setImageURI(img);
 
         holder.llShop1.setOnClickListener(new View.OnClickListener() {
             @Override

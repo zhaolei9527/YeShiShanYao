@@ -88,11 +88,7 @@ public class HuiYuanShengJiActivity extends BaseActivity {
     @Override
     protected void initview() {
 
-        if (String.valueOf(SpUtil.get(context, "img", "")).contains(".com")) {
-            SimpleDraweeView.setImageURI(String.valueOf(SpUtil.get(context, "img", "")));
-        } else {
-            SimpleDraweeView.setImageURI(UrlUtils.URL + String.valueOf(SpUtil.get(context, "img", "")));
-        }
+        SimpleDraweeView.setImageURI(String.valueOf(SpUtil.get(context, "img", "")));
         tvUsername.setText(String.valueOf(SpUtil.get(context, "username", "")));
 
 
@@ -145,7 +141,7 @@ public class HuiYuanShengJiActivity extends BaseActivity {
         HashMap<String, String> params = new HashMap<>(1);
         params.put("uid", String.valueOf(SpUtil.get(context, "uid", "")));
         params.put("hid", hid);
-        VolleyRequest.RequestPost(context, UrlUtils.BASE_URL + "about/kaitong"+ App.LanguageTYPEHTTP, "about/kaitong", params, new VolleyInterface(context) {
+        VolleyRequest.RequestPost(context, UrlUtils.BASE_URL + "about/kaitong" + App.LanguageTYPEHTTP, "about/kaitong", params, new VolleyInterface(context) {
             @Override
             public void onMySuccess(String result) {
                 Log.e("RegisterActivity", result);
@@ -187,7 +183,7 @@ public class HuiYuanShengJiActivity extends BaseActivity {
     private void aboutHuiYuan() {
         HashMap<String, String> params = new HashMap<>(1);
         params.put("uid", String.valueOf(SpUtil.get(context, "uid", "")));
-        VolleyRequest.RequestPost(context, UrlUtils.BASE_URL + "about/huiyuan"+ App.LanguageTYPEHTTP, "about/huiyuan", params, new VolleyInterface(context) {
+        VolleyRequest.RequestPost(context, UrlUtils.BASE_URL + "about/huiyuan" + App.LanguageTYPEHTTP, "about/huiyuan", params, new VolleyInterface(context) {
             @Override
             public void onMySuccess(String result) {
                 Log.e("RegisterActivity", result);

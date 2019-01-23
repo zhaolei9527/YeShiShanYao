@@ -88,7 +88,7 @@ public class MYTuiJianMaActivity extends BaseActivity {
     private void getEwm() {
         HashMap<String, String> params = new HashMap<>(2);
         params.put("uid", String.valueOf(SpUtil.get(context, "uid", "")));
-        VolleyRequest.RequestPost(context, UrlUtils.BASE_URL + "about/ewm"+ App.LanguageTYPEHTTP, "about/ewm", params, new VolleyInterface(context) {
+        VolleyRequest.RequestPost(context, UrlUtils.BASE_URL + "about/ewm" + App.LanguageTYPEHTTP, "about/ewm", params, new VolleyInterface(context) {
             @Override
             public void onMySuccess(String result) {
                 Log.e("RegisterActivity", result);
@@ -96,7 +96,7 @@ public class MYTuiJianMaActivity extends BaseActivity {
                     dialog.dismiss();
                     EwmBean ewmBean = new Gson().fromJson(result, EwmBean.class);
                     if (1 == ewmBean.getStatus()) {
-                        imgTuijianma.setImageURI(UrlUtils.URL + ewmBean.getErweima());
+                        imgTuijianma.setImageURI(ewmBean.getErweima());
                         tvMsgContent.setText("" + ewmBean.getJiang().getJiang());
                     }
                 } catch (Exception e) {

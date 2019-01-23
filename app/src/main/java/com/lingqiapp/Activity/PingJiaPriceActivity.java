@@ -134,11 +134,7 @@ public class PingJiaPriceActivity extends BaseActivity implements View.OnClickLi
         orderResult = getIntent().getStringExtra("orderResult");
         orderDetailBean = new Gson().fromJson(orderResult, OrderDetailBean.class);
 
-        if (orderDetailBean.getOrder().getImg_feng().contains(".com")) {
-            SimpleDraweeView.setImageURI(orderDetailBean.getOrder().getImg_feng());
-        } else {
-            SimpleDraweeView.setImageURI(UrlUtils.URL + orderDetailBean.getOrder().getImg_feng());
-        }
+        SimpleDraweeView.setImageURI(orderDetailBean.getOrder().getImg_feng());
 
         tvTitle.setText(orderDetailBean.getOrder().getName());
         Acp.getInstance(context).request(new AcpOptions.Builder()
@@ -286,7 +282,7 @@ public class PingJiaPriceActivity extends BaseActivity implements View.OnClickLi
         String s = formatUrlMap(params, false, false);
         String s1 = urlmd5(s, UrlUtils.KEY);
         params.put("pwd", s1);
-        Utils.uploadMultipart(context, UrlUtils.BASE_URL + "order/do_ping"+ App.LanguageTYPEHTTP, names, imgs, params, new VolleyInterface(context) {
+        Utils.uploadMultipart(context, UrlUtils.BASE_URL + "order/do_ping" + App.LanguageTYPEHTTP, names, imgs, params, new VolleyInterface(context) {
             @Override
             public void onMySuccess(String result) {
                 dialog.dismiss();

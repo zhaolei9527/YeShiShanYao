@@ -353,18 +353,11 @@ public class HomeListAdapter extends RecyclerView.Adapter<HomeListAdapter.ViewHo
 
                             holder.sim3.setImageURI(homeBean.getGoods_pai().get(2).getImg_feng());
 
-
                             holder.sim4.setImageURI(homeBean.getGoods_pai().get(4).getImg_feng());
 
                             holder.sim5.setImageURI(homeBean.getGoods_pai().get(5).getImg_feng());
 
-
-                            if (homeBean.getGoods_pai().get(6).getImg_feng().contains("com")) {
-                                holder.sim6.setImageURI("https://" + homeBean.getGoods_pai().get(6).getImg_feng());
-                            } else {
-                                holder.sim6.setImageURI(homeBean.getGoods_pai().get(6).getImg_feng());
-                            }
-
+                            holder.sim6.setImageURI(homeBean.getGoods_pai().get(6).getImg_feng());
 
                             holder.simNow.setOnClickListener(new View.OnClickListener() {
                                 @Override

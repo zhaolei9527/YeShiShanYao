@@ -110,7 +110,6 @@ public class HomeFragment extends BaseLazyFragment {
         textView.setText(mContext.getString(R.string.notmore));
         rv_homelist.setFootEndView(textView);
 
-
         view.findViewById(R.id.img_t).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {

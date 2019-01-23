@@ -3,7 +3,6 @@ package com.lingqiapp.Adapter;
 import android.content.Context;
 import android.content.Intent;
 import android.support.v7.widget.RecyclerView;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -14,7 +13,6 @@ import com.lingqiapp.Activity.NewsDetailsActivity;
 import com.lingqiapp.Bean.NewsListBean;
 import com.lingqiapp.R;
 import com.lingqiapp.Utils.DateUtils;
-import com.lingqiapp.Utils.UrlUtils;
 import com.lingqiapp.View.MYSimpleDraweeView;
 
 import java.util.ArrayList;
@@ -55,15 +53,14 @@ public class NewsListAdapter extends RecyclerView.Adapter<NewsListAdapter.ViewHo
 
     @Override
     public void onBindViewHolder(final ViewHolder holder, final int position) {
-        holder.SimpleDraweeView.setImageURI(UrlUtils.URL + datas.get(position).getImg());
-        Log.e("NewsListAdapter", UrlUtils.URL + datas.get(position).getImg());
+        holder.SimpleDraweeView.setImageURI(datas.get(position).getImg());
         holder.tvTitle.setText(datas.get(position).getTitle());
         holder.tvTime.setText(DateUtils.getMillon(Long.parseLong(datas.get(position).getAdd_time()) * 1000));
         holder.tvContent.setText("" + datas.get(position).getDescription());
         holder.flItem.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                mContext.startActivity(new Intent(mContext, NewsDetailsActivity.class).putExtra("id",datas.get(position).getId()));
+                mContext.startActivity(new Intent(mContext, NewsDetailsActivity.class).putExtra("id", datas.get(position).getId()));
             }
         });
     }

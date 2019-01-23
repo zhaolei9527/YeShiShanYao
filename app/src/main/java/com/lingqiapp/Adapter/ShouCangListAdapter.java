@@ -14,7 +14,6 @@ import android.widget.TextView;
 
 import com.lingqiapp.Bean.ShouCangBean;
 import com.lingqiapp.R;
-import com.lingqiapp.Utils.UrlUtils;
 import com.lingqiapp.Utils.Utils;
 import com.lingqiapp.View.MYSimpleDraweeView;
 
@@ -57,11 +56,7 @@ public class ShouCangListAdapter extends RecyclerView.Adapter<ShouCangListAdapte
     @Override
     public void onBindViewHolder(final ViewHolder holder, final int position) {
 
-        if (datas.get(position).getImg_feng().contains("com")) {
-            holder.SimpleDraweeView.setImageURI("https://"+datas.get(position).getImg_feng());
-        } else {
-            holder.SimpleDraweeView.setImageURI(UrlUtils.URL + datas.get(position).getImg_feng());
-        }
+        holder.SimpleDraweeView.setImageURI(datas.get(position).getImg_feng());
         holder.tv_title.setText(datas.get(position).getTitle());
         holder.tv_money.setText("€" + datas.get(position).getPrice());
 

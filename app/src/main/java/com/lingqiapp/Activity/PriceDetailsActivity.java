@@ -46,7 +46,9 @@ import com.tencent.smtt.export.external.interfaces.WebResourceRequest;
 import com.tencent.smtt.sdk.WebSettings;
 import com.tencent.smtt.sdk.WebView;
 import com.tencent.smtt.sdk.WebViewClient;
+
 import java.util.HashMap;
+
 import butterknife.BindView;
 import butterknife.ButterKnife;
 
@@ -376,7 +378,7 @@ public class PriceDetailsActivity extends BaseActivity implements View.OnClickLi
 
         final HashMap<String, String> params = new HashMap<>(1);
 
-        if (null!=typeMap&&!typeMap.isEmpty()) {
+        if (null != typeMap && !typeMap.isEmpty()) {
             if (!typeMap.containsValue("!!!")) {
                 for (int i1 = 0; i1 < typeMap.size(); i1++) {
                     params.put("nt" + i1, typeMap.get(String.valueOf(i1)));
@@ -451,11 +453,7 @@ public class PriceDetailsActivity extends BaseActivity implements View.OnClickLi
                                 llHasPingjia.setVisibility(View.VISIBLE);
                                 tvPingjiaMax.setText(getString(R.string.Product_evaluation) + "(" + goodsDetailBean.getPj().getCouant() + ")");
 
-                                if (goodsDetailBean.getPj().get_$0().getImg().contains(".com")) {
-                                    sdvPingjia.setImageURI(goodsDetailBean.getPj().get_$0().getImg());
-                                } else {
-                                    sdvPingjia.setImageURI(UrlUtils.URL + goodsDetailBean.getPj().get_$0().getImg());
-                                }
+                                sdvPingjia.setImageURI(goodsDetailBean.getPj().get_$0().getImg());
 
                                 tvPingjiaName.setText(goodsDetailBean.getPj().get_$0().getNi_name());
                                 tvPingjiaContent.setText(goodsDetailBean.getPj().get_$0().getPcontent());
@@ -477,18 +475,18 @@ public class PriceDetailsActivity extends BaseActivity implements View.OnClickLi
                                     llImgs1.setVisibility(View.VISIBLE);
                                     for (int i2 = 0; i2 < goodsDetailBean.getPj().get_$0().getP_img().size(); i2++) {
                                         if (i2 == 0) {
-                                            SimpleDraweeView11.setImageURI(UrlUtils.URL + goodsDetailBean.getPj().get_$0().getP_img().get(0));
+                                            SimpleDraweeView11.setImageURI(goodsDetailBean.getPj().get_$0().getP_img().get(0));
                                         } else if (i2 == 1) {
-                                            SimpleDraweeView12.setImageURI(UrlUtils.URL + goodsDetailBean.getPj().get_$0().getP_img().get(1));
+                                            SimpleDraweeView12.setImageURI(goodsDetailBean.getPj().get_$0().getP_img().get(1));
                                         } else {
-                                            SimpleDraweeView13.setImageURI(UrlUtils.URL + goodsDetailBean.getPj().get_$0().getP_img().get(2));
+                                            SimpleDraweeView13.setImageURI(goodsDetailBean.getPj().get_$0().getP_img().get(2));
                                         }
                                     }
                                 }
                             }
                             if (goodsDetailBean.getPj().get_$1() != null) {
                                 llHasPingjia2.setVisibility(View.VISIBLE);
-                                sdvPingjia2.setImageURI(UrlUtils.URL + goodsDetailBean.getPj().get_$1().getImg());
+                                sdvPingjia2.setImageURI(goodsDetailBean.getPj().get_$1().getImg());
                                 tvPingjiaName2.setText(goodsDetailBean.getPj().get_$1().getNi_name());
                                 tvPingjiaContent2.setText(goodsDetailBean.getPj().get_$1().getPcontent());
                                 String addtime2 = goodsDetailBean.getPj().get_$1().getAddtime();
@@ -510,11 +508,11 @@ public class PriceDetailsActivity extends BaseActivity implements View.OnClickLi
                                     llImgs2.setVisibility(View.VISIBLE);
                                     for (int i3 = 0; i3 < goodsDetailBean.getPj().get_$1().getP_img().size(); i3++) {
                                         if (i3 == 0) {
-                                            SimpleDraweeView21.setImageURI(UrlUtils.URL + goodsDetailBean.getPj().get_$1().getP_img().get(0));
+                                            SimpleDraweeView21.setImageURI(goodsDetailBean.getPj().get_$1().getP_img().get(0));
                                         } else if (i3 == 1) {
-                                            SimpleDraweeView22.setImageURI(UrlUtils.URL + goodsDetailBean.getPj().get_$1().getP_img().get(1));
+                                            SimpleDraweeView22.setImageURI(goodsDetailBean.getPj().get_$1().getP_img().get(1));
                                         } else {
-                                            SimpleDraweeView23.setImageURI(UrlUtils.URL + goodsDetailBean.getPj().get_$1().getP_img().get(2));
+                                            SimpleDraweeView23.setImageURI(goodsDetailBean.getPj().get_$1().getP_img().get(2));
                                         }
                                     }
                                 }

@@ -196,7 +196,7 @@ public class MyMessageActivity extends BaseActivity {
                     TouXiangBean touXiangBean = new Gson().fromJson(result, TouXiangBean.class);
                     if (1 == touXiangBean.getStatus()) {
                         SpUtil.putAndApply(context, "img", touXiangBean.getUdata().getImg());
-                        SimpleDraweeView.setImageURI(UrlUtils.URL + touXiangBean.getUdata().getImg());
+                        SimpleDraweeView.setImageURI(touXiangBean.getUdata().getImg());
                         EasyToast.showShort(context, touXiangBean.getMsg());
                     } else {
                         EasyToast.showShort(context, touXiangBean.getMsg());
@@ -269,7 +269,7 @@ public class MyMessageActivity extends BaseActivity {
                     dialog.dismiss();
                     AboutPersonalBean aboutPersonalBean = new Gson().fromJson(result, AboutPersonalBean.class);
                     if (1 == aboutPersonalBean.getStatus()) {
-                        SimpleDraweeView.setImageURI(UrlUtils.URL + aboutPersonalBean.getUdate().getImg());
+                        SimpleDraweeView.setImageURI(aboutPersonalBean.getUdate().getImg());
                         tvNicheng.setText(aboutPersonalBean.getUdate().getNi_name());
                         tvPhone.setText(aboutPersonalBean.getUdate().getEmail());
                     }

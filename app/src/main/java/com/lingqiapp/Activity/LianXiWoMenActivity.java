@@ -99,7 +99,7 @@ public class LianXiWoMenActivity extends BaseActivity {
     private void getNews() {
         HashMap<String, String> params = new HashMap<>(1);
         params.put("uid", String.valueOf(SpUtil.get(context, "uid", "")));
-        VolleyRequest.RequestPost(context, UrlUtils.BASE_URL + "about/lianxi"+ App.LanguageTYPEHTTP, "about/lianxi", params, new VolleyInterface(context) {
+        VolleyRequest.RequestPost(context, UrlUtils.BASE_URL + "about/lianxi" + App.LanguageTYPEHTTP, "about/lianxi", params, new VolleyInterface(context) {
             @Override
             public void onMySuccess(String result) {
                 Log.e("NewsDetailsActivity", result);
@@ -108,43 +108,23 @@ public class LianXiWoMenActivity extends BaseActivity {
                     LianXiBean lianXiBean = new Gson().fromJson(result, LianXiBean.class);
 
                     if (1 == lianXiBean.getStatus()) {
-                        if (lianXiBean.getKfrx().getImg().contains(".com")) {
-                            SimpleDraweeView1.setImageURI(lianXiBean.getKfrx().getImg());
-                        } else {
-                            SimpleDraweeView1.setImageURI(UrlUtils.URL + lianXiBean.getKfrx().getImg());
-                        }
+                        SimpleDraweeView1.setImageURI(lianXiBean.getKfrx().getImg());
 
                         tv1.setText(lianXiBean.getKfrx().getTitle() + "\n" + lianXiBean.getKfrx().getContent());
 
-                        if (lianXiBean.getEmail().getImg().contains(".com")) {
-                            SimpleDraweeView2.setImageURI(lianXiBean.getEmail().getImg());
-                        } else {
-                            SimpleDraweeView2.setImageURI(UrlUtils.URL + lianXiBean.getEmail().getImg());
-                        }
+                        SimpleDraweeView2.setImageURI(lianXiBean.getEmail().getImg());
 
                         tv2.setText(lianXiBean.getEmail().getTitle() + "\n" + lianXiBean.getEmail().getContent());
 
 
-                        if (lianXiBean.getWebsite().getImg().contains(".com")) {
-                            SimpleDraweeView3.setImageURI(lianXiBean.getWebsite().getImg());
-                        } else {
-                            SimpleDraweeView3.setImageURI(UrlUtils.URL + lianXiBean.getWebsite().getImg());
-                        }
+                        SimpleDraweeView3.setImageURI(lianXiBean.getWebsite().getImg());
                         tv3.setText(lianXiBean.getWebsite().getTitle() + "\n" + lianXiBean.getWebsite().getContent());
 
-                        if (lianXiBean.getWechat().getImg().contains(".com")) {
-                            SimpleDraweeView4.setImageURI(lianXiBean.getWechat().getImg());
-                        } else {
-                            SimpleDraweeView4.setImageURI(UrlUtils.URL + lianXiBean.getWechat().getImg());
-                        }
+                        SimpleDraweeView4.setImageURI(lianXiBean.getWechat().getImg());
 
                         tv4.setText(lianXiBean.getWechat().getTitle() + "\n" + lianXiBean.getWechat().getContent());
 
-                        if (lianXiBean.getAddress().getImg().contains(".com")) {
-                            SimpleDraweeView5.setImageURI(lianXiBean.getAddress().getImg());
-                        } else {
-                            SimpleDraweeView5.setImageURI(UrlUtils.URL + lianXiBean.getAddress().getImg());
-                        }
+                        SimpleDraweeView5.setImageURI(lianXiBean.getAddress().getImg());
 
                         tv5.setText(lianXiBean.getAddress().getTitle() + "\n" + lianXiBean.getAddress().getContent());
                     }

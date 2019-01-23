@@ -36,7 +36,7 @@ public class GoodsLoopAdapter extends LoopPagerAdapter {
             if (lbdatas.getImg().get(position).contains(".com")) {
                 SimpleDraweeView.setImageURI("" + lbdatas.getImg().get(position));
             } else {
-                SimpleDraweeView.setImageURI("" + UrlUtils.URL + lbdatas.getImg().get(position));
+                SimpleDraweeView.setImageURI("" +lbdatas.getImg().get(position));
             }
             //SimpleDraweeView.setImageURI("https://ss3.baidu.com/-fo3dSag_xI4khGko9WTAnF6hhy/image/h%3D300/sign=06023fafd82a28345ca6300b6bb4c92e/e61190ef76c6a7efa8408794f1faaf51f3de6619.jpg");
         } catch (Exception e) {

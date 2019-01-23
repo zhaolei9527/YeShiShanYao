@@ -6,7 +6,7 @@
       <module fileurl="file://$PROJECT_DIR$/fresco/fresco.iml" filepath="$PROJECT_DIR$/fresco/fresco.iml" />
       <module fileurl="file://$PROJECT_DIR$/picker/picker.iml" filepath="$PROJECT_DIR$/picker/picker.iml" />
       <module fileurl="file://$PROJECT_DIR$/pickerview/pickerview.iml" filepath="$PROJECT_DIR$/pickerview/pickerview.iml" />
-      <module fileurl="file://$PROJECT_DIR$/.idea/yeshi.iml" filepath="$PROJECT_DIR$/.idea/yeshi.iml" />
+      <module fileurl="file://$PROJECT_DIR$/yeshi.iml" filepath="$PROJECT_DIR$/yeshi.iml" />
     </modules>
   </component>
 </project>

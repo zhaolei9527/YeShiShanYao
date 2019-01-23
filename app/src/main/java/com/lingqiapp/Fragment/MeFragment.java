@@ -32,7 +32,6 @@ import com.lingqiapp.Activity.YiJianFanKuiActivity;
 import com.lingqiapp.Activity.ZhanNeiXiaoXiListActivity;
 import com.lingqiapp.R;
 import com.lingqiapp.Utils.SpUtil;
-import com.lingqiapp.Utils.UrlUtils;
 import com.lingqiapp.View.CommomDialog;
 import com.lingqiapp.View.MYSimpleDraweeView;
 
@@ -114,7 +113,7 @@ public class MeFragment extends BaseLazyFragment implements View.OnClickListener
     @Override
     public void onResume() {
         super.onResume();
-        SimpleDraweeView.setImageURI(String.valueOf(UrlUtils.URL + SpUtil.get(mContext, "img", "")));
+        SimpleDraweeView.setImageURI(String.valueOf(SpUtil.get(mContext, "img", "")));
         tvUsername.setText(String.valueOf(SpUtil.get(mContext, "username", "")));
         tvYue.setText(getString(R.string.The_account_balance) + String.valueOf(SpUtil.get(mContext, "money", "")));
         if ("0".equals(String.valueOf(SpUtil.get(mContext, "zw_count", "0")))

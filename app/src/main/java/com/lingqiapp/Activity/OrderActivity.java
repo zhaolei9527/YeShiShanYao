@@ -223,11 +223,7 @@ public class OrderActivity extends BaseActivity implements View.OnClickListener 
             View inflate = View.inflate(context, R.layout.item_oreder_layout, null);
             MYSimpleDraweeView simpleDraweeView = (MYSimpleDraweeView) inflate.findViewById(R.id.SimpleDraweeView);
 
-            if (goodsOrderBean.getGoods().getImg_feng().contains(".com")) {
-                simpleDraweeView.setImageURI(goodsOrderBean.getGoods().getImg_feng());
-            } else {
-                simpleDraweeView.setImageURI(UrlUtils.URL + goodsOrderBean.getGoods().getImg_feng());
-            }
+            simpleDraweeView.setImageURI(goodsOrderBean.getGoods().getImg_feng());
 
             TextView tv_title = (TextView) inflate.findViewById(R.id.tv_title);
             tv_title.setText(goodsOrderBean.getGoods().getTitle());
@@ -287,7 +283,7 @@ public class OrderActivity extends BaseActivity implements View.OnClickListener 
 
                 View inflate = View.inflate(context, R.layout.item_oreder_layout, null);
                 MYSimpleDraweeView simpleDraweeView = (MYSimpleDraweeView) inflate.findViewById(R.id.SimpleDraweeView);
-                simpleDraweeView.setImageURI(UrlUtils.URL + orderOrderBean.getCart().get(i).getImg_feng());
+                simpleDraweeView.setImageURI(orderOrderBean.getCart().get(i).getImg_feng());
                 TextView tv_title = (TextView) inflate.findViewById(R.id.tv_title);
                 tv_title.setText(orderOrderBean.getCart().get(i).getTitle());
                 TextView tv_price = (TextView) inflate.findViewById(R.id.tv_price);

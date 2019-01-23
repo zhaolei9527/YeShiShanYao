@@ -234,10 +234,10 @@ public class MyOrderDetailsActivity extends BaseActivity implements View.OnClick
                     tvDizhi.setText(orderDetailBean.getOrder().getAddress());
 
 
-                    if (!TextUtils.isEmpty(orderDetailBean.getOrder().getNo())){
+                    if (!TextUtils.isEmpty(orderDetailBean.getOrder().getNo())) {
                         tvNo.setVisibility(View.VISIBLE);
                         tvNo.setText(orderDetailBean.getOrder().getNo());
-                    }else {
+                    } else {
                         tvNo.setVisibility(View.GONE);
                     }
 
@@ -287,11 +287,7 @@ public class MyOrderDetailsActivity extends BaseActivity implements View.OnClick
                     item_oreder_details_layout.setTag(orderDetailBean.getOrder().getGid());
                     MYSimpleDraweeView SimpleDraweeView = (MYSimpleDraweeView) item_oreder_details_layout.findViewById(R.id.SimpleDraweeView);
 
-                    if (orderDetailBean.getOrder().getImg_feng().contains(".com")) {
-                        SimpleDraweeView.setImageURI(orderDetailBean.getOrder().getImg_feng());
-                    } else {
-                        SimpleDraweeView.setImageURI(UrlUtils.URL + orderDetailBean.getOrder().getImg_feng());
-                    }
+                    SimpleDraweeView.setImageURI(orderDetailBean.getOrder().getImg_feng());
 
                     final TextView tv_title = (TextView) item_oreder_details_layout.findViewById(R.id.tv_title);
                     tv_title.setText(orderDetailBean.getOrder().getTitle());

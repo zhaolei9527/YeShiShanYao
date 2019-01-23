@@ -16,7 +16,6 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.android.volley.VolleyError;
-import com.facebook.drawee.view.SimpleDraweeView;
 import com.lingqiapp.App;
 import com.lingqiapp.Bean.SuckleCartBean;
 import com.lingqiapp.R;
@@ -73,11 +72,7 @@ public class ShopCarListAdapter extends RecyclerView.Adapter<ShopCarListAdapter.
     @Override
     public void onBindViewHolder(final ViewHolder holder, final int position) {
 
-        if (datas.get(position).getImg_feng().contains("com")) {
-            holder.SimpleDraweeView.setImageURI("https://" + datas.get(position).getImg_feng());
-        } else {
-            holder.SimpleDraweeView.setImageURI(UrlUtils.URL + datas.get(position).getImg_feng());
-        }
+        holder.SimpleDraweeView.setImageURI(datas.get(position).getImg_feng());
 
         holder.btn_shuliang.setText(datas.get(position).getNumber());
         holder.tv_title.setText(datas.get(position).getTitle());

@@ -12,12 +12,12 @@ public class UrlUtils {
     /**
      * url连接头
      */
-    public static final String URL = "https://danyh.t.100help.net/";
+    public static final String URL = "https://www.yeshidu.com/";
 
     /**
      * api连接头
      */
-    public static final String BASE_URL = "https://danyh.t.100help.net/api.php/";
+    public static final String BASE_URL = "https://www.yeshidu.com/api.php/";
 
     /**
      * 接口连接key

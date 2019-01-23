@@ -143,7 +143,7 @@ public class HomeBean {
          */
 
         private String id;
-        private Object img;
+        private String img;
         private String addtime;
         private String url;
         private String title;
@@ -165,11 +165,11 @@ public class HomeBean {
             this.id = id;
         }
 
-        public Object getImg() {
+        public String getImg() {
             return img;
         }
 
-        public void setImg(Object img) {
+        public void setImg(String img) {
             this.img = img;
         }
 
