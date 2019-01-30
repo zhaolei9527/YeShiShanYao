@@ -1,6 +1,5 @@
 package com.lingqiapp.Activity;
 
-import android.Manifest;
 import android.content.Intent;
 import android.text.TextUtils;
 import android.util.Log;
@@ -19,12 +18,8 @@ import com.lingqiapp.Utils.UrlUtils;
 import com.lingqiapp.Utils.Utils;
 import com.lingqiapp.Volley.VolleyInterface;
 import com.lingqiapp.Volley.VolleyRequest;
-import com.mylhyl.acp.Acp;
-import com.mylhyl.acp.AcpListener;
-import com.mylhyl.acp.AcpOptions;
 
 import java.util.HashMap;
-import java.util.List;
 
 
 /**
@@ -73,24 +68,6 @@ public class FlashActivity extends BaseActivity {
 
     @Override
     protected void initview() {
-        Acp.getInstance(context).request(new AcpOptions.Builder()
-                        .setPermissions(Manifest.permission.WRITE_EXTERNAL_STORAGE, Manifest.permission.READ_EXTERNAL_STORAGE)
-                        .setDeniedMessage(getString(R.string.requstPerminssions))
-                        .build(),
-                new AcpListener() {
-                    @Override
-                    public void onGranted() {
-
-
-                    }
-
-                    @Override
-                    public void onDenied(List<String> permissions) {
-                        Toast.makeText(context, getString(R.string.Thepermissionapplicationisrejected), Toast.LENGTH_SHORT).show();
-                    }
-                });
-
-
     }
 
     @Override

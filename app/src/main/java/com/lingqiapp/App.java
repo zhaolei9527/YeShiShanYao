@@ -34,7 +34,7 @@ public class App extends MultiDexApplication {
     public static PausableThreadPoolExecutor pausableThreadPoolExecutor;
 
     public static String LanguageTYPE = "3";
-    public static String LanguageTYPEHTTP = "?l=zh-cn";
+    public static String LanguageTYPEHTTP = "?l=po-al";
 
 
     public static Context context;
@@ -68,17 +68,22 @@ public class App extends MultiDexApplication {
 
         String language = locale.getLanguage() + "-" + locale.getCountry();
 
-//        if (locale.getLanguage().equals("pt")) {
-//            LanguageTYPE = "1";
-//        } else if (locale.getLanguage().equals("es")) {
-//            LanguageTYPE = "2";
-//        } else if (locale.getLanguage().equals("en")) {
-//            LanguageTYPE = "3";
-//        } else if (locale.getLanguage().equals("it")) {
-//            LanguageTYPE = "4";
-//        } else if (locale.getLanguage().equals("fr")) {
-//            LanguageTYPE = "5";
-//        }
+        if (locale.getLanguage().equals("pt")) {
+            LanguageTYPE = "1";
+            LanguageTYPEHTTP = "?l=po-al";
+        } else if (locale.getLanguage().equals("es")) {
+            LanguageTYPE = "2";
+            LanguageTYPEHTTP = "?l=sp-sh";
+        } else if (locale.getLanguage().equals("en")) {
+            LanguageTYPE = "3";
+            LanguageTYPEHTTP = "?l=en-us";
+        } else if (locale.getLanguage().equals("it")) {
+            LanguageTYPE = "4";
+            LanguageTYPEHTTP = "?l=ly-us";
+        } else if (locale.getLanguage().equals("fr")) {
+            LanguageTYPE = "5";
+            LanguageTYPEHTTP = "?l=fh-us";
+        }
 
         Log.e("App", language);
     }
